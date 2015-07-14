@@ -37,7 +37,8 @@ def run():
     actionPrompt()
 def heal():
     print("You have healed 2 HP!")
-    playerHP = playerHP + 2
+    playerHP += 2
+    print("Your health is %i" % playerHP)
 def fight():
     while(enemyHP > 1):
         fightActionList = ["a","h","r"]
