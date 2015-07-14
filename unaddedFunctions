@@ -5,7 +5,6 @@ def fishAdv():
 
 def fish():
    print("You are now fishing.")
-
 #
 
 def cookAdv():
@@ -20,7 +19,6 @@ def healAdv():
 
 def heal():
    print ("Healed %i HP", %, 10)
-
 #
 
 def fightAdv():
