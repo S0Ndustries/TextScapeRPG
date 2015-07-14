@@ -41,6 +41,8 @@ fishing = 1
 cooking = 1
 
 #
+# Monsters
+monsterGoblin = ["Goblin", "50", "8", "25", "Bones"]
 #
 
 # Run program

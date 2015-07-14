@@ -4,12 +4,6 @@ name = raw_input(“Enter your username: ”)
 def bankList():
 #   slots 1 - 50
 
-def actionPrompt():
-   print "What would you like to do?"
-   print "Enter 'help' for more options."
-   raw_input = "Action: "
-
-
 def loadingScreen():
    print topBar
    time.sleep(0.3)

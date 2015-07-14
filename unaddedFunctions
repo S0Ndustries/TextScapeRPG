@@ -1,13 +1,13 @@
-def fish():
+def fishAdv():
    "You are now fishing!"
    time.sleep(5)
    #run loadingBar
 
-def cook():
+def cookAdv():
    "What would you like to cool? List cookable items in inventoryList"
 
-def heal():
+def healAdv():
    "What would you like to use to heal? List items in inventoryList"
 
-def fight():
+def fightAdv():
    print("You are now fighting: %s.", %, monster)
