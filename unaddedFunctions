@@ -3,11 +3,29 @@ def fishAdv():
    time.sleep(5)
    #run loadingBar
 
+def fish():
+   print("You are now fishing.")
+
+#
+
 def cookAdv():
    "What would you like to cool? List cookable items in inventoryList"
+
+def cook():
+   print("You are now cooking.")
+#
 
 def healAdv():
    "What would you like to use to heal? List items in inventoryList"
 
+def heal():
+   print ("Healed %i HP", %, 10)
+
+#
+
 def fightAdv():
    print("You are now fighting: %s.", %, monster)
+
+def fight():
+   print("You are now fighting!")
+#

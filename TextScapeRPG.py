@@ -21,7 +21,7 @@ def actionPrompt():
        elif(action==actionList[3]):
            heal()
        else:
-           print("Somethings up...")
+           print("Something's up...")
 
 def fight():
    print("You are now fighting.")
@@ -39,7 +39,13 @@ defence = 1
 health = 1
 fishing = 1
 cooking = 1
-
+# User skillsEXP
+attackEXP = 0
+strengthEXP = 0
+defenceEXP = 0
+healthEXP = 0
+fishingEXP = 0
+cookingEXP = 0
 #
 # Monsters
 monsterGoblin = ["Goblin", "50", "8", "25", "Bones"]
