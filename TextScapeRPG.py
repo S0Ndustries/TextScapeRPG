@@ -18,7 +18,7 @@ def actionPrompt():
        elif(action==actionList[2]):
            #JESSE we need to-
            cook()
-       elif(action=actionList[3]):
+       elif(action==actionList[3]):
            heal()
        else:
            print("Somethings up...")
