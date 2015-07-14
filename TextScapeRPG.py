@@ -17,7 +17,7 @@ def actionPrompt():
            print("no fight")
 
 def fight():
-   print "You are now fighting."
+   print("You are now fighting.")
 #
 
 # Actions
