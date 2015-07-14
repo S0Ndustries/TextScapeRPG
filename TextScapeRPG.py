@@ -1,5 +1,5 @@
 # Base game file
-# version 1.2
+# version 1.3
 
 import sys
 import time
@@ -28,7 +28,7 @@ def fight():
    enemyHP = 20
    fightActionList = ["a","h","r"]
    print("You are now fighting!")
-   print("Your health: %i, enemy health: %i ", % 10, 20)
+   print("Your health: %i, enemy health: %i ", %, 10, 20)
    print("Type 'a' to attack, 'h' to heal, or 'r' to run!")
    action=input("Action: ")
    if (action in fightActionList):

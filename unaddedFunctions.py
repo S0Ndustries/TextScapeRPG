@@ -30,7 +30,7 @@ def fight():
    enemyHP = 20
    fightActionList = ["a","h","r"]
    print("You are now fighting!")
-   print("Your health: %i, enemy health: %i ", % 10, 20)
+   print("Your health: %i, enemy health: %i ", %, 10, 20)
    print("Type 'a' to attack, 'h' to heal, or 'r' to run!")
    action=input("Action: ")
    if (action in fightActionList):
