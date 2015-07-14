@@ -1,8 +1,6 @@
 # Base game file
 # version 1.1
 
-# Not anymore
-
 import sys
 import time
 import os
