@@ -27,6 +27,7 @@ playerHP = 10
 enemyHP = 20
 def attack():
     print("Enemy has lost 5 HP")
+    time.sleep(0.3)
     print("Enemy attacks! You lost 1 HP")
     enemyHP -= 5
     playerHP -= 1
@@ -35,7 +36,7 @@ def run():
     time.sleep(0.1)
     actionPrompt()
 def heal():
-    print("You have healed 2HP!")
+    print("You have healed 2 HP!")
     playerHP = playerHP + 2
 def fight():
     while(enemyHP > 1):
