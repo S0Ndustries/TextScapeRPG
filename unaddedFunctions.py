@@ -26,7 +26,11 @@ def fightAdv():
    print("You are now fighting: %s.", %, monster)
 
 def fight():
+   playerHP = 10
+   enemyHP = 20
+   fightActionList = ["a","h","r"]
    print("You are now fighting!")
+   print("Your health: %i, enemy health: %i ", % 10, 20)
    print("Type 'a' to attack, 'h' to heal, or 'r' to run!")
    action=input("Action: ")
    if (action in fightActionList):
@@ -38,4 +42,10 @@ def fight():
             run()
         else:
             print("Something's up...")
+   def attack()
+      print("Enemy has lost %i HP", %, 5)
+      enemyHP -= 5
+      print("Enemy attacks! You lost %i HP", % 1)
+      playerHP -= 1
+      fight()
 #
