@@ -20,6 +20,8 @@ def actionPrompt():
            cook()
        elif(action=actionList[3]):
            heal()
+       else:
+           print("Somethings up...")
 
 def fight():
    print("You are now fighting.")
