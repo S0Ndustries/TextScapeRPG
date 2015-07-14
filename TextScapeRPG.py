@@ -13,8 +13,13 @@ def actionPrompt():
    if (action in actionList):
        if (action==actionList[0]):
            fight()
-       else:
-           print("no fight")
+       elif(action==actionList[1]):
+           fish()
+       elif(action==actionList[2]):
+           #JESSE we need to-
+           cook()
+       elif(action=actionList[3]):
+           heal()
 
 def fight():
    print("You are now fighting.")
