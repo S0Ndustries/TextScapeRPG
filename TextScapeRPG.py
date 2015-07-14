@@ -1,5 +1,5 @@
 # Base game file
-# version 1.1
+# version 1.2
 
 import sys
 import time
