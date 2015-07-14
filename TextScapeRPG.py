@@ -11,8 +11,8 @@ def actionPrompt():
    print("Enter 'help' for more options.")
    action=input("Action: ")
    if (action in actionList):
-       if (action is actionList[0]):
-           print("fight")
+       if (action==actionList[0]):
+           fight()
        else:
            print("no fight")
 
