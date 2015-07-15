@@ -82,9 +82,23 @@ def fish():
     global fishCount
     global playerBal
     print("What would you like to do?")
-    print("Type 'b' to buy bait, 'f' to fish, or 'e' to exit)
-    if(baitCount == 0):
-        print("You don't have any bait!")
+    print("Type 'f' to fish, 'b' to buy bait, or 'e' to exit")
+    fishAction=input("Fish action:")
+    if(fishAction=="f"):
+        if(baitCount == 0):
+            print("You don't have any bait!")
+            fish()
+        else:
+            print("You cast your line..")
+            time.sleep(0.4)
+            print("You feel a bite!")
+            time.sleep(0.2)
+            print("You reel in your fish!")
+            print("You have caught: %s!" % "a fish")
+            baitCount -= 1
+            fishCount += 1
+            fish()
+    if(fishAction=="b"):
         print("Would you like to purchase some bait for 3gp?")
         print("Your balance: %i" % playerBal)
         print("Type 'y' to buy, or 'n' to cancel.")
@@ -97,17 +111,16 @@ def fish():
                 fish()
             else:
                 print("You don't have enough gp!")
+        elif (buyBait == "n"):
+            That's not an option!
+            fish()
         else:
-            return
+            fish()
+    if(fishAction=="e"):
+        actionPrompt()
     else:
-        print("You cast your line..")
-        time.sleep(0.4)
-        print("You feel a bite!")
-        time.sleep(0.2)
-        print("You reel in your fish!")
-        print("You have caught: %s!" % "a fish")
-        baitCount -= 1
-        fishCount += 1
+        print("Invalid action!")
+        return
 
 #
 
