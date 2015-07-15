@@ -19,11 +19,19 @@ enemyHP = 20
 baitCount = 0
 fishCount = 0
 cookedFish = 0
+# Global monster stats
+global monsterGoblin
+global monsterName
+global monsterHP
+global monsterMaxHit
+global monsterXP
+global monsterCoins
+global monsterItemsDropped
 
 # Functions
 
 def fightMonster():
-    monsterSelect = random.randint(0, 3)
+    monsterSelect = random.randint(0, 0)
     if(monsterSelect==0):
         monsterGoblin =   ["Goblin",   "50", "8",  "25", "3",    "Bones"]
         monsterName = monsterGoblin[0]
@@ -32,7 +40,6 @@ def fightMonster():
         monsterXP = monsterGoblin[3]
         monsterCoins = monsterGoblin[4]
         monsterItemsDropped = monsterGoblin[5]
-
     if(monsterSelect==1):
         monsterSkeleton = ["Skeleton", "30", "10", "15", "5",    "Bones"]
     if(monsterSelect==2):
@@ -51,7 +58,7 @@ def actionPrompt():
    action=input("Action: ")
    if (action in actionList):
        if (action==actionList[0]):
-           fight()
+           fightAdv()
        elif(action==actionList[1]):
            fish()
        elif(action==actionList[2]):
@@ -79,6 +86,19 @@ def attackOpt():
     print("Enemy attacks! You lost 1 HP")
     enemyHP -= 5
     playerHP -= 1
+def attackAdv():
+    print("You attacked!")
+    global monsterHP
+    global playerHP
+    global monsterMaxHit
+    playerDMG = random.randint(0, 10)
+    monsterDMG = random.randint(0, monsterMaxHit)
+    print("Enemy has lost %iHP" % playerDMG)
+    time.sleep(0.3)
+    print("Enemy attacks! You lost %i HP" % monsterDMG)
+    enemyHP -= playerDMG
+    playerHP -= monsterDMG
+    time.sleep(0.3)
 def run():
     print("You have run away!")
     time.sleep(0.1)
@@ -108,6 +128,33 @@ def fight():
                 run()
              else:
                 print("Something's up...")
+def fightAdv():
+    global monsterGoblin
+    global monsterName
+    global monsterHP
+    global monsterMaxHit
+    global monsterXP
+    global monsterCoins
+    global monsterItemsDropped
+    fightMonster()
+    while(monsterHP > 0):
+        fightActionList = ["a","h","r"]
+        print(monsterName + " has appeared! HP:" + str(monsterXP))
+        print("Your health: %i" % (playerHP)
+        time.sleep(0.2)
+        print("Type 'a' to attack, 'h' to heal, or 'r' to run!")
+        action=input("Fight action: ")
+        if (action in fightActionList):
+             if (action==fightActionList[0]):
+                attackAdv()
+             elif(action==fightActionList[1]):
+                heal()
+             elif(action==fightActionList[2]):
+                run()
+             else:
+                print("Something's up...")
+    else:
+        playerBal += monsterCoins
 
 def fish():
     global baitCount
