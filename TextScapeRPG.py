@@ -118,11 +118,8 @@ def fish():
             fish()
         else:
             fish()
-<<<<<<< HEAD
     if(fishAction=="e"):
         actionPrompt()
-=======
->>>>>>> origin/master
     else:
         print("Invalid action!")
         return
