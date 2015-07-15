@@ -1,5 +1,5 @@
 # Base game file
-# version 1.4.4
+# version 1.5
 
 import sys
 import time
@@ -15,8 +15,7 @@ global baitCount
 global fishCount
 global cookedFish
 playerBal = 1000
-playerHP = 10
-enemyHP = 20
+playerHP = 100
 baitCount = 0
 fishCount = 0
 cookedFish = 0
@@ -76,7 +75,10 @@ def actionPrompt():
        elif(action==actionList[4]):
            help_func()
        else:
-           print("Something's up...")
+           print("this doesn't work")
+    else:
+        print("broken")
+        actionPrompt()
 
 def help_func():
     print("Fight: Begins a fight")
@@ -123,7 +125,7 @@ def prefight():
     selectMonster()
     global monsterName
     global monsterXP
-    print(monsterName + " has appeared! HP:" + str(monsterXP))
+    print(monsterName + " has appeared! HP:" + str(monsterHP))
     fightAdv()
 
 
@@ -153,7 +155,7 @@ def fightAdv():
     global playerBal
     while(monsterHP > 0):
         fightActionList = ["a","h","r"]
-        print("Your HP: %i Monster HP: %i" % playerHP, monsterHP)
+        print("Your HP: %i Monster HP: %i" % (playerHP, monsterHP))
         print("Type 'a' to attack, 'h' to heal, or 'r' to run!")
         action=input("Fight action: ")
         if (action in fightActionList):
