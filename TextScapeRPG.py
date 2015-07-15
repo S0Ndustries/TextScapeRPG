@@ -45,10 +45,28 @@ def fightMonster():
         monsterItemsDropped = monsterGoblin[5]
     if(monsterSelect==1):
         monsterSkeleton = ["Skeleton", "30", "10", "15", "5",    "Bones"]
+        monsterName = monsterSkeleton[0]
+        monsterHP = monsterSkeleton[1]
+        monsterMaxHit = monsterSkeleton[2]
+        monsterXP = monsterSkeleton[3]
+        monsterCoins = monsterSkeleton[4]
+        monsterItemsDropped = monsterSkeleton[5]
     if(monsterSelect==2):
         thismonsterRat =  ["Rat",      "10", "1",  "5",  "0",    "Bones"]
+        monsterName = monsterRat[0]
+        monsterHP = monsterRat[1]
+        monsterMaxHit = monsterRat[2]
+        monsterXP = monsterRat[3]
+        monsterCoins = monsterRat[4]
+        monsterItemsDropped = monsterRat[5]
     if(monsterSelect==3):
         monsterThief =    ["Thief",    "75", "15", "38", "100",  "Bones"]
+        monsterName = monsterTheif[0]
+        monsterHP = monsterTheif[1]
+        monsterMaxHit = monsterTheif[2]
+        monsterXP = monsterTheif[3]
+        monsterCoins = monsterTheif[4]
+        monsterItemsDropped = monsterTheif[5]
         # array([[ 0.,  0.,  0.,  0.,  0.],
         # [ 0.,  0.,  0.,  0.,  0.],
         # [ 0.,  0.,  0.,  0.,  0.],
@@ -116,6 +134,8 @@ def heal():
         cookedFish -= 1
     else:
         print("Not enough cooked fish!")
+def prefight():
+    monsterSelect
 def fight():
     while(enemyHP > 1):
         fightActionList = ["a","h","r"]
