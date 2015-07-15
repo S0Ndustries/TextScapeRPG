@@ -46,10 +46,10 @@ def selectMonster():
     monsterSelect = random.randint(1, 4)
     monster=monsterList[monsterSelect]
     monsterName=monster[0]
-    monsterHP=monster[1]
-    monsterMaxHit=monster[2]
-    monsterXP=monster[3]
-    monsterCoins=monster[4]
+    monsterHP=int(monster[1])
+    monsterMaxHit=int(monster[2])
+    monsterXP=int(monster[3])
+    monsterCoins=int(monster[4])
     monsterItemsDropped=monster[5]
 
         # array([[ 0.,  0.,  0.,  0.,  0.],
@@ -142,6 +142,22 @@ def prefight():
     print("")
     time.sleep(1)
     fightAdv()
+
+def fight():
+    while(enemyHP > 1):
+        fightActionList = ["a","h","r"]
+        print("Your health: %i, enemy health: %i " % (playerHP, enemyHP))
+        print("Type 'a' to attack, 'h' to heal, or 'r' to run!")
+        action=input("Fight action: ")
+        if (action in fightActionList):
+             if (action==fightActionList[0]):
+                attackOpt()
+             elif(action==fightActionList[1]):
+                heal()
+             elif(action==fightActionList[2]):
+                run()
+             else:
+                print("Something's up...")
 def fightAdv():
     clearScreen()
     global monsterGoblin
@@ -152,7 +168,7 @@ def fightAdv():
     global monsterCoins
     global monsterItemsDropped
     global playerBal
-    while(monsterHP > 0 and playerHP > 0):
+    while(monsterHP > 0):
         fightActionList = ["a","h","r"]
         print("\nYour HP: %i || Monster HP: %i" % (playerHP, monsterHP))
         print("Type 'a' to attack, 'h' to heal, or 'r' to run!")
