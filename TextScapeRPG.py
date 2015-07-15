@@ -11,11 +11,13 @@ global enemyHP
 global playerBal
 global baitCount
 global fishCount
+global cookedFish
 playerBal = 1000
 playerHP = 10
 enemyHP = 20
 baitCount = 0
 fishCount = 0
+cookedFish = 0
 
 # Functions
 def actionPrompt():
