@@ -115,3 +115,13 @@ done
 for x in range(1, 20):
    print(“=”)
    sleep(0.1)
+
+
+def clear():
+    import os
+    import platform
+    sys_type=platform.system()
+    if(sys_type=="Windows"):
+        os.system('cls')
+    else:
+        os.system('clear')
