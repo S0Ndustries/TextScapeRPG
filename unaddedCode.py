@@ -15,18 +15,11 @@ def loadingScreen():
    time.sleep(0.3)
    print betaTesters
    time.sleep(0.3)
-   print "o"
-   time.sleep(0.3)
-   print "o"
-   time.sleep(0.3)
-   print "o"
-   time.sleep(0.3)
-   print "o"
-   time.sleep(0.3)
-   print "o"
-   time.sleep(0.3)
-   print "o"
-   time.sleep(0.3)
+   oloop=6
+   while(oloop > 0):
+       print('o', end="")
+       time.sleep(0.3)
+       oloop-=1
 
 def inventoryList():
 # Will store item IDs
