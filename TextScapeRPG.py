@@ -17,7 +17,7 @@ global cookedFish
 playerBal = 1000
 playerHP = 100
 baitCount = 0
-fishCount = 0
+fishCount = 3
 cookedFish = 0
 # Global monster stats
 global monsterGoblin
@@ -78,8 +78,8 @@ def actionPrompt():
             print("this doesn't work")
     else:
         print("broken")
+        clearScreen()
         actionPrompt()
-        clear()
 
 def help_func():
     print("Fight: Begins a fight")
@@ -97,6 +97,7 @@ def attackOpt():
     enemyHP -= 5
     playerHP -= 1
 def attackAdv():
+    clearScreen()
     global monsterHP
     global playerHP
     global monsterMaxHit
@@ -123,10 +124,14 @@ def heal():
     else:
         print("Not enough cooked fish!")
 def prefight():
+    clearScreen()
     selectMonster()
     global monsterName
     global monsterXP
+    println("")
     print(monsterName + " has appeared! HP:" + str(monsterHP))
+    println("")
+    time.sleep(1.5)
     fightAdv()
 
 
@@ -146,6 +151,7 @@ def fight():
              else:
                 print("Something's up...")
 def fightAdv():
+    clearScreen()
     global monsterGoblin
     global monsterName
     global monsterHP
@@ -170,6 +176,10 @@ def fightAdv():
                 print("Something's up...")
     else:
         playerBal += monsterCoins
+        playerBal += monsterCoins
+        print("You earned %i coins! Your balance is now: %i" % (monsterCoins, playerBal))
+        actionPrompt()
+
 
 def fish():
     global baitCount
