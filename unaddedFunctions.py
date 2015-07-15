@@ -3,41 +3,11 @@ def fishAdv():
    time.sleep(5)
    #run loadingBar
 
-global baitCount
-global fishCount
-baitCount = 0
-fishCount = 0
-
-def fish():
-    print("You are now fishing.")
-    if(baitCount == 0):
-        print("You don't have any bait!")
-        print("Would you like to purchase some bait for 3gp?")
-        print("Your balance: %i" % playerBal)
-        print("Type 'y' to buy, or 'n' to cancel.")
-        buyBait=input("Buy?: ")
-        if (buyBait = "y"):
-            if (playerBal>=3):
-                print("You have bought some bait!")
-                playerBal -= 3
-                baitCount += 1
-    else:
-        print("You cast your line..")
-        time.sleep(0.4)
-        print("You feel a bite!")
-        time.sleep(0.2)
-        print("You reel in your fish!")
-        print("You have caught: %s!" % "a fish")
-        baitCount -= 1
-        fishCount += 1
-
 #
 
 def cookAdv():
    "What would you like to cool? List cookable items in inventoryList"
 
-def cook():
-   print("You are now cooking.")
 #
 
 def healAdv():
@@ -49,5 +19,29 @@ def heal():
 #
 
 def fightAdv():
-   print("You are now fighting: %s." % monster)
+    global monsterGoblin
+    global monsterName
+    global monsterHP
+    global monsterMaxHit
+    global monsterXP
+    global monsterCoins
+    global monsterItemsDropped
+    fightMonster()
+    while(monsterHP > 0):
+        fightActionList = ["a","h","r"]
+        print(monsterName + " has appeared! HP:" + str(monsterXP))
+        print("Your health: %i" % (playerHP)
+        print("Type 'a' to attack, 'h' to heal, or 'r' to run!")
+        action=input("Fight action: ")
+        if (action in fightActionList):
+             if (action==fightActionList[0]):
+                attackAdv()
+             elif(action==fightActionList[1]):
+                heal()
+             elif(action==fightActionList[2]):
+                run()
+             else:
+                print("Something's up...")
+    else:
+        playerBal += monsterCoins
 #
