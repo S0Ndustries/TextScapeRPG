@@ -5,6 +5,12 @@ import sys
 import time
 import os
 
+# Global Variables
+global playerHP
+global enemyHP
+playerHP = 10
+enemyHP = 20
+
 # Functions
 def actionPrompt():
    print("What would you like to do?")
@@ -25,8 +31,6 @@ def actionPrompt():
        else:
            print("Something's up...")
 
-playerHP = 10
-enemyHP = 20
 def help_func():
     print("Fight: Begins a fight")
     print("Fish: Try to fish for food")
@@ -34,6 +38,8 @@ def help_func():
     print("Help: Gives general information about commands")
     actionPrompt()
 def attack():
+    global enemyHP
+    global playerHP
     print("Enemy has lost 5 HP")
     time.sleep(0.3)
     print("Enemy attacks! You lost 1 HP")
@@ -44,6 +50,7 @@ def run():
     time.sleep(0.1)
     actionPrompt()
 def heal():
+    global playerHP
     print("You have healed 2 HP!")
     playerHP += 2
     print("Your health is %i" % playerHP)
