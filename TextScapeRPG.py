@@ -81,7 +81,8 @@ def fish():
     global baitCount
     global fishCount
     global playerBal
-    print("You are now fishing.")
+    print("What would you like to do?")
+    print("Type 'b' to buy bait, 'f' to fish, or 'e' to exit)
     if(baitCount == 0):
         print("You don't have any bait!")
         print("Would you like to purchase some bait for 3gp?")
