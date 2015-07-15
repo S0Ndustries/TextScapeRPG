@@ -34,39 +34,21 @@ def x():
     time.sleep(0.2)
 
 def fightMonster():
+    global monsterName
+    global monsterHP
+    global monsterMaxHit
+    global monsterXP
+    global monsterCoins
+    global monsterItemsDropped
     monsterSelect = random.randint(0, 0)
-    if(monsterSelect==0):
-        monsterGoblin =   ["Goblin",   "50", "8",  "25", "3",    "Bones"]
-        monsterName = monsterGoblin[0]
-        monsterHP = monsterGoblin[1]
-        monsterMaxHit = monsterGoblin[2]
-        monsterXP = monsterGoblin[3]
-        monsterCoins = monsterGoblin[4]
-        monsterItemsDropped = monsterGoblin[5]
-    if(monsterSelect==1):
-        monsterSkeleton = ["Skeleton", "30", "10", "15", "5",    "Bones"]
-        monsterName = monsterSkeleton[0]
-        monsterHP = monsterSkeleton[1]
-        monsterMaxHit = monsterSkeleton[2]
-        monsterXP = monsterSkeleton[3]
-        monsterCoins = monsterSkeleton[4]
-        monsterItemsDropped = monsterSkeleton[5]
-    if(monsterSelect==2):
-        thismonsterRat =  ["Rat",      "10", "1",  "5",  "0",    "Bones"]
-        monsterName = monsterRat[0]
-        monsterHP = monsterRat[1]
-        monsterMaxHit = monsterRat[2]
-        monsterXP = monsterRat[3]
-        monsterCoins = monsterRat[4]
-        monsterItemsDropped = monsterRat[5]
-    if(monsterSelect==3):
-        monsterThief =    ["Thief",    "75", "15", "38", "100",  "Bones"]
-        monsterName = monsterTheif[0]
-        monsterHP = monsterTheif[1]
-        monsterMaxHit = monsterTheif[2]
-        monsterXP = monsterTheif[3]
-        monsterCoins = monsterTheif[4]
-        monsterItemsDropped = monsterTheif[5]
+    monster=monsterList[monsterSelect]
+    monsterName=monster[0]
+    monsterHP=monster[1]
+    monsterMaxHit=monster[2]
+    monsterXP=monster[3]
+    monsterCoins=monster[4]
+    monsterItemsDropped=monster[5]
+
         # array([[ 0.,  0.,  0.,  0.,  0.],
         # [ 0.,  0.,  0.,  0.,  0.],
         # [ 0.,  0.,  0.,  0.,  0.],
@@ -261,7 +243,7 @@ cooking = 1
 <<<<<<< HEAD
 =======
 global monsterList
-monsterList=["monsterGoblin","monsterSkeleton","monsterRat","monsterThief"]
+monsterList=[monsterGoblin,monsterSkeleton,monsterRat,monsterThief]
 
 global monsterGoblin
 global monsterSkeleton
