@@ -190,7 +190,7 @@ def cook():
     print("You have %i raw fish & %i cooked fish." % (fishCount, cookedFish))
     print("Type the amount you'd like to cook, or 'e' to exit!")
     cookAction=input("Cook action: ")
-    if(cookAction=="n"):
+    if(cookAction=="e"):
         actionPrompt()
     else:
         if(int(cookAction) > fishCount):
