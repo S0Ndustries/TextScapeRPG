@@ -8,8 +8,14 @@ import os
 # Global Variables, Sort of
 global playerHP
 global enemyHP
+global playerBal
+global baitCount
+global fishCount
+playerBal = 1000
 playerHP = 10
 enemyHP = 20
+baitCount = 0
+fishCount = 0
 
 # Functions
 def actionPrompt():
@@ -70,6 +76,34 @@ def fight():
                 run()
              else:
                 print("Something's up...")
+
+def fish():
+    global baitCount
+    global fishCount
+    global playerBal
+    print("You are now fishing.")
+    if(baitCount == 0):
+        print("You don't have any bait!")
+        print("Would you like to purchase some bait for 3gp?")
+        print("Your balance: %i" % playerBal)
+        print("Type 'y' to buy, or 'n' to cancel.")
+        buyBait=input("Buy?: ")
+        if (buyBait == "y"):
+            if (playerBal>=3):
+                print("You have bought some bait!")
+                playerBal -= 3
+                baitCount += 1
+                fish()
+    else:
+        print("You cast your line..")
+        time.sleep(0.4)
+        print("You feel a bite!")
+        time.sleep(0.2)
+        print("You reel in your fish!")
+        print("You have caught: %s!" % "a fish")
+        baitCount -= 1
+        fishCount += 1
+
 #
 
 # Actions
@@ -78,6 +112,13 @@ actionList = ["fight", "fish", "cook", "heal", "help"]
 
 #    Variables
 # User skills
+global attack
+global strength
+global defence
+global health
+global fishing
+global cooking
+
 attack = 1
 strength = 1
 defence = 1
@@ -87,7 +128,7 @@ cooking = 1
 #
 
 # Monsters
-monsterGoblin = ["Goblin", "50", "8", "25", "Bones"]
+monsterGoblin = ["Goblin", "50", "8", "25", "3", "Bones"]
 #
 
 # Run program

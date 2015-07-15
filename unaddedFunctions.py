@@ -3,8 +3,34 @@ def fishAdv():
    time.sleep(5)
    #run loadingBar
 
+global baitCount
+global fishCount
+baitCount = 0
+fishCount = 0
+
 def fish():
-   print("You are now fishing.")
+    print("You are now fishing.")
+    if(baitCount == 0):
+        print("You don't have any bait!")
+        print("Would you like to purchase some bait for 3gp?")
+        print("Your balance: %i" % playerBal)
+        print("Type 'y' to buy, or 'n' to cancel.")
+        buyBait=input("Buy?: ")
+        if (buyBait = "y"):
+            if (playerBal>=3):
+                print("You have bought some bait!")
+                playerBal -= 3
+                baitCount += 1
+    else:
+        print("You cast your line..")
+        time.sleep(0.4)
+        print("You feel a bite!")
+        time.sleep(0.2)
+        print("You reel in your fish!")
+        print("You have caught: %s!" % "a fish")
+        baitCount -= 1
+        fishCount += 1
+
 #
 
 def cookAdv():
@@ -18,39 +44,10 @@ def healAdv():
    "What would you like to use to heal? List items in inventoryList"
 
 def heal():
-   print ("Healed %i HP", %, 10)
+   print ("Healed %i HP" % 10)
    playerHP += 10
 #
 
 def fightAdv():
-   print("You are now fighting: %s.", %, monster)
-
-def attack():
-   print("Enemy has lost %i HP" % 5)
-   enemyHP = enemyHP - 5
-   print("Enemy attacks! You lost %i HP" % 1)
-   playerHP = playerHP - 1
-   fight()
-def run():
-   print("You have run away!")
-   time.sleep(0.1)
-   actionPrompt()
-def heal():
-   print("You have healed 2HP!")
-   playerHP = playerHP + 2
-def fight():
-   fightActionList = ["a","h","r"]
-   print("You are now fighting!")
-   print("Your health: %i, enemy health: %i " % (playerHP, enemyHP))
-   print("Type 'a' to attack, 'h' to heal, or 'r' to run!")
-   action=input("Action: ")
-   if (action in fightActionList):
-        if (action==fightActionList[0]):
-            attack()
-        elif(action==fightActionList[1]):
-            heal()
-        elif(action==fightActionList[2]):
-            run()
-        else:
-            print("Something's up...")
+   print("You are now fighting: %s." % monster)
 #
