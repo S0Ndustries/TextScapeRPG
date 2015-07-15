@@ -94,6 +94,8 @@ def fish():
                 playerBal -= 3
                 baitCount += 1
                 fish()
+            else:
+                print("You don't have enough gp!")
     else:
         print("You cast your line..")
         time.sleep(0.4)
