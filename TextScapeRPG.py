@@ -32,10 +32,10 @@ global monsterItemsDropped
 # Functions
 
 def clearScreen():
-    if(platform.system()==“Windows”)
-    os.system(‘cls’)
+    if(platform.system()=="Windows"):
+        os.system('cls')
     else:
-    os.system(‘clear’)
+        os.system('clear')
 
 def selectMonster():
     global monsterName
@@ -146,10 +146,10 @@ def fightAdv():
     global monsterCoins
     global monsterItemsDropped
     selectMonster()
-    while(monsterHP > 0):
+    while(int(monsterHP) > 0):
         fightActionList = ["a","h","r"]
         print(monsterName + " has appeared! HP:" + str(monsterXP))
-        print("Your health: %i" % (playerHP)
+        print("Your health: %i" % playerHP)
         print("Type 'a' to attack, 'h' to heal, or 'r' to run!")
         action=input("Fight action: ")
         if (action in fightActionList):
