@@ -97,7 +97,7 @@ def fish():
             else:
                 print("You don't have enough gp!")
         else:
-            return
+            fish()
     else:
         print("You cast your line..")
         time.sleep(0.4)
