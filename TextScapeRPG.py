@@ -4,6 +4,7 @@
 import sys
 import time
 import os
+import random
 
 # Global Variables, Sort of
 global playerHP
@@ -81,7 +82,6 @@ def fish():
     global baitCount
     global fishCount
     global playerBal
-    print("You are now fishing.")
     if(baitCount == 0):
         print("You don't have any bait!")
         print("Would you like to purchase some bait for 3gp?")
@@ -99,12 +99,14 @@ def fish():
         else:
             fish()
     else:
+        fishCatch=["null", "Catfish", "Carp", "Salmon", "Whale, somehow"]
+        fishChoose=random.randint(1, 4)
         print("You cast your line..")
-        time.sleep(0.4)
+        time.sleep(1)
         print("You feel a bite!")
         time.sleep(0.2)
         print("You reel in your fish!")
-        print("You have caught: %s!" % "a fish")
+        print("You have caught: %a" % fishCatch[fishChoose])
         baitCount -= 1
         fishCount += 1
 
@@ -132,7 +134,9 @@ cooking = 1
 #
 
 # Monsters
+# Name, IDK, IDK, IDK, IDK, Drops
 monsterGoblin = ["Goblin", "50", "8", "25", "3", "Bones"]
+monsterTheif = ["Theif", "", "", "", "", "Amulet"]
 #
 
 # Run program
