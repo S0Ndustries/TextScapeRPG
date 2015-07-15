@@ -139,10 +139,8 @@ def fish():
     global baitCount
     global fishCount
     global playerBal
-<<<<<<< HEAD
     if(baitCount == 0):
         print("You don't have any bait!")
-=======
     print("What would you like to do?")
     print("Type 'f' to fish, 'b' to buy bait, or 'e' to exit")
     fishAction=input("Fish action:")
@@ -151,17 +149,18 @@ def fish():
             print("You don't have any bait!")
             fish()
         else:
+            fishCatch=["null", "Catfish", "Carp", "Salmon", "Whale, somehow"]
+            fishChoose=random.randint(1, 4)
             print("You cast your line..")
-            time.sleep(0.4)
+            time.sleep(1)
             print("You feel a bite!")
             time.sleep(0.2)
             print("You reel in your fish!")
-            print("You have caught: %s!" % "a fish")
+            print("You have caught: %a" % fishCatch[fishChoose])
             baitCount -= 1
             fishCount += 1
             fish()
     if(fishAction=="b"):
->>>>>>> origin/master
         print("Would you like to purchase some bait for 3gp?")
         print("Your balance: %i" % playerBal)
         print("Type 'y' to buy, or 'n' to cancel.")
@@ -182,21 +181,8 @@ def fish():
     if(fishAction=="e"):
         actionPrompt()
     else:
-<<<<<<< HEAD
-        fishCatch=["null", "Catfish", "Carp", "Salmon", "Whale, somehow"]
-        fishChoose=random.randint(1, 4)
-        print("You cast your line..")
-        time.sleep(1)
-        print("You feel a bite!")
-        time.sleep(0.2)
-        print("You reel in your fish!")
-        print("You have caught: %a" % fishCatch[fishChoose])
-        baitCount -= 1
-        fishCount += 1
-=======
         print("Invalid action!")
-        return
->>>>>>> origin/master
+        fish()
 
 def cook():
     global fishCount
@@ -240,11 +226,7 @@ cooking = 1
 
 # Monsters
 # Name, HP, MaxDamage, XP, Coins, Items
-<<<<<<< HEAD
-=======
 global monsterList
-monsterList=[monsterGoblin,monsterSkeleton,monsterRat,monsterThief]
-
 global monsterGoblin
 global monsterSkeleton
 global monsterRat
@@ -254,7 +236,7 @@ monsterGoblin =   ["Goblin",   "50", "8",  "25", "3",    "Bones"]
 monsterSkeleton = ["Skeleton", "30", "10", "15", "5",    "Bones"]
 monsterRat =      ["Rat",      "10", "1",  "5",  "0",    "Bones"]
 monsterThief =    ["Thief",    "75", "15", "38", "100",  "Bones"]
->>>>>>> origin/master
+monsterList=[monsterGoblin,monsterSkeleton,monsterRat,monsterThief]
 #
 
 # Run program
