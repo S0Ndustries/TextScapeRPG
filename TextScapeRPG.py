@@ -114,7 +114,7 @@ def fish():
             else:
                 print("You don't have enough gp!")
         elif (buyBait == "n"):
-            That's not an option!
+            print("That's not an option!")
             fish()
         else:
             fish()
@@ -124,6 +124,23 @@ def fish():
         print("Invalid action!")
         return
 
+def cook():
+    global fishCount
+    global cookedFish
+    print("You have %i raw fish & %i cooked fish." % (fishCount, cookedFish))
+    print("Type the amount you'd like to cook, or 'e' to exit!")
+    cookAction=input("Cook action: ")
+    if(cookAction=="n"):
+        actionPrompt()
+    else:
+        if(int(cookAction) > fishCount):
+            print("You don't have that many fish!")
+        elif(int(cookAction) <= fishCount):
+            fishCount -= int(cookAction)
+            cookedFish += int(cookAction)
+            print("You have cooked %i fish!" % int(cookAction))
+            print("You now have %i raw fish & %i cooked fish!" % (fishCount, cookedFish))
+            actionPrompt()
 #
 
 # Actions
