@@ -59,26 +59,27 @@ def selectMonster():
         # [ 0.,  0.,  0.,  0.,  0.]])
 
 def actionPrompt():
-   print("What would you like to do?")
-   print("Enter 'help' for more options.")
-   action=input("Action: ")
-   if (action in actionList):
-       if (action==actionList[0]):
-           prefight()
-       elif(action==actionList[1]):
-           fish()
-       elif(action==actionList[2]):
-           #Jesse, we need to-
-           cook()
-       elif(action==actionList[3]):
-           heal()
-       elif(action==actionList[4]):
-           help_func()
-       else:
-           print("this doesn't work")
+    print("What would you like to do?")
+    print("Enter 'help' for more options.")
+    action=input("Action: ")
+    if (action in actionList):
+        if (action==actionList[0]):
+            prefight()
+        elif(action==actionList[1]):
+            fish()
+        elif(action==actionList[2]):
+            #Jesse, we need to-
+            cook()
+        elif(action==actionList[3]):
+            heal()
+        elif(action==actionList[4]):
+            help_func()
+        else:
+            print("this doesn't work")
     else:
         print("broken")
         actionPrompt()
+        clear()
 
 def help_func():
     print("Fight: Begins a fight")
