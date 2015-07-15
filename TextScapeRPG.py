@@ -4,8 +4,9 @@
 import sys
 import time
 import os
+import random
 
-# Global Variables, Sort of
+# Global variables
 global playerHP
 global enemyHP
 global playerBal
@@ -22,7 +23,27 @@ cookedFish = 0
 # Functions
 
 def fightMonster():
+    monsterSelect = random.randint(0, 3)
+    if(monsterSelect==0):
+        monsterGoblin =   ["Goblin",   "50", "8",  "25", "3",    "Bones"]
+        monsterName = monsterGoblin[0]
+        monsterHP = monsterGoblin[1]
+        monsterMaxHit = monsterGoblin[2]
+        monsterXP = monsterGoblin[3]
+        monsterCoins = monsterGoblin[4]
+        monsterItemsDropped = monsterGoblin[5]
 
+    if(monsterSelect==1):
+        monsterSkeleton = ["Skeleton", "30", "10", "15", "5",    "Bones"]
+    if(monsterSelect==2):
+        thismonsterRat =  ["Rat",      "10", "1",  "5",  "0",    "Bones"]
+    if(monsterSelect==3):
+        monsterThief =    ["Thief",    "75", "15", "38", "100",  "Bones"]
+        # array([[ 0.,  0.,  0.,  0.,  0.],
+        # [ 0.,  0.,  0.,  0.,  0.],
+        # [ 0.,  0.,  0.,  0.,  0.],
+        # [ 0.,  0.,  0.,  0.,  0.],
+        # [ 0.,  0.,  0.,  0.,  0.]])
 
 def actionPrompt():
    print("What would you like to do?")
