@@ -1,11 +1,11 @@
 # Base game file
-# version 1.3
+# version 1.3.5
 
 import sys
 import time
 import os
 
-# Global Variables
+# Global Variables, Sort of
 global playerHP
 global enemyHP
 playerHP = 10
