@@ -47,10 +47,10 @@ def selectMonster():
     monsterSelect = random.randint(0, 0)
     monster=monsterList[monsterSelect]
     monsterName=monster[0]
-    monsterHP=monster[1]
-    monsterMaxHit=monster[2]
-    monsterXP=monster[3]
-    monsterCoins=monster[4]
+    monsterHP=int(monster[1])
+    monsterMaxHit=int(monster[2])
+    monsterXP=int(monster[3])
+    monsterCoins=int(monster[4])
     monsterItemsDropped=monster[5]
 
         # array([[ 0.,  0.,  0.,  0.,  0.],
@@ -65,7 +65,7 @@ def actionPrompt():
    action=input("Action: ")
    if (action in actionList):
        if (action==actionList[0]):
-           fightAdv()
+           prefight()
        elif(action==actionList[1]):
            fish()
        elif(action==actionList[2]):
@@ -94,16 +94,15 @@ def attackOpt():
     enemyHP -= 5
     playerHP -= 1
 def attackAdv():
-    print("You attacked!")
     global monsterHP
     global playerHP
     global monsterMaxHit
     playerDMG = random.randint(0, 10)
     monsterDMG = random.randint(0, monsterMaxHit)
-    print("Enemy has lost %iHP" % playerDMG)
+    print("You attacked! Enemy has lost %iHP" % playerDMG)
     time.sleep(0.3)
     print("Enemy attacks! You lost %i HP" % monsterDMG)
-    enemyHP -= playerDMG
+    monsterHP -= playerDMG
     playerHP -= monsterDMG
     time.sleep(0.3)
 def run():
@@ -121,7 +120,13 @@ def heal():
     else:
         print("Not enough cooked fish!")
 def prefight():
-    monsterSelect
+    selectMonster()
+    global monsterName
+    global monsterXP
+    print(monsterName + " has appeared! HP:" + str(monsterXP))
+    fightAdv()
+
+
 def fight():
     while(enemyHP > 1):
         fightActionList = ["a","h","r"]
@@ -145,11 +150,10 @@ def fightAdv():
     global monsterXP
     global monsterCoins
     global monsterItemsDropped
-    selectMonster()
-    while(int(monsterHP) > 0):
+    global playerBal
+    while(monsterHP > 0):
         fightActionList = ["a","h","r"]
-        print(monsterName + " has appeared! HP:" + str(monsterXP))
-        print("Your health: %i" % playerHP)
+        print("Your HP: %i Monster HP: %i" % playerHP, monsterHP)
         print("Type 'a' to attack, 'h' to heal, or 'r' to run!")
         action=input("Fight action: ")
         if (action in fightActionList):
