@@ -20,11 +20,19 @@ def actionPrompt():
            cook()
        elif(action==actionList[3]):
            heal()
+       elif(action==actionList[4]):
+           help_func()
        else:
            print("Something's up...")
 
 playerHP = 10
 enemyHP = 20
+def help_func():
+    print("Fight: Begins a fight")
+    print("Fish: Try to fish for food")
+    print("Cook: Cook the fish, or other food")
+    print("Help: Gives general information about commands")
+    actionPrompt()
 def attack():
     print("Enemy has lost 5 HP")
     time.sleep(0.3)
@@ -57,7 +65,7 @@ def fight():
 #
 
 # Actions
-actionList = ["fight", "fish", "cook", "heal"]
+actionList = ["fight", "fish", "cook", "heal", "help"]
 #
 
 #    Variables
