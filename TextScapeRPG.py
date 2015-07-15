@@ -237,10 +237,8 @@ cooking = 1
 #
 
 # Monsters
+# Name, HP, MaxDamage, XP, Coins, Items
 <<<<<<< HEAD
-# Name, IDK, IDK, IDK, IDK, Drops
-monsterGoblin = ["Goblin", "50", "8", "25", "3", "Bones"]
-monsterTheif = ["Theif", "", "", "", "", "Amulet"]
 =======
 global monsterList
 monsterList=["monsterGoblin","monsterSkeleton","monsterRat","monsterThief"]
@@ -249,6 +247,7 @@ global monsterGoblin
 global monsterSkeleton
 global monsterRat
 global monsterThief
+
 monsterGoblin =   ["Goblin",   "50", "8",  "25", "3",    "Bones"]
 monsterSkeleton = ["Skeleton", "30", "10", "15", "5",    "Bones"]
 monsterRat =      ["Rat",      "10", "1",  "5",  "0",    "Bones"]
