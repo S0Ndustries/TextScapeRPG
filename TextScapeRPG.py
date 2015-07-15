@@ -1,5 +1,5 @@
 # Base game file
-# version 1.5
+# version 2.0
 
 import sys
 import time
@@ -59,6 +59,7 @@ def selectMonster():
         # [ 0.,  0.,  0.,  0.,  0.]])
 
 def actionPrompt():
+    clearScreen()
     print("What would you like to do?")
     print("Enter 'help' for more options.")
     action=input("Action: ")
@@ -86,6 +87,7 @@ def help_func():
     print("Fish: Try to fish for food")
     print("Cook: Cook the fish, or other food")
     print("Help: Gives general information about commands")
+    time.sleep(3)
     actionPrompt()
 def attackOpt():
     print("You attacked!")
@@ -103,8 +105,9 @@ def attackAdv():
     global monsterMaxHit
     playerDMG = random.randint(0, 10)
     monsterDMG = random.randint(0, monsterMaxHit)
+    time.sleep(0.1)
     print("You attacked! Enemy has lost %iHP" % playerDMG)
-    time.sleep(0.3)
+    time.sleep(0.1)
     print("Enemy attacks! You lost %i HP" % monsterDMG)
     monsterHP -= playerDMG
     playerHP -= monsterDMG
@@ -117,23 +120,28 @@ def heal():
     global cookedFish
     global playerHP
     if(cookedFish > 0):
-        print("You have healed 5 HP! You have %i cooked fish left" % cookedFish)
+        print("\nYou have healed 5 HP! You have %i cooked fish left" % cookedFish)
         playerHP += 5
         print("Your health is %i" % playerHP)
         cookedFish -= 1
+        time.sleep(0.8)
+        actionPrompt()
     else:
-        print("Not enough cooked fish!")
+        print("\nNot enough cooked fish!")
+        time.sleep(0.6)
+        actionPrompt()
+
+
 def prefight():
     clearScreen()
     selectMonster()
     global monsterName
     global monsterXP
-    println("")
+    print("")
     print(monsterName + " has appeared! HP:" + str(monsterHP))
-    println("")
-    time.sleep(1.5)
+    print("")
+    time.sleep(1)
     fightAdv()
-
 
 def fight():
     while(enemyHP > 1):
@@ -162,7 +170,7 @@ def fightAdv():
     global playerBal
     while(monsterHP > 0):
         fightActionList = ["a","h","r"]
-        print("Your HP: %i Monster HP: %i" % (playerHP, monsterHP))
+        print("\nYour HP: %i || Monster HP: %i" % (playerHP, monsterHP))
         print("Type 'a' to attack, 'h' to heal, or 'r' to run!")
         action=input("Fight action: ")
         if (action in fightActionList):
@@ -176,49 +184,52 @@ def fightAdv():
                 print("Something's up...")
     else:
         playerBal += monsterCoins
-        playerBal += monsterCoins
+        time.sleep(3)
         print("You earned %i coins! Your balance is now: %i" % (monsterCoins, playerBal))
+        time.sleep(1)
         actionPrompt()
 
-
 def fish():
+    clearScreen()
     global baitCount
     global fishCount
     global playerBal
-    if(baitCount == 0):
-        print("You don't have any bait!")
     print("What would you like to do?")
     print("Type 'f' to fish, 'b' to buy bait, or 'e' to exit")
     fishAction=input("Fish action:")
     if(fishAction=="f"):
         if(baitCount == 0):
             print("You don't have any bait!")
+            time.sleep(0.5)
             fish()
         else:
             fishCatch=["null", "Catfish", "Carp", "Salmon", "Whale, somehow"]
             fishChoose=random.randint(1, 4)
             print("You cast your line..")
-            time.sleep(1)
+            time.sleep(0.2)
             print("You feel a bite!")
             time.sleep(0.2)
             print("You reel in your fish!")
+            time.sleep(0.2)
             print("You have caught: %a" % fishCatch[fishChoose])
             baitCount -= 1
             fishCount += 1
+            time.sleep(0.6)
             fish()
     if(fishAction=="b"):
-        print("Would you like to purchase some bait for 3gp?")
+        print("\nWould you like to purchase some bait for 3 coins?")
         print("Your balance: %i" % playerBal)
-        print("Type 'y' to buy, or 'n' to cancel.")
+        print("Type 'y' to buy 3 bait, or 'n' to cancel.")
         buyBait=input("Buy?: ")
         if (buyBait == "y"):
             if (playerBal>=3):
-                print("You have bought some bait!")
+                print("\nYou have bought some bait!")
                 playerBal -= 3
-                baitCount += 1
+                baitCount += 3
+                time.sleep(0.3)
                 fish()
             else:
-                print("You don't have enough gp!")
+                print("You don't have enough coins!")
         elif (buyBait == "n"):
             print("That's not an option!")
             fish()
@@ -228,24 +239,25 @@ def fish():
         actionPrompt()
     else:
         print("Invalid action!")
-        fish()
+        actionPrompt()
 
 def cook():
     global fishCount
     global cookedFish
-    print("You have %i raw fish & %i cooked fish." % (fishCount, cookedFish))
+    print("\nYou have %i raw fish & %i cooked fish." % (fishCount, cookedFish))
     print("Type the amount you'd like to cook, or 'e' to exit!")
     cookAction=input("Cook action: ")
     if(cookAction=="e"):
         actionPrompt()
     else:
         if(int(cookAction) > fishCount):
-            print("You don't have that many fish!")
+            print("\nYou don't have that many fish!")
         elif(int(cookAction) <= fishCount):
             fishCount -= int(cookAction)
             cookedFish += int(cookAction)
-            print("You have cooked %i fish!" % int(cookAction))
+            print("\nYou have cooked %i fish!" % int(cookAction))
             print("You now have %i raw fish & %i cooked fish!" % (fishCount, cookedFish))
+            time.sleep(1)
             actionPrompt()
 #
 
