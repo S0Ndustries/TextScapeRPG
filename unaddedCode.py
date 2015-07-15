@@ -1,5 +1,9 @@
 print(“Welcome to the pyRPG”)
-name = raw_input(“Enter your username: ”)
+name = input(“Enter your username: ”)
+if(name=="Elijah" or name=="Evan"):
+    #add some kind of levels
+else:
+    return
 
 def bankList():
 #   slots 1 - 50
