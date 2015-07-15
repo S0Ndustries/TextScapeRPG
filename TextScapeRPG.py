@@ -5,6 +5,7 @@ import sys
 import time
 import os
 import random
+import platform
 
 # Global variables
 global playerHP
@@ -30,10 +31,13 @@ global monsterItemsDropped
 
 # Functions
 
-def x():
-    time.sleep(0.2)
+def clearScreen():
+    if(platform.system()==“Windows”)
+    os.system(‘cls’)
+    else:
+    os.system(‘clear’)
 
-def fightMonster():
+def selectMonster():
     global monsterName
     global monsterHP
     global monsterMaxHit
@@ -141,7 +145,7 @@ def fightAdv():
     global monsterXP
     global monsterCoins
     global monsterItemsDropped
-    fightMonster()
+    selectMonster()
     while(monsterHP > 0):
         fightActionList = ["a","h","r"]
         print(monsterName + " has appeared! HP:" + str(monsterXP))
