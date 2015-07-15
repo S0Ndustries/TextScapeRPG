@@ -20,6 +20,10 @@ fishCount = 0
 cookedFish = 0
 
 # Functions
+
+def fightMonster():
+
+
 def actionPrompt():
    print("What would you like to do?")
    print("Enter 'help' for more options.")
@@ -59,10 +63,15 @@ def run():
     time.sleep(0.1)
     actionPrompt()
 def heal():
+    global cookedFish
     global playerHP
-    print("You have healed 2 HP!")
-    playerHP += 2
-    print("Your health is %i" % playerHP)
+    if(cookedFish > 0):
+        print("You have healed 5 HP! You have %i cooked fish left" % cookedFish)
+        playerHP += 5
+        print("Your health is %i" % playerHP)
+        cookedFish -= 1
+    else:
+        print("Not enough cooked fish!")
 def fight():
     while(enemyHP > 1):
         fightActionList = ["a","h","r"]
@@ -165,7 +174,17 @@ cooking = 1
 #
 
 # Monsters
-monsterGoblin = ["Goblin", "50", "8", "25", "3", "Bones"]
+global monsterList
+monsterList["monsterGoblin","monsterSkeleton","monsterRat","monsterThief"]
+
+global monsterGoblin
+global monsterSkeleton
+global monsterRat
+global monsterThief
+monsterGoblin =   ["Goblin",   "50", "8",  "25", "3",    "Bones"]
+monsterSkeleton = ["Skeleton", "30", "10", "15", "5",    "Bones"]
+monsterRat =      ["Rat",      "10", "1",  "5",  "0",    "Bones"]
+monsterThief =    ["Thief",    "75", "15", "38", "100",  "Bones"]
 #
 
 # Run program
