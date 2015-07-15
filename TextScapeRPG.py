@@ -37,7 +37,8 @@ def help_func():
     print("Cook: Cook the fish, or other food")
     print("Help: Gives general information about commands")
     actionPrompt()
-def attack():
+def attackOpt():
+    print("You attacked!")
     global enemyHP
     global playerHP
     print("Enemy has lost 5 HP")
@@ -62,7 +63,7 @@ def fight():
         action=input("Fight action: ")
         if (action in fightActionList):
              if (action==fightActionList[0]):
-                attack()
+                attackOpt()
              elif(action==fightActionList[1]):
                 heal()
              elif(action==fightActionList[2]):
