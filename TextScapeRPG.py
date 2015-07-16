@@ -1,5 +1,5 @@
 # Base game file
-# v0.80-alpha
+# v0.81-alpha
 # official version: 2.1
 
 import sys
@@ -170,7 +170,7 @@ def actionPrompt():
             fuck()
         elif(action==actionList[6]):
             fart()
-        elif(action=actionList[7]):
+        elif(action==actionList[7]):
             printStats()
         else:
             print("this doesn't work")
