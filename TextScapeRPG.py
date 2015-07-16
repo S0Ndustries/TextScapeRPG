@@ -1,5 +1,5 @@
 # Base game file
-# v0.61-alpha
+# v0.73-alpha
 # official version: 2.1
 
 import sys
@@ -30,6 +30,10 @@ global monsterCoins
 global monsterItemsDropped
 
 # Functions
+
+def printStats():
+    clearScreen()
+    print("Current GP: %")
 
 def fuck():
     global playerHP
@@ -339,12 +343,13 @@ def cook():
     if(cookAction=="e"):
         actionPrompt()
     else:
-        if(int(cookAction) > fishCount):
+        cookAction=int(cookAction)
+        if(cookAction > fishCount):
             print("\nYou don't have that many fish!")
-        elif(int(cookAction) <= fishCount):
-            fishCount -= int(cookAction)
-            cookedFish += int(cookAction)
-            print("\nYou have cooked %i fish!" % int(cookAction))
+        elif(cookAction <= fishCount):
+            fishCount -= cookAction
+            cookedFish += cookAction
+            print("\nYou have cooked %i fish!" % cookAction)
             print("You now have %i raw fish & %i cooked fish!" % (fishCount, cookedFish))
             time.sleep(1)
             actionPrompt()
