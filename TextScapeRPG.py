@@ -1,5 +1,5 @@
 # Base game file
-# v0.94-alpha
+# v1.00-alpha
 # official version: 2.1
 
 import sys
@@ -367,6 +367,17 @@ def cook():
             actionPrompt()
     else:
         cook()
+
+def printTitle():
+    print("\n                                   Welcome to                                   \n"); time.sleep(0.3);
+    print("d888888P                     dP   ", end="",flush=True); time.sleep(0.3); print(".d88888b                                      "); time.sleep(0.3)
+    print("   88                        88   ", end="",flush=True); time.sleep(0.3); print("88.    \"'                                     "); time.sleep(0.3)
+    print("   88    .d8888b. dP.  .dP d8888P ", end="",flush=True); time.sleep(0.3); print("`Y88888b. .d8888b. .d8888b. 88d888b. .d8888b. "); time.sleep(0.3)
+    print("   88    88ooood8  `8bd8'    88   ", end="",flush=True); time.sleep(0.3); print("      `8b 88'  `\"\" 88'  `88 88'  `88 88ooood8 "); time.sleep(0.3)
+    print("   88    88.  ...  .d88b.    88   ", end="",flush=True); time.sleep(0.3); print("d8'   .8P 88.  ... 88.  .88 88.  .88 88.  ... "); time.sleep(0.3)
+    print("   dP    `88888P' dP'  `dP   dP   ", end="",flush=True); time.sleep(0.3); print(" Y88888P  `88888P' `88888P8 88Y888P' `88888P' "); time.sleep(0.3)
+    print("                                  ", end="",flush=True); time.sleep(0.3); print("                            88                "); time.sleep(0.3)
+    print("                                  ", end="",flush=True); time.sleep(0.3); print("                            dP                "); time.sleep(7)
 #
 
 # Actions
@@ -406,4 +417,5 @@ monsterList=["null",monsterGoblin,monsterSkeleton,monsterRat,monsterThief]
 #
 
 # Run program
+printTitle()
 actionPrompt()
