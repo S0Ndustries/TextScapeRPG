@@ -1,5 +1,5 @@
 # Base game file
-# v0.73-alpha
+# v0.74-alpha
 # official version: 2.1
 
 import sys
@@ -342,7 +342,7 @@ def cook():
     cookAction=input("Cook action: ")
     if(cookAction=="e"):
         actionPrompt()
-    else:
+    elif(type(cookAction) == int):
         cookAction=int(cookAction)
         if(cookAction > fishCount):
             print("\nYou don't have that many fish!")
@@ -353,6 +353,8 @@ def cook():
             print("You now have %i raw fish & %i cooked fish!" % (fishCount, cookedFish))
             time.sleep(1)
             actionPrompt()
+    else:
+        cook()
 #
 
 # Actions
