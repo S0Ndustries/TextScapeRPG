@@ -102,6 +102,15 @@ def fuck():
         playerHP += 25
         playerBal -= 25
         actionPrompt()
+def fart():
+    print("You empty your bowels of the fumes plaguing them.")
+    time.sleep(0.7)
+    print("Everything fades away...")
+    time.sleep(1)
+    print("You wake up in Hospital! You have lost 5HP")
+    time.sleep(1.5)
+    actionPrompt()
+
 def clearScreen():
     if(platform.system()=="Windows"):
         os.system('cls')
@@ -149,6 +158,8 @@ def actionPrompt():
             help_func()
         elif(action==actionList[5]):
             fuck()
+        elif(action==actionList[6]):
+            fart()
         else:
             print("this doesn't work")
     else:
@@ -340,7 +351,7 @@ def cook():
 #
 
 # Actions
-actionList = ["fight", "fish", "cook", "heal", "help", "fuck"]
+actionList = ["fight", "fish", "cook", "heal", "help", "fuck", "fart"]
 #
 
 #    Variables
