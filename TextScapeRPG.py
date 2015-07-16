@@ -1,5 +1,5 @@
 # Base game file
-# v0.81-alpha
+# v0.94-alpha
 # official version: 2.1
 
 import sys
@@ -34,13 +34,14 @@ global monsterItemsDropped
 def printStats():
     clearScreen()
     print("General Stats")
-    print("Current Coins: %i" % playerBal)
+    print("Player Coins: %i" % playerBal)
     print("Player Health: %i" % playerHP)
     print("\nFishing Stats")
     print("Cooked Fish: %i" % cookedFish)
     print("Uncooked Fish: %i" % fishCount)
     print("Amount of Bait: %i" % baitCount)
-    actionPrompt
+    time.sleep(6)
+    actionPrompt()
 def fuck():
     global playerHP
     global playerBal
@@ -175,7 +176,8 @@ def actionPrompt():
         else:
             print("this doesn't work")
     else:
-        print("broken")
+        print("Sorry, invalid option.")
+        time.sleep(2)
         clearScreen()
         actionPrompt()
 
