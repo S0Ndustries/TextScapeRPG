@@ -1,5 +1,6 @@
 # Base game file
 # v0.47-alpha
+# official version: 2.1
 
 import sys
 import time
@@ -30,6 +31,77 @@ global monsterItemsDropped
 
 # Functions
 
+def fuck():
+    global playerHP
+    global playerBal
+    fuckChoose=random.randint(1, 5)
+    if(fuckChoose==1):
+        print("You walk out onto the street...")
+        time.sleep(0.7)
+        print("You give Prostitute dirty looks.")
+        time.sleep(1)
+        print("Prostitute approaches!")
+        time.sleep(0.7)
+        print("Everything fades away.")
+        time.sleep(1)
+        print("You wake up with AIDS! You lose 25HP and 25 coins!")
+        time.sleep(1.5)
+        playerHP -= 25
+        playerBal -= 25
+        actionPrompt()
+    elif(fuckChoose==2):
+        print("You walk out onto the street...")
+        time.sleep(0.7)
+        print("You give Old Lady dirty looks.")
+        time.sleep(1)
+        print("Old Lady approaches!")
+        time.sleep(0.7)
+        print("Everything fades away.")
+        time.sleep(1)
+        print("You were pepper sprayed! You lose 10HP")
+        time.sleep(1.5)
+        playerHP -= 10
+        actionPrompt()
+    elif(fuckChoose==3):
+        print("You walk out onto the street...")
+        time.sleep(0.7)
+        print("You give Little Boy dirty looks.")
+        time.sleep(1)
+        print("Police Officer approaches!")
+        time.sleep(0.7)
+        print("Everything fades away.")
+        time.sleep(1)
+        print("You were arrested! You were fined 50 coins")
+        time.sleep(1.5)
+        playerBal -= 50
+        actionPrompt()
+    elif(fuckChoose==4):
+        print("You walk out onto the street...")
+        time.sleep(0.7)
+        print("You give Nun dirty looks.")
+        time.sleep(1)
+        print("Pope approaches!")
+        time.sleep(0.7)
+        print("Everything fades away.")
+        time.sleep(1)
+        print("You wake up with AIDS! You lost 25HP!")
+        time.sleep(1.5)
+        playerHP -= 25
+        actionPrompt()
+    elif(fuckChoose==5):
+        print("You walk out onto the street...")
+        time.sleep(0.7)
+        print("You give Prostitute dirty looks.")
+        time.sleep(1)
+        print("Prostitute approaches!")
+        time.sleep(0.7)
+        print("Everything fades away.")
+        time.sleep(1)
+        print("You wake up satisfied! You gained 25HP and lost 25 coins")
+        time.sleep(1.5)
+        playerHP += 25
+        playerBal -= 25
+        actionPrompt()
 def clearScreen():
     if(platform.system()=="Windows"):
         os.system('cls')
@@ -75,6 +147,8 @@ def actionPrompt():
             heal()
         elif(action==actionList[4]):
             help_func()
+        elif(action==actionList[5]):
+            fuck()
         else:
             print("this doesn't work")
     else:
@@ -106,9 +180,9 @@ def attackAdv():
     playerDMG = random.randint(0, 10)
     monsterDMG = random.randint(0, monsterMaxHit)
     time.sleep(0.1)
-    print("You attacked! Enemy has lost %iHP" % playerDMG)
+    print("You attacked! %s has lost %iHP" % (monsterName, playerDMG))
     time.sleep(0.1)
-    print("Enemy attacks! You lost %i HP" % monsterDMG)
+    print("%s attacks! You lost %i HP" % (monsterName, monsterDMG))
     monsterHP -= playerDMG
     playerHP -= monsterDMG
     time.sleep(0.3)
@@ -266,7 +340,7 @@ def cook():
 #
 
 # Actions
-actionList = ["fight", "fish", "cook", "heal", "help"]
+actionList = ["fight", "fish", "cook", "heal", "help", "fuck"]
 #
 
 #    Variables

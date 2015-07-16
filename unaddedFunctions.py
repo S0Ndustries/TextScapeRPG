@@ -5,6 +5,14 @@ def fishAdv():
 
 #
 
+def levellingSystem():
+    points = 0
+    for level in range(1,100):
+    diff = int(level + 300 * math.pow(2, float(level)/7) )
+    points += diff
+    str = "Level %d = %d" % (level + 1, points / 4)
+    print str
+
 def cookAdv():
    "What would you like to cool? List cookable items in inventoryList"
 
