@@ -1,5 +1,5 @@
 # Base game file
-# v0.74-alpha
+# v0.80-alpha
 # official version: 2.1
 
 import sys
@@ -33,8 +33,14 @@ global monsterItemsDropped
 
 def printStats():
     clearScreen()
-    print("Current GP: %")
-
+    print("General Stats")
+    print("Current Coins: %i" % playerBal)
+    print("Player Health: %i" % playerHP)
+    print("\nFishing Stats")
+    print("Cooked Fish: %i" % cookedFish)
+    print("Uncooked Fish: %i" % fishCount)
+    print("Amount of Bait: %i" % baitCount)
+    actionPrompt
 def fuck():
     global playerHP
     global playerBal
@@ -164,6 +170,8 @@ def actionPrompt():
             fuck()
         elif(action==actionList[6]):
             fart()
+        elif(action=actionList[7]):
+            printStats()
         else:
             print("this doesn't work")
     else:
@@ -175,6 +183,8 @@ def help_func():
     print("Fight: Begins a fight")
     print("Fish: Try to fish for food")
     print("Cook: Cook the fish, or other food")
+    print("Stats: Displays the current player stats")
+    print("Heal: Heals the player")
     print("Help: Gives general information about commands")
     time.sleep(3)
     actionPrompt()
@@ -358,7 +368,7 @@ def cook():
 #
 
 # Actions
-actionList = ["fight", "fish", "cook", "heal", "help", "fuck", "fart"]
+actionList = ["fight", "fish", "cook", "heal", "help", "fuck", "fart", "stats"]
 #
 
 #    Variables
