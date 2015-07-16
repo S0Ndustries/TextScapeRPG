@@ -1,5 +1,5 @@
 # Base game file
-# v0.47-alpha
+# v0.61-alpha
 # official version: 2.1
 
 import sys
