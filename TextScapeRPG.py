@@ -1,5 +1,5 @@
 # Base game file
-# v1.5-beta
+# v1.5.0-beta
 # official version: 2.3
 
 import sys
