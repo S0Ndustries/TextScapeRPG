@@ -1,5 +1,5 @@
 # Base game file
-# v1.5.0-beta
+# v1.6.1-beta
 # official version: 2.3
 
 import sys
@@ -64,22 +64,25 @@ def nameSelect():
             fishCount = 99
             cookedFish = 99
             caughtFish = 99
+            time.sleep(1.5)
         elif(name=="Elijah"):
             print("Welcome, Senpai.")
-            playerBal = 1000
-            playerHP = 100
+            playerBal = 1200
+            playerHP = 130
             baitCount = 0
             fishCount = 0
             cookedFish = 0
             caughtFish = 0
+            time.sleep(1.5)
         elif(name=="Evan"):
             print("Welcome, Grandmaster Evan.")
-            playerBal = 1000
-            playerHP = 100
+            playerBal = 1200
+            playerHP = 130
             baitCount = 0
             fishCount = 0
             cookedFish = 0
             caughtFish = 0
+            time.sleep(1.5)
         else:
             print("Welcome to TextScapeRPG, %s!" % name)
             playerBal = 1000
