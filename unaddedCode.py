@@ -1,12 +1,12 @@
 def bankList():
 #   slots 1 - 50
-
+    print("bankList")
 def loadingScreen():
-   print topBar
+   print(topBar)
    time.sleep(0.3)
-   print coderList
+   print(coderList)
    time.sleep(0.3)
-   print betaTesters
+   print(betaTesters)
    time.sleep(0.3)
    oloop=6
    while(oloop > 0):
@@ -74,7 +74,7 @@ memberStatus=0
 attack = 1
 strength = 1
 defence = 1
-ranged  = 1
+ranged= 1
 magic = 1
 health = 1
 crafting = 1
@@ -90,9 +90,9 @@ summoning = 1
 #
 
 def loadingBar():
-   while(loading < 11)
-   print("[" + equal + "]"
-   loading += 1
+   while(loading < 11):
+       print("[" + equal + "]"
+       loading += 1
    sleep(0.1)
 
 for i in {1..20};
@@ -115,3 +115,25 @@ def clear():
         os.system('cls')
     else:
         os.system('clear')
+
+
+def checkSys():
+    if(platform.system()=="Windows"):
+        systemType="windows"
+    else:
+        systemType="unix"
+
+
+
+class unix:
+    def clear():
+        os.system('clear')
+
+class windows:
+    def clear():
+        os.system('cls')
+
+
+print("Detecing systemType")
+time.sleep(1)
+systemType.clear()

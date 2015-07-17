@@ -74,3 +74,19 @@ def heal():
 #
 
 #
+
+
+
+
+class unix:
+    def clear():
+        os.system('clear')
+
+class windows:
+    def clear():
+        os.system('cls')
+
+
+print("Detecing systemType")
+time.sleep(1)
+systemType.clear()
