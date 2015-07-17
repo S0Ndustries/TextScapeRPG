@@ -1,5 +1,5 @@
 # Base game file
-# v1.6.2-beta
+# v1.6.3-beta
 # official version: 2.3
 
 import sys
@@ -116,18 +116,6 @@ def runGame():
     system.clear()
     # loadTitle()
     nameSelect()
-    actionPrompt()
-
-def printStats():
-    system.clear()
-    print("General Stats")
-    print("Player Coins: %i" % playerBal)
-    print("Player Health: %i" % playerHP)
-    print("\nFishing Stats")
-    print("Cooked Fish: %i" % cookedFish)
-    print("Uncooked Fish: %i" % fishCount)
-    print("Amount of Bait: %i" % baitCount)
-    time.sleep(6)
     actionPrompt()
 
 def fuck():
