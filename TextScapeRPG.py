@@ -1,5 +1,5 @@
 # Base game file
-# v1.06-alpha
+# v1.07-alpha
 # official version: 2.1
 
 import sys
@@ -361,7 +361,7 @@ def cook():
             cook()
     if(cookAction > fishCount):
         print("\nYou don't have that many fish!")
-    elif(cookAction <= fishCount):
+    elif(cookAction <= fishCount and cookAction > 0):
         fishCount -= cookAction
         cookedFish += cookAction
         print("\nYou have cooked %i fish!" % cookAction)
@@ -369,7 +369,8 @@ def cook():
         time.sleep(1)
         actionPrompt()
     else:
-        print("Broken code in cook():")
+        clearScreen()
+        cook()
 
 def printTitle():
     print("\n                                   Welcome to                                   \n"); time.sleep(0.3);
