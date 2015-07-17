@@ -1,5 +1,5 @@
 # Base game file
-# v1.4.0-beta
+# v1.4.1-beta
 # official version: 2.1
 
 import sys
@@ -161,7 +161,7 @@ def actionPrompt():
     clearScreen()
     print("What would you like to do?")
     print("Enter 'help' for more options.")
-    action=input("Action: ")
+    action=input("Action: ").lower()
     if (action in actionList):
         if (action==actionList[0]):
             prefight()
@@ -181,12 +181,13 @@ def actionPrompt():
         elif(action==actionList[7]):
             stats.init()
         elif(action==actionList[8]):
+            clearScreen()
             exit()
         else:
             print("this doesn't work")
     else:
         print("Sorry, invalid option.")
-        time.sleep(2)
+        time.sleep(1)
         clearScreen()
         actionPrompt()
 
