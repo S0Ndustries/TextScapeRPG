@@ -1,5 +1,5 @@
 # Base game file
-# v1.3.0-beta
+# v1.3.1-beta
 # official version: 2.1
 
 import sys
@@ -15,11 +15,13 @@ global playerBal
 global baitCount
 global fishCount
 global cookedFish
+global caughtFish
 playerBal = 1000
 playerHP = 100
 baitCount = 0
 fishCount = 3
 cookedFish = 0
+caughtFish = 0
 # Global monster stats
 global monsterGoblin
 global monsterName
@@ -30,7 +32,7 @@ global monsterCoins
 global monsterItemsDropped
 
 # Functions
-class stats():
+class stats:
     def init():
         clearScreen()
         stats.general()
@@ -42,9 +44,11 @@ class stats():
         print("Player Coins: %i" % playerBal)
         print("Player Health: %i" % playerHP)
     def fish():
+        print("\nFishing Stats")
         print("Cooked Fish: %i" % cookedFish)
         print("Uncooked Fish: %i" % fishCount)
         print("Amount of Bait: %i" % baitCount)
+        print("Total Fish Caught: %i" % caughtFish)
 def fuck():
     global playerHP
     global playerBal
@@ -333,6 +337,7 @@ class fish:
         print("You have caught: %a" % fishCatch[fishChoose])
         baitCount -= 1
         fishCount += 1
+        caughtFish += 1
         time.sleep(0.6)
         fish.init()
     def buyBait():
@@ -357,7 +362,7 @@ class fish:
             print("That's not an option!")
             fish.buyBait()
 
-class cook():
+class cook:
     def init():
         global cookAmount
         print("\nYou habe %i raw fish & %i cooked fish." % (fishCount, cookedFish))
