@@ -1,6 +1,6 @@
 # Base game file
-# v1.4.1-beta
-# official version: 2.1
+# v1.5-beta
+# official version: 2.3
 
 import sys
 import time
@@ -16,12 +16,6 @@ global baitCount
 global fishCount
 global cookedFish
 global caughtFish
-playerBal = 1000
-playerHP = 100
-baitCount = 0
-fishCount = 3
-cookedFish = 0
-caughtFish = 0
 # Global monster stats
 global monsterGoblin
 global monsterName
@@ -32,6 +26,64 @@ global monsterCoins
 global monsterItemsDropped
 
 # Functions
+def clearScreen():
+    if(platform.system()=="Windows"):
+        os.system('cls')
+    else:
+        os.system('clear')
+
+def loadTitle():
+    s = "\n                                   Welcome to                                   \n\nd888888P                   dP   .d88888b                                      \n   88                      88   88.    \"'                                     \n   88  .d8888b. dP.  .dP d8888P `Y88888b. .d8888b. .d8888b. 88d888b. .d8888b. \n   88  88ooood8  `8bd8'    88         `8b 88'  `\"\" 88'  `88 88'  `88 88ooood8 \n   88  88.  ...  .d88b.    88   d8'   .8P 88.  ... 88.  .88 88.  .88 88.  ... \n   dP  `88888P' dP'  `dP   dP   `Y88888P' `88888P' `88888P8 88Y888P' `88888P' \n                                                            88                \n                                                            dP                \n"
+    for c in s:
+        sys.stdout.write('%s' % c )
+        sys.stdout.flush()
+        time.sleep(0.010)
+def nameSelect():
+    global playerHP
+    global monsterHP
+    global playerBal
+    global baitCount
+    global fishCount
+    global cookedFish
+    global caughtFish
+    bonusNames = ["Elijah", "Evan", "betaTest"]
+    print("Please enter your name!")
+    name = input("Name: ")
+    if(name in bonusNames):
+        if(name=="betaTest"):
+            playerBal = 9999
+            playerHP = 999
+            baitCount = 99
+            fishCount = 99
+            cookedFish = 99
+            caughtFish = 99
+        elif(name=="Elijah"):
+            print("Welcome, Senpai.")
+            playerBal = 1000
+            playerHP = 100
+            baitCount = 0
+            fishCount = 0
+            cookedFish = 0
+            caughtFish = 0
+        elif(name=="Evan"):
+            print("Welcome, Grandmaster Evan.")
+            playerBal = 1000
+            playerHP = 100
+            baitCount = 0
+            fishCount = 0
+            cookedFish = 0
+            caughtFish = 0
+        else:
+            print("Welcome to TextScapeRPG, %s!" % name)
+            playerBal = 1000
+            playerHP = 100
+            baitCount = 0
+            fishCount = 0
+            cookedFish = 0
+            caughtFish = 0
+    else:
+        return
+
 class stats:
     def init():
         clearScreen()
@@ -49,6 +101,25 @@ class stats:
         print("Uncooked Fish: %i" % fishCount)
         print("Amount of Bait: %i" % baitCount)
         print("Total Fish Caught: %i" % caughtFish)
+
+def runGame():
+    clearScreen()
+    # loadTitle()
+    nameSelect()
+    actionPrompt()
+
+def printStats():
+    clearScreen()
+    print("General Stats")
+    print("Player Coins: %i" % playerBal)
+    print("Player Health: %i" % playerHP)
+    print("\nFishing Stats")
+    print("Cooked Fish: %i" % cookedFish)
+    print("Uncooked Fish: %i" % fishCount)
+    print("Amount of Bait: %i" % baitCount)
+    time.sleep(6)
+    actionPrompt()
+
 def fuck():
     global playerHP
     global playerBal
@@ -129,11 +200,6 @@ def fart():
     time.sleep(1.5)
     actionPrompt()
 
-def clearScreen():
-    if(platform.system()=="Windows"):
-        os.system('cls')
-    else:
-        os.system('clear')
 
 def selectMonster():
     global monsterName
@@ -397,18 +463,6 @@ class cook:
             clearScreen()
             cook.init()
 
-def printTitle():
-    print("\n                                   Welcome to                                   \n"); time.sleep(0.3);
-    print("d888888P                     dP   ", end="",flush=True); time.sleep(0.3); print(".d88888b                                      "); time.sleep(0.3)
-    print("   88                        88   ", end="",flush=True); time.sleep(0.3); print("88.    \"'                                     "); time.sleep(0.3)
-    print("   88    .d8888b. dP.  .dP d8888P ", end="",flush=True); time.sleep(0.3); print("`Y88888b. .d8888b. .d8888b. 88d888b. .d8888b. "); time.sleep(0.3)
-    print("   88    88ooood8  `8bd8'    88   ", end="",flush=True); time.sleep(0.3); print("      `8b 88'  `\"\" 88'  `88 88'  `88 88ooood8 "); time.sleep(0.3)
-    print("   88    88.  ...  .d88b.    88   ", end="",flush=True); time.sleep(0.3); print("d8'   .8P 88.  ... 88.  .88 88.  .88 88.  ... "); time.sleep(0.3)
-    print("   dP    `88888P' dP'  `dP   dP   ", end="",flush=True); time.sleep(0.3); print(" Y88888P  `88888P' `88888P8 88Y888P' `88888P' "); time.sleep(0.3)
-    print("                                  ", end="",flush=True); time.sleep(0.3); print("                            88                "); time.sleep(0.3)
-    print("                                  ", end="",flush=True); time.sleep(0.3); print("                            dP                "); time.sleep(7)
-#
-
 # Actions
 actionList = ["fight", "fish", "cook", "heal", "help", "fuck", "fart", "stats", "exit"]
 #
@@ -448,6 +502,4 @@ monsterList=["null",monsterGoblin,monsterSkeleton,monsterRat,monsterThief,monste
 #
 
 # Run program
-clearScreen()
-printTitle()
-actionPrompt()
+runGame()
