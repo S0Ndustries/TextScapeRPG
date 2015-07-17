@@ -1,5 +1,5 @@
 # Base game file
-# v1.3.1-beta
+# v1.4.0-beta
 # official version: 2.1
 
 import sys
@@ -180,6 +180,8 @@ def actionPrompt():
             fart()
         elif(action==actionList[7]):
             stats.init()
+        elif(action==actionList[8]):
+            exit()
         else:
             print("this doesn't work")
     else:
@@ -195,6 +197,7 @@ def help_func():
     print("Stats: Displays the current player stats")
     print("Heal: Heals the player")
     print("Help: Gives general information about commands")
+    print("Exit: Closes the game")
     time.sleep(3)
     actionPrompt()
 def attackOpt():
@@ -406,7 +409,7 @@ def printTitle():
 #
 
 # Actions
-actionList = ["fight", "fish", "cook", "heal", "help", "fuck", "fart", "stats"]
+actionList = ["fight", "fish", "cook", "heal", "help", "fuck", "fart", "stats", "exit"]
 #
 
 #    Variables
