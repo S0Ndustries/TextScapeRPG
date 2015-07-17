@@ -1,5 +1,5 @@
 # Base game file
-# v1.2.3-beta
+# v1.2.4-beta
 # official version: 2.1
 
 import sys
@@ -365,9 +365,9 @@ class cook():
         else:
             try:
                 cookAmount=int(cookAction)
-                cook.cookFish()
             except:
                 cook.init()
+            cook.cookFish()
     def cookFish():
         global cookAmount
         if(cookAmount > fishCount):
