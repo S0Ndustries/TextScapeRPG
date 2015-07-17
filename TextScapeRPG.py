@@ -1,5 +1,5 @@
 # Base game file
-# v1.21-beta
+# v1.22-beta
 # official version: 2.1
 
 import sys
@@ -370,12 +370,12 @@ class cook():
                 cook.init()
     def cookFish():
         global cookAmount
-        if(cookAction > fishCount):
+        if(cookAmount > fishCount):
             print("\nYou don't have that many fish!")
-        elif(cookAction <= fishCount and cookAction > 0):
+        elif(cookAmount <= fishCount and cookAmount > 0):
             fishCount -= cookAmount
             cookedFish += cookAmount
-            print("\nYou have cooked %i fish!" % cookAction)
+            print("\nYou have cooked %i fish!" % cookAmount)
             print("You now have %i raw fish & %i cooked fish!" % (fishCount, cookedFish))
             time.sleep(1)
             actionPrompt()
