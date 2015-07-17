@@ -1,5 +1,5 @@
 # Base game file
-# v1.6.3-beta
+# v1.7.0-beta
 # official version: 2.3
 
 import sys
@@ -265,109 +265,84 @@ def help_func():
     print("Exit: Closes the game")
     time.sleep(3)
     actionPrompt()
-def attackOpt():
-    print("You attacked!")
-    global monsterHP
-    global playerHP
-    print("Enemy has lost 5 HP")
-    time.sleep(0.3)
-    print("Enemy attacks! You lost 1 HP")
-    monsterHP -= 5
-    playerHP -= 1
-def attackAdv():
-    system.clear()
-    global monsterHP
-    global playerHP
-    global monsterMaxHit
-    playerDMG = random.randint(0, 10)
-    monsterDMG = random.randint(0, monsterMaxHit)
-    time.sleep(0.1)
-    print("You attacked! %s has lost %iHP" % (monsterName, playerDMG))
-    time.sleep(0.1)
-    print("%s attacks! You lost %i HP" % (monsterName, monsterDMG))
-    monsterHP -= playerDMG
-    playerHP -= monsterDMG
-    time.sleep(0.3)
-def run():
-    print("You have run away!")
-    time.sleep(0.1)
-    actionPrompt()
-def heal():
-    global cookedFish
-    global playerHP
-    if(cookedFish > 0):
-        print("\nYou have healed 5 HP! You have %i cooked fish left" % cookedFish)
-        playerHP += 5
-        print("Your health is %i" % playerHP)
-        cookedFish -= 1
-        time.sleep(0.8)
-        actionPrompt()
-    else:
-        print("\nNot enough cooked fish!")
-        time.sleep(0.6)
-        actionPrompt()
 
-
-def prefight():
-    system.clear()
-    selectMonster()
-    global monsterName
-    global monsterXP
-    print("")
-    print(monsterName + " has appeared! HP:" + str(monsterHP))
-    print("")
-    time.sleep(1)
-    fightAdv()
-
-def fight():
-    while(enemyHP > 1):
-        fightActionList = ["a","h","r"]
-        print("Your health: %i, enemy health: %i " % (playerHP, enemyHP))
-        print("Type 'a' to attack, 'h' to heal, or 'r' to run!")
-        action=input("Fight action: ")
-        if (action in fightActionList):
-             if (action==fightActionList[0]):
-                attackOpt()
-             elif(action==fightActionList[1]):
-                heal()
-             elif(action==fightActionList[2]):
-                run()
-             else:
-                print("Something's up...")
-def fightAdv():
-    system.clear()
-    global monsterGoblin
-    global monsterName
-    global monsterHP
-    global monsterMaxHit
-    global monsterXP
-    global monsterCoins
-    global monsterItemsDropped
-    global playerBal
-    while(monsterHP > 0):
-        fightActionList = ["a","h","r"]
-        print("\nYour HP: %i || Monster HP: %i" % (playerHP, monsterHP))
-        print("Type 'a' to attack, 'h' to heal, or 'r' to run!")
-        action=input("Fight action: ")
-        if (action in fightActionList):
-             if (action==fightActionList[0]):
-                attackAdv()
-             elif(action==fightActionList[1]):
-                heal()
-             elif(action==fightActionList[2]):
-                run()
-             else:
-                print("Something's up...")
-    else:
-        if(playerHP < 0):
-            print("You Lost")
-            # Loss code here
-        else:
-            playerBal += monsterCoins
-            time.sleep(3)
-            print("You earned %i coins! Your balance is now: %i" % (monsterCoins, playerBal))
-            time.sleep(1)
+class fight:
+    def heal():
+        global cookedFish
+        global playerHP
+        if(cookedFish > 0):
+            print("\nYou have healed 5 HP! You have %i cooked fish left" % cookedFish)
+            playerHP += 5
+            print("Your health is %i" % playerHP)
+            cookedFish -= 1
+            time.sleep(0.8)
             actionPrompt()
+        else:
+            print("\nNot enough cooked fish!")
+            time.sleep(0.6)
+            actionPrompt()
+    def run():
+        print("You have run away!")
+        time.sleep(0.1)
+        actionPrompt()
+    def prefight():
+        system.clear()
+        selectMonster()
+        global monsterName
+        global monsterXP
+        print("")
+        print(monsterName + " has appeared! HP:" + str(monsterHP))
+        print("")
+        time.sleep(1)
+        fight.adv()
+    def attackAdv():
+        system.clear()
+        global monsterHP
+        global playerHP
+        global monsterMaxHit
+        playerDMG = random.randint(0, 10)
+        monsterDMG = random.randint(0, monsterMaxHit)
+        time.sleep(0.1)
+        print("You attacked! %s has lost %i HP" % (monsterName, playerDMG))
+        time.sleep(0.1)
+        print("%s attacks! You lost %i HP" % (monsterName, monsterDMG))
+        monsterHP -= playerDMG
+        playerHP -= monsterDMG
+        time.sleep(0.3)
+    def init():
+        system.clear()
+        global monsterGoblin
+        global monsterName
+        global monsterHP
+        global monsterMaxHit
+        global monsterXP
+        global monsterCoins
+        global monsterItemsDropped
+        global playerBal
+        while(monsterHP > 0):
+            fightActionList = ["a","h","r"]
+            print("\nYour HP: %i || Monster HP: %i" % (playerHP, monsterHP))
+            print("Type 'a' to attack, 'h' to heal, or 'r' to run!")
+            action=input("Fight action: ")
+            if(action in fightActionList):
+                if (action==fightActionList[0]):
+                    fight.attackAdv()
+                elif(action==fightActionList[1]):
+                    fight.heal()
+                elif(action==fightActionList[2]):
+                    fight.run()
+                else:
+                    print("Something's up...")
+        else:
+            if(playerHP < 0):
+                print("You Lost")
+                # Loss code here
+            else:
+                playerBal += monsterCoins
+                time.sleep(3)
+                print("You earned %i coins! Your balance is now: %i" % (monsterCoins, playerBal))
+                time.sleep(1)
+                actionPrompt()
 
 class fish:
     def init():
