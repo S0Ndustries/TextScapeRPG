@@ -1,5 +1,5 @@
 # Base game file
-# v1.7.6-beta
+# v1.7.7-beta
 # official version: 2.3
 
 import sys
@@ -214,12 +214,6 @@ def selectMonster():
     monsterXP=int(monster[3])
     monsterCoins=int(monster[4])
     monsterItemsDropped=monster[5]
-
-        # array([[ 0.,  0.,  0.,  0.,  0.],
-        # [ 0.,  0.,  0.,  0.,  0.],
-        # [ 0.,  0.,  0.,  0.,  0.],
-        # [ 0.,  0.,  0.,  0.,  0.],
-        # [ 0.,  0.,  0.,  0.,  0.]])
 
 def actionPrompt():
     system.clear()
