@@ -1,5 +1,5 @@
 # Base game file
-# v1.7.4-beta
+# v1.7.6-beta
 # official version: 2.3
 
 import sys
@@ -280,7 +280,7 @@ class fight:
         else:
             print("\nNot enough cooked fish!")
             time.sleep(0.6)
-            actionPrompt()
+            fight.ask()
     def run():
         print("You have run away!")
         time.sleep(0.1)
@@ -294,7 +294,7 @@ class fight:
         print(monsterName + " has appeared! HP:" + str(monsterHP))
         print("")
         time.sleep(1)
-        fight.adv()
+        fight.ask()
     def message():
         system.clear()
         global monsterHP
@@ -309,7 +309,7 @@ class fight:
         monsterHP -= playerDMG
         playerHP -= monsterDMG
         time.sleep(0.3)
-    def init():
+    def ask():
         system.clear()
         global monsterGoblin
         global monsterName
