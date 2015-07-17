@@ -1,5 +1,5 @@
 # Base game file
-# v1.6.1-beta
+# v1.6.2-beta
 # official version: 2.3
 
 import sys
@@ -35,9 +35,9 @@ class windows:
         os.system('cls')
 
 if platform.system()=="Windows":
-    systemType = windows
+    system = windows
 else:
-    systemType = unix
+    system = unix
 
 def loadTitle():
     s = "\n                                   Welcome to                                   \n\nd888888P                   dP   .d88888b                                      \n   88                      88   88.    \"'                                     \n   88  .d8888b. dP.  .dP d8888P `Y88888b. .d8888b. .d8888b. 88d888b. .d8888b. \n   88  88ooood8  `8bd8'    88         `8b 88'  `\"\" 88'  `88 88'  `88 88ooood8 \n   88  88.  ...  .d88b.    88   d8'   .8P 88.  ... 88.  .88 88.  .88 88.  ... \n   dP  `88888P' dP'  `dP   dP   `Y88888P' `88888P' `88888P8 88Y888P' `88888P' \n                                                            88                \n                                                            dP                \n"
@@ -57,15 +57,14 @@ def nameSelect():
     print("Please enter your name!")
     name = input("Name: ")
     if(name in bonusNames):
-        if(name=="betaTest"):
+        if(name==bonusNames[2]):
             playerBal = 9999
             playerHP = 999
             baitCount = 99
             fishCount = 99
             cookedFish = 99
             caughtFish = 99
-            time.sleep(1.5)
-        elif(name=="Elijah"):
+        elif(name==bonusNames[0]):
             print("Welcome, Senpai.")
             playerBal = 1200
             playerHP = 130
@@ -74,7 +73,7 @@ def nameSelect():
             cookedFish = 0
             caughtFish = 0
             time.sleep(1.5)
-        elif(name=="Evan"):
+        elif(name==bonusNames[1]):
             print("Welcome, Grandmaster Evan.")
             playerBal = 1200
             playerHP = 130
@@ -84,19 +83,20 @@ def nameSelect():
             caughtFish = 0
             time.sleep(1.5)
         else:
-            print("Welcome to TextScapeRPG, %s!" % name)
-            playerBal = 1000
-            playerHP = 100
-            baitCount = 0
-            fishCount = 0
-            cookedFish = 0
-            caughtFish = 0
+            print("Missing code for bonusName %s" name)
     else:
-        return
+        print("Welcome to TextScapeRPG, %s!" % name)
+        playerBal = 1000
+        playerHP = 100
+        baitCount = 0
+        fishCount = 0
+        cookedFish = 0
+        caughtFish = 0
+        time.sleep(1.5)
 
 class stats:
     def init():
-        systemType.clear()
+        system.clear()
         stats.general()
         stats.fish()
         time.sleep(6)
@@ -113,13 +113,13 @@ class stats:
         print("Total Fish Caught: %i" % caughtFish)
 
 def runGame():
-    systemType.clear()
+    system.clear()
     # loadTitle()
     nameSelect()
     actionPrompt()
 
 def printStats():
-    systemType.clear()
+    system.clear()
     print("General Stats")
     print("Player Coins: %i" % playerBal)
     print("Player Health: %i" % playerHP)
@@ -234,7 +234,7 @@ def selectMonster():
         # [ 0.,  0.,  0.,  0.,  0.]])
 
 def actionPrompt():
-    systemType.clear()
+    system.clear()
     print("What would you like to do?")
     print("Enter 'help' for more options.")
     action=input("Action: ").lower()
@@ -257,14 +257,14 @@ def actionPrompt():
         elif(action==actionList[7]):
             stats.init()
         elif(action==actionList[8]):
-            systemType.clear()
+            system.clear()
             exit()
         else:
             print("this doesn't work")
     else:
         print("Sorry, invalid option.")
         time.sleep(1)
-        systemType.clear()
+        system.clear()
         actionPrompt()
 
 def help_func():
@@ -287,7 +287,7 @@ def attackOpt():
     monsterHP -= 5
     playerHP -= 1
 def attackAdv():
-    systemType.clear()
+    system.clear()
     global monsterHP
     global playerHP
     global monsterMaxHit
@@ -321,7 +321,7 @@ def heal():
 
 
 def prefight():
-    systemType.clear()
+    system.clear()
     selectMonster()
     global monsterName
     global monsterXP
@@ -347,7 +347,7 @@ def fight():
              else:
                 print("Something's up...")
 def fightAdv():
-    systemType.clear()
+    system.clear()
     global monsterGoblin
     global monsterName
     global monsterHP
@@ -383,7 +383,7 @@ def fightAdv():
 
 class fish:
     def init():
-        systemType.clear()
+        system.clear()
         print("What would you like to do?")
         print("Type 'f' to fish, 'b' to buy bait, or 'e' to exit")
         fishAction=input("Fish action:")
@@ -470,7 +470,7 @@ class cook:
             time.sleep(1)
             actionPrompt()
         else:
-            systemType.clear()
+            system.clear()
             cook.init()
 
 # Actions
