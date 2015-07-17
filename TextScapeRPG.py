@@ -1,5 +1,5 @@
 # Base game file
-# v1.08-beta
+# v1.10-beta
 # official version: 2.1
 
 import sys
@@ -159,7 +159,7 @@ def actionPrompt():
         if (action==actionList[0]):
             prefight()
         elif(action==actionList[1]):
-            fish()
+            fish.init()
         elif(action==actionList[2]):
             #Jesse, we need to-
             cook()
@@ -294,34 +294,46 @@ def fightAdv():
             time.sleep(1)
             actionPrompt()
 
-def fish():
-    clearScreen()
-    global baitCount
-    global fishCount
-    global playerBal
-    print("What would you like to do?")
-    print("Type 'f' to fish, 'b' to buy bait, or 'e' to exit")
-    fishAction=input("Fish action:")
-    if(fishAction=="f"):
-        if(baitCount == 0):
+class fish:
+    def init():
+        clearScreen()
+        print("What would you like to do?")
+        print("Type 'f' to fish, 'b' to buy bait, or 'e' to exit")
+        fishAction=input("Fish action:")
+        if(fishAction=="f"):
+            fish.checkBait()
+        elif(fishAction=="b"):
+            fish.buyBait()
+        elif(fishAction=="e"):
+            actionPrompt()
+        else:
+            print("Invalid action!")
+            fish.init()
+    def checkBait():
+        if (baitCount == 0):
             print("You don't have any bait!")
             time.sleep(0.5)
-            fish()
+            fish.init()
         else:
-            fishCatch=["null", "Catfish", "Carp", "Salmon", "Whale, somehow"]
-            fishChoose=random.randint(1, 4)
-            print("You cast your line..")
-            time.sleep(0.2)
-            print("You feel a bite!")
-            time.sleep(0.2)
-            print("You reel in your fish!")
-            time.sleep(0.2)
-            print("You have caught: %a" % fishCatch[fishChoose])
-            baitCount -= 1
-            fishCount += 1
-            time.sleep(0.6)
-            fish()
-    if(fishAction=="b"):
+            fish.fish()
+    def fishing():
+        global baitCount
+        global fishCount
+        fishCatch=["null", "Catfish", "Carp", "Salmon", "Whale, somehow"]
+        fishChoose=random.randint(1, 4)
+        print("You cast your line..")
+        time.sleep(0.2)
+        print("You feel a bite!")
+        time.sleep(0.2)
+        print("You reel in your fish!")
+        time.sleep(0.2)
+        print("You have caught: %a" % fishCatch[fishChoose])
+        baitCount -= 1
+        fishCount += 1
+        time.sleep(0.6)
+    def buyBait():
+        global playerBal
+        global baitCount
         print("\nWould you like to purchase some bait for 3 coins?")
         print("Your balance: %i" % playerBal)
         print("Type 'y' to buy 3 bait, or 'n' to cancel.")
@@ -332,19 +344,14 @@ def fish():
                 playerBal -= 3
                 baitCount += 3
                 time.sleep(0.3)
-                fish()
+                fish.init()
             else:
                 print("You don't have enough coins!")
         elif (buyBait == "n"):
-            print("That's not an option!")
-            fish()
+            fish.init()
         else:
-            fish()
-    if(fishAction=="e"):
-        actionPrompt()
-    else:
-        print("Invalid action!")
-        actionPrompt()
+            print("That's not an option!")
+            fish.buyBait()
 
 def cook():
     global fishCount
