@@ -1,5 +1,5 @@
 # Base game file
-# v1.00-alpha
+# v1.06-alpha
 # official version: 2.1
 
 import sys
@@ -354,19 +354,22 @@ def cook():
     cookAction=input("Cook action: ")
     if(cookAction=="e"):
         actionPrompt()
-    elif(type(cookAction) == int):
-        cookAction=int(cookAction)
-        if(cookAction > fishCount):
-            print("\nYou don't have that many fish!")
-        elif(cookAction <= fishCount):
-            fishCount -= cookAction
-            cookedFish += cookAction
-            print("\nYou have cooked %i fish!" % cookAction)
-            print("You now have %i raw fish & %i cooked fish!" % (fishCount, cookedFish))
-            time.sleep(1)
-            actionPrompt()
     else:
-        cook()
+        try:
+            cookAction=int(cookAction)
+        except:
+            cook()
+    if(cookAction > fishCount):
+        print("\nYou don't have that many fish!")
+    elif(cookAction <= fishCount):
+        fishCount -= cookAction
+        cookedFish += cookAction
+        print("\nYou have cooked %i fish!" % cookAction)
+        print("You now have %i raw fish & %i cooked fish!" % (fishCount, cookedFish))
+        time.sleep(1)
+        actionPrompt()
+    else:
+        print("Broken code in cook():")
 
 def printTitle():
     print("\n                                   Welcome to                                   \n"); time.sleep(0.3);
@@ -417,5 +420,6 @@ monsterList=["null",monsterGoblin,monsterSkeleton,monsterRat,monsterThief]
 #
 
 # Run program
+clearScreen()
 printTitle()
 actionPrompt()
