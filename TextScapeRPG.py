@@ -1,5 +1,5 @@
 # Base game file
-# v1.7.0-beta
+# v1.7.3-beta
 # official version: 2.3
 
 import sys
@@ -83,7 +83,7 @@ def nameSelect():
             caughtFish = 0
             time.sleep(1.5)
         else:
-            print("Missing code for bonusName %s" name)
+            print("Missing code for bonusName %s" % name)
     else:
         print("Welcome to TextScapeRPG, %s!" % name)
         playerBal = 1000
@@ -228,7 +228,7 @@ def actionPrompt():
     action=input("Action: ").lower()
     if (action in actionList):
         if (action==actionList[0]):
-            prefight()
+            fight.setup()
         elif(action==actionList[1]):
             fish.init()
         elif(action==actionList[2]):
@@ -285,7 +285,7 @@ class fight:
         print("You have run away!")
         time.sleep(0.1)
         actionPrompt()
-    def prefight():
+    def setup():
         system.clear()
         selectMonster()
         global monsterName
