@@ -26,11 +26,18 @@ global monsterCoins
 global monsterItemsDropped
 
 # Functions
-def clearScreen():
-    if(platform.system()=="Windows"):
-        os.system('cls')
-    else:
+class unix:
+    def clear():
         os.system('clear')
+
+class windows:
+    def clear():
+        os.system('cls')
+
+if platform.system()=="Windows":
+    systemType = windows
+else:
+    systemType = unix
 
 def loadTitle():
     s = "\n                                   Welcome to                                   \n\nd888888P                   dP   .d88888b                                      \n   88                      88   88.    \"'                                     \n   88  .d8888b. dP.  .dP d8888P `Y88888b. .d8888b. .d8888b. 88d888b. .d8888b. \n   88  88ooood8  `8bd8'    88         `8b 88'  `\"\" 88'  `88 88'  `88 88ooood8 \n   88  88.  ...  .d88b.    88   d8'   .8P 88.  ... 88.  .88 88.  .88 88.  ... \n   dP  `88888P' dP'  `dP   dP   `Y88888P' `88888P' `88888P8 88Y888P' `88888P' \n                                                            88                \n                                                            dP                \n"
@@ -86,7 +93,7 @@ def nameSelect():
 
 class stats:
     def init():
-        clearScreen()
+        systemType.clear()
         stats.general()
         stats.fish()
         time.sleep(6)
@@ -103,13 +110,13 @@ class stats:
         print("Total Fish Caught: %i" % caughtFish)
 
 def runGame():
-    clearScreen()
+    systemType.clear()
     # loadTitle()
     nameSelect()
     actionPrompt()
 
 def printStats():
-    clearScreen()
+    systemType.clear()
     print("General Stats")
     print("Player Coins: %i" % playerBal)
     print("Player Health: %i" % playerHP)
@@ -224,7 +231,7 @@ def selectMonster():
         # [ 0.,  0.,  0.,  0.,  0.]])
 
 def actionPrompt():
-    clearScreen()
+    systemType.clear()
     print("What would you like to do?")
     print("Enter 'help' for more options.")
     action=input("Action: ").lower()
@@ -247,14 +254,14 @@ def actionPrompt():
         elif(action==actionList[7]):
             stats.init()
         elif(action==actionList[8]):
-            clearScreen()
+            systemType.clear()
             exit()
         else:
             print("this doesn't work")
     else:
         print("Sorry, invalid option.")
         time.sleep(1)
-        clearScreen()
+        systemType.clear()
         actionPrompt()
 
 def help_func():
@@ -277,7 +284,7 @@ def attackOpt():
     monsterHP -= 5
     playerHP -= 1
 def attackAdv():
-    clearScreen()
+    systemType.clear()
     global monsterHP
     global playerHP
     global monsterMaxHit
@@ -311,7 +318,7 @@ def heal():
 
 
 def prefight():
-    clearScreen()
+    systemType.clear()
     selectMonster()
     global monsterName
     global monsterXP
@@ -337,7 +344,7 @@ def fight():
              else:
                 print("Something's up...")
 def fightAdv():
-    clearScreen()
+    systemType.clear()
     global monsterGoblin
     global monsterName
     global monsterHP
@@ -373,7 +380,7 @@ def fightAdv():
 
 class fish:
     def init():
-        clearScreen()
+        systemType.clear()
         print("What would you like to do?")
         print("Type 'f' to fish, 'b' to buy bait, or 'e' to exit")
         fishAction=input("Fish action:")
@@ -460,7 +467,7 @@ class cook:
             time.sleep(1)
             actionPrompt()
         else:
-            clearScreen()
+            systemType.clear()
             cook.init()
 
 # Actions
