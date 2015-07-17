@@ -1,5 +1,5 @@
 # Base game file
-# v1.07-beta
+# v1.08-beta
 # official version: 2.1
 
 import sys
@@ -417,7 +417,7 @@ monsterGoblin =   ["Goblin",   50, 8,  25, 3,    "Bones"]
 monsterSkeleton = ["Skeleton", 30, 10, 15, 5,    "Bones"]
 monsterRat =      ["Rat",      10, 1,  5,  0,    "Bones"]
 monsterThief =    ["Thief",    75, 15, 38, 100,  "Bones"]
-monsertWolf =     ["Wolf",     18, 12, 15, 0,    "Bones"]
+monsterWolf =     ["Wolf",     18, 12, 15, 0,    "Bones"]
 monsterTroll =    ["Troll",    40, 9,  20, 15,   "Bones"]
 monsterList=["null",monsterGoblin,monsterSkeleton,monsterRat,monsterThief,monsterWolf,monsterTroll]
 #
