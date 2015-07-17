@@ -1,5 +1,5 @@
 # Base game file
-# v1.11-beta
+# v1.20-beta
 # official version: 2.1
 
 import sys
@@ -162,7 +162,7 @@ def actionPrompt():
             fish.init()
         elif(action==actionList[2]):
             #Jesse, we need to-
-            cook()
+            cook.init()
         elif(action==actionList[3]):
             heal()
         elif(action==actionList[4]):
@@ -354,31 +354,33 @@ class fish:
             print("That's not an option!")
             fish.buyBait()
 
-def cook():
-    global fishCount
-    global cookedFish
-    print("\nYou have %i raw fish & %i cooked fish." % (fishCount, cookedFish))
-    print("Type the amount you'd like to cook, or 'e' to exit!")
-    cookAction=input("Cook action: ")
-    if(cookAction=="e"):
-        actionPrompt()
-    else:
-        try:
-            cookAction=int(cookAction)
-        except:
-            cook()
-    if(cookAction > fishCount):
-        print("\nYou don't have that many fish!")
-    elif(cookAction <= fishCount and cookAction > 0):
-        fishCount -= cookAction
-        cookedFish += cookAction
-        print("\nYou have cooked %i fish!" % cookAction)
-        print("You now have %i raw fish & %i cooked fish!" % (fishCount, cookedFish))
-        time.sleep(1)
-        actionPrompt()
-    else:
-        clearScreen()
-        cook()
+class cook():
+    def init():
+        global cookAmount
+        print("\nYou habe %i raw fish & %i cooked fish." % (fishCount, cookedFish))
+        print("Type the amount you'd like to cook, or 'e' to exit!")
+        cookAction=input("Cook action: ")
+        if(cookAction=="e"):
+            actionPrompt()
+        else:
+            try:
+                cookAmount=int(cookAction)
+            except:
+                cook.init()
+    def cookFish():
+        global cookAmount
+        if(cookAction > fishCount):
+            print("\nYou don't have that many fish!")
+        elif(cookAction <= fishCount and cookAction > 0):
+            fishCount -= cookAmount
+            cookedFish += cookAmount
+            print("\nYou have cooked %i fish!" % cookAction)
+            print("You now have %i raw fish & %i cooked fish!" % (fishCount, cookedFish))
+            time.sleep(1)
+            actionPrompt()
+        else:
+            clearScreen()
+            cook.init()
 
 def printTitle():
     print("\n                                   Welcome to                                   \n"); time.sleep(0.3);

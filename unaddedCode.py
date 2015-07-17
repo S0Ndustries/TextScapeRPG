@@ -98,7 +98,7 @@ summoning = 1
 
 def loadingBar():
    while(loading < 11)
-   print(“[“ + equal + “]”
+   print("[" + equal + "]"
    loading += 1
    sleep(0.1)
 
