@@ -1,5 +1,5 @@
 # Base game file
-# v1.10-beta
+# v1.11-beta
 # official version: 2.1
 
 import sys
@@ -315,22 +315,23 @@ class fish:
             time.sleep(0.5)
             fish.init()
         else:
-            fish.fish()
+            fish.fishing()
     def fishing():
         global baitCount
         global fishCount
         fishCatch=["null", "Catfish", "Carp", "Salmon", "Whale, somehow"]
         fishChoose=random.randint(1, 4)
         print("You cast your line..")
-        time.sleep(0.2)
+        time.sleep(0.5)
         print("You feel a bite!")
-        time.sleep(0.2)
+        time.sleep(0.3)
         print("You reel in your fish!")
         time.sleep(0.2)
         print("You have caught: %a" % fishCatch[fishChoose])
         baitCount -= 1
         fishCount += 1
         time.sleep(0.6)
+        fish.init()
     def buyBait():
         global playerBal
         global baitCount
