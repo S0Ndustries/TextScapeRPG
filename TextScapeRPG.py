@@ -1,5 +1,5 @@
 # Base game file
-# v1.22-beta
+# v1.2.3-beta
 # official version: 2.1
 
 import sys
@@ -365,7 +365,7 @@ class cook():
         else:
             try:
                 cookAmount=int(cookAction)
-                cook.cookFight()
+                cook.cookFish()
             except:
                 cook.init()
     def cookFish():
