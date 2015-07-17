@@ -1,5 +1,5 @@
 # Base game file
-# v1.2.4-beta
+# v1.2.5-beta
 # official version: 2.1
 
 import sys
@@ -370,6 +370,8 @@ class cook():
             cook.cookFish()
     def cookFish():
         global cookAmount
+        global fishCount
+        global cookedFish
         if(cookAmount > fishCount):
             print("\nYou don't have that many fish!")
         elif(cookAmount <= fishCount and cookAmount > 0):
