@@ -142,7 +142,7 @@ def selectMonster():
     global monsterXP
     global monsterCoins
     global monsterItemsDropped
-    monsterSelect = random.randint(1, 6)
+    monsterSelect = random.randint(1, (len(monsterList)-1))
     monster=monsterList[monsterSelect]
     monsterName=monster[0]
     monsterHP=int(monster[1])
@@ -331,7 +331,7 @@ class fish:
         global baitCount
         global fishCount
         fishCatch=["null", "Catfish", "Carp", "Salmon", "Whale, somehow"]
-        fishChoose=random.randint(1, 4)
+        fishChoose=random.randint(1, (len(fishCatch)-1))
         print("You cast your line..")
         time.sleep(0.5)
         print("You feel a bite!")
