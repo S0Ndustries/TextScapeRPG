@@ -1,5 +1,5 @@
 # Base game file
-# v1.7.3-beta
+# v1.7.4-beta
 # official version: 2.3
 
 import sys
@@ -295,7 +295,7 @@ class fight:
         print("")
         time.sleep(1)
         fight.adv()
-    def attackAdv():
+    def message():
         system.clear()
         global monsterHP
         global playerHP
@@ -326,7 +326,7 @@ class fight:
             action=input("Fight action: ")
             if(action in fightActionList):
                 if (action==fightActionList[0]):
-                    fight.attackAdv()
+                    fight.message()
                 elif(action==fightActionList[1]):
                     fight.heal()
                 elif(action==fightActionList[2]):
