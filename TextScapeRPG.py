@@ -1,5 +1,5 @@
 # Base game file
-# v1.2.5-beta
+# v1.3.0-beta
 # official version: 2.1
 
 import sys
@@ -30,18 +30,21 @@ global monsterCoins
 global monsterItemsDropped
 
 # Functions
-
-def printStats():
-    clearScreen()
-    print("General Stats")
-    print("Player Coins: %i" % playerBal)
-    print("Player Health: %i" % playerHP)
-    print("\nFishing Stats")
-    print("Cooked Fish: %i" % cookedFish)
-    print("Uncooked Fish: %i" % fishCount)
-    print("Amount of Bait: %i" % baitCount)
-    time.sleep(6)
-    actionPrompt()
+class stats():
+    def init():
+        clearScreen()
+        stats.general()
+        stats.fish()
+        time.sleep(6)
+        actionPrompt()
+    def general():
+        print("General Stats")
+        print("Player Coins: %i" % playerBal)
+        print("Player Health: %i" % playerHP)
+    def fish():
+        print("Cooked Fish: %i" % cookedFish)
+        print("Uncooked Fish: %i" % fishCount)
+        print("Amount of Bait: %i" % baitCount)
 def fuck():
     global playerHP
     global playerBal
@@ -172,7 +175,7 @@ def actionPrompt():
         elif(action==actionList[6]):
             fart()
         elif(action==actionList[7]):
-            printStats()
+            stats.init()
         else:
             print("this doesn't work")
     else:
