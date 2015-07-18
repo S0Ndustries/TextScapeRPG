@@ -1,5 +1,5 @@
 # Base game file
-# v1.7.7-beta
+# v1.7.8-beta
 # official version: 2.3
 
 import sys
@@ -29,10 +29,12 @@ global monsterItemsDropped
 class unix:
     def clear():
         os.system('clear')
+        print("<--- TextScapeRPG - by - S0Ndustries --->\n")
 
 class windows:
     def clear():
         os.system('cls')
+        print("<--- TextScapeRPG - by - S0Ndustries --->\n")
 
 if platform.system()=="Windows":
     system = windows
@@ -198,6 +200,9 @@ def fart():
     time.sleep(1.5)
     actionPrompt()
 
+def luck():
+    luckLevel = 1
+    luckChancePercent = 1
 
 def selectMonster():
     global monsterName
@@ -229,7 +234,7 @@ def actionPrompt():
             #Jesse, we need to-
             cook.init()
         elif(action==actionList[3]):
-            heal()
+            fight.heal(0)
         elif(action==actionList[4]):
             help_func()
         elif(action==actionList[5]):
@@ -261,7 +266,7 @@ def help_func():
     actionPrompt()
 
 class fight:
-    def heal():
+    def heal(m):
         global cookedFish
         global playerHP
         if(cookedFish > 0):
@@ -270,11 +275,17 @@ class fight:
             print("Your health is %i" % playerHP)
             cookedFish -= 1
             time.sleep(0.8)
-            actionPrompt()
+            if(m==1):
+                fight.ask()
+            else:
+                actionPrompt()
         else:
             print("\nNot enough cooked fish!")
             time.sleep(0.6)
-            fight.ask()
+            if(m==1):
+                fight.ask()
+            else:
+                actionPrompt()
     def run():
         print("You have run away!")
         time.sleep(0.1)
@@ -322,7 +333,7 @@ class fight:
                 if (action==fightActionList[0]):
                     fight.message()
                 elif(action==fightActionList[1]):
-                    fight.heal()
+                    fight.heal(1)
                 elif(action==fightActionList[2]):
                     fight.run()
                 else:
@@ -331,16 +342,18 @@ class fight:
             if(playerHP < 0):
                 print("You Lost")
                 # Loss code here
+                actionPrompt()
             else:
                 playerBal += monsterCoins
-                time.sleep(3)
-                print("You earned %i coins! Your balance is now: %i" % (monsterCoins, playerBal))
-                time.sleep(1)
+                time.sleep(0.5)
+                print("\nYou earned %i coins! Your balance is now: %i" % (monsterCoins, playerBal))
+                time.sleep(2.5)
                 actionPrompt()
 
 class fish:
     def init():
         system.clear()
+        print("Raw fish: %i || Bait: %i" % (fishCount, baitCount))
         print("What would you like to do?")
         print("Type 'f' to fish, 'b' to buy bait, or 'e' to exit")
         fishAction=input("Fish action:")
@@ -363,6 +376,7 @@ class fish:
     def fishing():
         global baitCount
         global fishCount
+        global caughtFish
         fishCatch=["null", "Catfish", "Carp", "Salmon", "Whale, somehow"]
         fishChoose=random.randint(1, (len(fishCatch)-1))
         print("You cast your line..")
@@ -402,7 +416,7 @@ class fish:
 class cook:
     def init():
         global cookAmount
-        print("\nYou habe %i raw fish & %i cooked fish." % (fishCount, cookedFish))
+        print("\nYou have %i raw fish & %i cooked fish." % (fishCount, cookedFish))
         print("Type the amount you'd like to cook, or 'e' to exit!")
         cookAction=input("Cook action: ")
         if(cookAction=="e"):
@@ -419,6 +433,7 @@ class cook:
         global cookedFish
         if(cookAmount > fishCount):
             print("\nYou don't have that many fish!")
+            cook.init()
         elif(cookAmount <= fishCount and cookAmount > 0):
             fishCount -= cookAmount
             cookedFish += cookAmount
