@@ -295,14 +295,14 @@ class fight:
             print("Your health is %i" % playerHP)
             cookedFish -= 1
             time.sleep(0.8)
-            if(m==1):
+            if(m):
                 fight.ask()
             else:
                 actionPrompt()
         else:
             print("\nNot enough cooked fish!")
             time.sleep(0.6)
-            if(m==1):
+            if(m):
                 fight.ask()
             else:
                 actionPrompt()
