@@ -1,5 +1,5 @@
 # Base game file
-# v1.8.1-beta
+# v1.8.4-beta
 # official version: 2.3
 
 import sys
@@ -132,6 +132,7 @@ class stats:
         print("Uncooked Fish: %i" % fishCount)
         print("Amount of Bait: %i" % baitCount)
         print("Total Fish Caught: %i" % caughtFish)
+        print("Fishing Level: %i" % fishingSkill)
 
 def runGame():
     system.clear()
@@ -440,12 +441,14 @@ class fish:
         system.clear()
         print("Raw fish: %i || Bait: %i" % (fishCount, baitCount))
         print("What would you like to do?")
-        print("Type 'f' to fish, 'b' to buy bait, or 'e' to exit")
+        print("Type 'f' to fish, 'b' to buy bait, 's' to display stats or 'e' to exit")
         fishAction=input("Fish action:")
         if(fishAction=="f"):
             fish.checkBait()
         elif(fishAction=="b"):
             fish.buyBait()
+        elif(fishAction=="s"):
+            fish.stats()
         elif(fishAction=="e"):
             actionPrompt()
         else:
@@ -497,6 +500,10 @@ class fish:
         else:
             print("That's not an option!")
             fish.buyBait()
+    def stats():
+        stats.fish()
+        time.sleep(4)
+        fish.init()
 
 class cook:
     def init():
