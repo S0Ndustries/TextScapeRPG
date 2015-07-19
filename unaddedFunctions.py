@@ -80,19 +80,13 @@ def heal():
 #
 
 
-class unix:
-    def clear():
-        os.system('clear')
 
-class windows:
-    def clear():
-        os.system('cls')
 
-if platform.system()=="Windows":
-    systemType = windows
-else:
-    systemType = unix
 
-print("Detecing systemType")
-time.sleep(1)
-systemType.clear()
+
+
+
+
+
+class mining:
+    def 
