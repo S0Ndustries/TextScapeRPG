@@ -7,6 +7,7 @@ import time
 import os
 import random
 import platform
+import math
 
 # Global variables
 global playerHP
