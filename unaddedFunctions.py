@@ -17,14 +17,14 @@ def fishAdv():
             fish()
         else:
             fishCatch=["null", "Catfish", "Carp", "Salmon", "Whale, somehow"]
-            fishChoose=random.randint(1, 4)
+            mining=random.randint(1, 4)
             print("You cast your line..")
             time.sleep(0.2)
             print("You feel a bite!")
             time.sleep(0.2)
             print("You reel in your fish!")
             time.sleep(0.2)
-            print("You have caught: %a" % fishCatch[fishChoose])
+            print("You have caught: %a" % fishCatch[mining])
             baitCount -= 1
             fishCount += 1
             time.sleep(0.6)
@@ -86,7 +86,85 @@ def heal():
 
 
 
-
+miningSkill=65
 
 class mining:
-    def 
+    def init():
+        mining.arrays()
+        if(miningSkill < 15):
+            return
+        elif(miningSkill < 20):
+            mining.level15()
+        elif(miningSkill < 30):
+            mining.level20()
+        elif(miningSkill < 40):
+            mining.level30()
+        elif(miningSkill < 50):
+            mining.level40()
+        elif(miningSkill < 70):
+            mining.level50()
+        elif(miningSkill < 77):
+            mining.level70()
+        elif(miningSkill < 85):
+            mining.level77()
+        else:
+            mining.level85()
+
+    def arrays():
+        global oreAble
+        global minel15
+        global minel20
+        global minel30
+        global minel40
+        global minel50
+        global minel70
+        global minel77
+        global minel85
+        oreAble=["Copper", "Tin"]
+        minel15=["Iron"]
+        minel20=["Silver"]
+        minel30=["Coal"]
+        minel40=["Gold"]
+        minel50=["Mithril"]
+        minel70=["Adamantite"]
+        minel77=["Bane"]
+        minel85=["Runite"]
+
+    def level15():
+        global oreAble
+        oreAble.extend(minel15)
+    def level20():
+        global oreAble
+        mining.level15()
+        oreAble.extend(minel20)
+    def level30():
+        global oreAble
+        mining.level20()
+        oreAble.extend(minel30)
+    def level40():
+        global oreAble
+        mining.level30()
+        oreAble.extend(minel40)
+    def level50():
+        global oreAble
+        mining.level40()
+        oreAble.extend(minel50)
+    def level70():
+        global oreAble
+        mining.level50()
+        oreAble.extend(minel70)
+    def level77():
+        global oreAble
+        mining.level70()
+        oreAble.extend(minel77)
+    def level85():
+        global oreAble
+        mining.level77()
+        oreAble.extend(minel85)
+
+mining.init()
+ore="Runite"
+if(ore in oreAble):
+    print("You Obtained: %s" % ore)
+else:
+    print("You Can't Mine: %s" % ore)
