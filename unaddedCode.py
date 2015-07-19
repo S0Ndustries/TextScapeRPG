@@ -78,22 +78,22 @@ memberStatus=0
 #
 
 # User skills
-attack = 1
-strength = 1
-defence = 1
-ranged= 1
-magic = 1
-health = 1
-crafting = 1
-mining = 1
-fishing = 1
-cooking = 1
-woodcutting = 1
-agility = 1
-herblore = 1
-farming = 1
-hunting = 1
-summoning = 1
+attackSkill = 1
+strengthSkill = 1
+defenceSkill = 1
+rangedSkill = 1
+magicSkill = 1
+healthSkill = 1
+craftingSkill = 1
+miningSkill = 1
+fishingSkill = 1
+cookingSkill = 1
+woodcuttingSkill = 1
+agilitySkill = 1
+herbloreSkill = 1
+farmingSkill = 1
+huntingSkill = 1
+summoningSkill = 1
 #
 
 def loadingBar():
@@ -102,72 +102,71 @@ def loadingBar():
        loading += 1
        sleep(0.1)
 
-fishl=26
 class fishChoose:
     def init():
         fishChoose.arrays()
-        if(fishl < 5):
+        if(fishingSkill < 5):
             return
-        elif(fishl < 10):
+        elif(fishingSkill < 10):
             fishChoose.level5()
-        elif(fishl < 15):
+        elif(fishingSkill < 15):
             fishChoose.level10()
-        elif(fishl < 16):
+        elif(fishingSkill < 16):
             fishChoose.level15()
-        elif(fishl < 20):
+        elif(fishingSkill < 20):
             fishChoose.level16()
-        elif(fishl < 23):
+        elif(fishingSkill < 23):
             fishChoose.level20()
-        elif(fishl < 25):
+        elif(fishingSkill < 25):
             fishChoose.level23()
         else:
             fishChoose.level25()
 
     def arrays():
         global fishPoss
-        global fishl5
-        global fishl10
-        global fishl15
-        global fishl16
-        global fishl20
-        global fishl23
-        global fishl25
+        global fishingSkill5
+        global fishingSkill10
+        global fishingSkill15
+        global fishingSkill16
+        global fishingSkill20
+        global fishingSkill23
+        global fishingSkill25
         fishPoss=["Shrimp", "Crayfish", "Minnow"]
-        fishl5=["Karabwanji", "Sardine"]
-        fishl10=["Herring"]
-        fishl15=["Anchovies"]
-        fishl16=["Mackeral"]
-        fishl20=["Trout"]
-        fishl23=["Cod"]
-        fishl25=["Pike"]
+        fishingSkill5=["Karabwanji", "Sardine"]
+        fishingSkill10=["Herring"]
+        fishingSkill15=["Anchovies"]
+        fishingSkill16=["Mackeral"]
+        fishingSkill20=["Trout"]
+        fishingSkill23=["Cod"]
+        fishingSkill25=["Pike"]
 
     def level5():
         global fishPoss
-        fishPoss.extend(fishl5)
+        fishPoss.extend(fishingSkill5)
     def level10():
         global fishPoss
         fishChoose.level5()
-        fishPoss.extend(fishl10)
+        fishPoss.extend(fishingSkill10)
     def level15():
         global fishPoss
         fishChoose.level10()
-        fishPoss.extend(fishl15)
+        fishPoss.extend(fishingSkill15)
     def level16():
         global fishPoss
         fishChoose.level15()
-        fishPoss.extend(fishl16)
+        fishPoss.extend(fishingSkill16)
     def level20():
         global fishPoss
         fishChoose.level16()
-        fishPoss.extend(fishl20)
+        fishPoss.extend(fishingSkill20)
     def level23():
         global fishPoss
         fishChoose.level20()
-        fishPoss.extend(fishl23)
+        fishPoss.extend(fishingSkill23)
     def level25():
         global fishPoss
         fishChoose.level23()
-        fishPoss.extend(fishl25)
+        fishPoss.extend(fishingSkill25)
 
 fishChoose.init()
 print(fishPoss)
