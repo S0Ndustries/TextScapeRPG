@@ -61,6 +61,7 @@ else:
     system = unix
 
 def loadTitle():
+    system.clear()
     s = "\n                                   Welcome to                                   \n\nd888888P                   dP   .d88888b                                      \n   88                      88   88.    \"'                                     \n   88  .d8888b. dP.  .dP d8888P `Y88888b. .d8888b. .d8888b. 88d888b. .d8888b. \n   88  88ooood8  `8bd8'    88         `8b 88'  `\"\" 88'  `88 88'  `88 88ooood8 \n   88  88.  ...  .d88b.    88   d8'   .8P 88.  ... 88.  .88 88.  .88 88.  ... \n   dP  `88888P' dP'  `dP   dP   `Y88888P' `88888P' `88888P8 88Y888P' `88888P' \n                                                            88                \n                                                            dP                \n"
     for c in s:
         sys.stdout.write('%s' % c )
@@ -79,12 +80,14 @@ def nameSelect():
     name = input("Name: ")
     if(name in bonusNames):
         if(name==bonusNames[2]):
+            print("Welcome, beta tester.")
             playerBal = 9999
             playerHP = 999
             baitCount = 99
             fishCount = 99
             cookedFish = 99
             caughtFish = 99
+            time.sleep(1.5)
         elif(name==bonusNames[0]):
             print("Welcome, Senpai.")
             playerBal = 1200
@@ -95,7 +98,7 @@ def nameSelect():
             caughtFish = 0
             time.sleep(1.5)
         elif(name==bonusNames[1]):
-            print("Welcome, Grandmaster Evan.")
+            print("Welcome, Coding Grandmaster Evan.")
             playerBal = 1200
             playerHP = 130
             baitCount = 0
