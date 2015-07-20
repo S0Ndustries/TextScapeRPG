@@ -17,6 +17,8 @@ global baitCount
 global fishCount
 global cookedFish
 global caughtFish
+global exp
+global level
 
 # Global monster stats
 global monsterGoblin
