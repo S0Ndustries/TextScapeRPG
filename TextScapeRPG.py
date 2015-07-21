@@ -1,6 +1,5 @@
 # Base game file
-# v1.9.1-beta
-# official version: 2.3
+# v2.0.1-beta
 
 import sys
 import time

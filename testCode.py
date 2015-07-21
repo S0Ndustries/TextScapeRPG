@@ -60,6 +60,13 @@ class fishAdv():
         time.sleep(1.5)
         fishAdv.prompt()
 
+    def fishes():
+        minnow = ["Minnow",]
+
+    def tBait(fish):
+
+
+
     def fish(baitSel):
         global fishAction
         global fishingLevel
@@ -69,8 +76,20 @@ class fishAdv():
         baitTypeNum = ["0","1","2","3","4","5","6","7","8","9"]
         if(str(fishAction) in baitTypeNum):
             if(fishAction == "0"):
-                print("Code for Fishing bait")
-                print("Code goes here! 0")
+                if(fishLevel >= 85):
+
+                elif(fishLevel >= 38):
+
+                elif(fishLevel >= 28):
+
+                elif(fishLevel >= 25):
+
+                elif(fishLevel >= 10):
+
+                elif(fishLevel >= 5):
+
+                else:
+
                 fishAdv.prompt()
             elif(fishAction == "1"):
                 print("Code for Crayfish cage")
