@@ -61,7 +61,29 @@ class fishAdv():
         fishAdv.prompt()
 
     def fishes():
-        minnow = ["Minnow",]
+        minnow      = ["Minnow",       1,  0, 10 ]
+        crayfish    = ["Crayfish",     1,  1, 10 ]
+        shrimp      = ["Shrimps",      1,  2, 10 ]
+        sardine     = ["Sardine",      5,  0, 20 ]
+        karambwanji = ["Karambwanji",  5,  2, 5  ]
+        herring     = ["Herring",      10, 0, 30 ]
+        anchovies   = ["Anchovies",    15, 1, 40 ]
+        casket      = ["Casket",       16, 3, 10 ]
+        mackerel    = ["Mackerel",     16, 3, 20 ]
+        oyster      = ["Oyster",       16, 3, 10 ]
+        seaweed     = ["Seaweed",      16, 3, 1  ]
+        trout       = ["Trout",        20, 4, 50 ]
+        cod         = ["Cod",          23, 3, 45 ]
+        pike        = ["Pike",         25, 0, 60 ]
+        slimyeel    = ["Slimy eel",    28, 0, 65 ]
+        salmon      = ["Salmon",       30, 4, 70 ]
+        frogspawn   = ["Frog spawn",   33, 2, 75 ]
+        tuna        = ["Tuna",         35, 5, 80 ]
+        caveeel     = ["Cave eel",     38, 0, 80 ]
+        rainbowfish = ["Rainbow fish", 38, 4, 80 ]
+        lobster     = ["Lobster",      40, 6, 90 ]
+        bass        = ["Bass",         46, 3, 100]
+        
 
     def tBait(fish):
 
