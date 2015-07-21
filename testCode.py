@@ -1,213 +1,127 @@
-global exp
-global level
+import time
+import os
+class fishAdv():
+    global fishAction
+    global fishingLevel
+    global feathers
+    fishingLevel = 48
+    feathers = 4
+    def prompt():
+        global fishAction
+        fishCMDs = ["0","1","2","3","4","5","6","7","8","9","list","guide","exit"]
+        # clearScreen()
+        os.system('clear')
+        print("Enter an action, type 'guide' for help, or 'exit' to exit!")
+        fishAction=input("Fish action: ")
+        if (fishAction in fishCMDs):
+            if (fishAction == "list"):
+                fishAdv.list()
+            elif(fishAction == "guide"):
+                fishAdv.guide()
+            elif(fishAction == "exit"):
+                print("Exiting...")
+                time.sleep(1)
+            else:
+                fishAdv.fish(fishAction)
+        else:
+            print("That's not a command!")
+            time.sleep(1.5)
+            fishAdv.prompt()
 
-def myEXP(iEXP, iLevel):
-    global exp
-    global level
-    exp = iEXP
-    level = iLevel
-    if(exp < 83):
-        level = 1
-    elif(exp < 174):
-        level = 2
-    elif(exp < 276):
-        level = 3
-    elif(exp < 388):
-        level = 4
-    elif(exp < 512):
-        level = 5
-    elif(exp < 650):
-        level = 6
-    elif(exp < 801):
-        level = 7
-    elif(exp < 969):
-        level = 8
-    elif(exp < 1154):
-        level = 9
-    elif(exp < 1358):
-        level = 10
-    elif(exp < 1584):
-        level = 11
-    elif(exp < 1833):
-        level = 12
-    elif(exp < 2107):
-        level = 13
-    elif(exp < 2411):
-        level = 14
-    elif(exp < 2746):
-        level = 15
-    elif(exp < 3115):
-        level = 16
-    elif(exp < 3523):
-        level = 17
-    elif(exp < 3973):
-        level = 18
-    elif(exp < 4470):
-        level = 19
-    elif(exp < 5018):
-        level = 20
-    elif(exp < 5624):
-        level = 21
-    elif(exp < 6291):
-        level = 22
-    elif(exp < 7028):
-        level = 23
-    elif(exp < 7842):
-        level = 24
-    elif(exp < 8740):
-        level = 25
-    elif(exp < 9730):
-        level = 26
-    elif(exp < 10824):
-        level = 27
-    elif(exp < 12031):
-        level = 28
-    elif(exp < 13363):
-        level = 29
-    elif(exp < 14833):
-        level = 30
-    elif(exp < 16456):
-        level = 31
-    elif(exp < 18247):
-        level = 32
-    elif(exp < 20224):
-        level = 33
-    elif(exp < 22406):
-        level = 34
-    elif(exp < 24815):
-        level = 35
-    elif(exp < 27473):
-        level = 36
-    elif(exp < 30408):
-        level = 37
-    elif(exp < 33648):
-        level = 38
-    elif(exp < 37224):
-        level = 39
-    elif(exp < 41171):
-        level = 40
-    elif(exp < 45529):
-        level = 41
-    elif(exp < 50339):
-        level = 42
-    elif(exp < 55649):
-        level = 43
-    elif(exp < 61512):
-        level = 44
-    elif(exp < 67983):
-        level = 45
-    elif(exp < 75127):
-        level = 46
-    elif(exp < 83014):
-        level = 47
-    elif(exp < 91721):
-        level = 48
-    elif(exp < 101333):
-        level = 49
-    elif(exp < 111945):
-        level = 50
-    elif(exp < 123660):
-        level = 51
-    elif(exp < 136594):
-        level = 52
-    elif(exp < 150872):
-        level = 53
-    elif(exp < 166636):
-        level = 54
-    elif(exp < 184040):
-        level = 55
-    elif(exp < 203254):
-        level = 56
-    elif(exp < 224466):
-        level = 57
-    elif(exp < 247886):
-        level = 58
-    elif(exp < 273742):
-        level = 59
-    elif(exp < 302288):
-        level = 60
-    elif(exp < 333804):
-        level = 61
-    elif(exp < 368599):
-        level = 62
-    elif(exp < 407015):
-        level = 63
-    elif(exp < 449428):
-        level = 64
-    elif(exp < 496254):
-        level = 65
-    elif(exp < 547953):
-        level = 66
-    elif(exp < 605032):
-        level = 67
-    elif(exp < 668051):
-        level = 68
-    elif(exp < 737627):
-        level = 69
-    elif(exp < 814445):
-        level = 70
-    elif(exp < 899257):
-        level = 71
-    elif(exp < 992895):
-        level = 72
-    elif(exp < 1096278):
-        level = 73
-    elif(exp < 1210421):
-        level = 74
-    elif(exp < 1336443):
-        level = 75
-    elif(exp < 1475581):
-        level = 76
-    elif(exp < 1629200):
-        level = 77
-    elif(exp < 1798808):
-        level = 78
-    elif(exp < 1986068):
-        level = 79
-    elif(exp < 2192818):
-        level = 80
-    elif(exp < 2421087):
-        level = 81
-    elif(exp < 2673114):
-        level = 82
-    elif(exp < 2951373):
-        level = 83
-    elif(exp < 3258594):
-        level = 84
-    elif(exp < 3597792):
-        level = 85
-    elif(exp < 3972294):
-        level = 86
-    elif(exp < 4385776):
-        level = 87
-    elif(exp < 4842295):
-        level = 88
-    elif(exp < 5346332):
-        level = 89
-    elif(exp < 5902831):
-        level = 90
-    elif(exp < 6517253):
-        level = 91
-    elif(exp < 7195629):
-        level = 92
-    elif(exp < 7944614):
-        level = 93
-    elif(exp < 8771558):
-        level = 94
-    elif(exp < 9684577):
-        level = 95
-    elif(exp < 10692629):
-        level = 96
-    elif(exp < 11805606):
-        level = 97
-    elif(exp < 13034431):
-        level = 98
-    elif(exp < 14391160):
-        level = 99
-    else:
-        level = 99
+    def guide():
+        print("Fishing commands list:\n")
+        print("0 = Fishing bait")
+        print("   Level(s): 1, 5, 10, 25, 28, 38, 85\n")
+        print("1 = Crayfish Cage")
+        print("   Level(s): 1\n")
+        print("2 = Small fishing net")
+        print("   Level(s): 1, 5, 15, 33, 62\n")
+        print("3 = Big fishing net")
+        print("   Level(s): 16, 23, 46\n")
+        print("4 = Fly fishing rod + feathers")
+        print("   Level(s): 20, 30, 38\n")
+        print("5 = Harpoon")
+        print("   Level(s): 35, 50, 76\n")
+        print("6 = Lobster Pot")
+        print("   Level(s): 40\n")
+        print("7 = Oily fishing rod")
+        print("   Level(s): 53\n")
+        print("8 = Karambwan vessel")
+        print("   Level(s): 65\n")
+        print("9 = Living minerals")
+        print("   Level(s): 90")
+        print("\nlist = Displays a list of all fish + level & bait needed.")
+        print("\nexit = Will exit back to main menu")
+        done=input("Press enter to continue")
+        fishAdv.prompt()
 
-fishEXP = 18275
-myEXP(fishEXP,0)
-fishLevel = level
-print("Your level is %i" % fishLevel)
+    def list():
+        print("Help will be here!")
+        time.sleep(1.5)
+        fishAdv.prompt()
+
+    def fish(baitSel):
+        global fishAction
+        global fishingLevel
+        global feathers
+        fishAction = baitSel
+        baitType = ["bait","crayfishcage","smallnet","bignet","flyfishingrod","harpoon","lobsterpot","oilyfishingrod","karambwanvessel","livingminerals"]
+        baitTypeNum = ["0","1","2","3","4","5","6","7","8","9"]
+        if(str(fishAction) in baitTypeNum):
+            if(fishAction == "0"):
+                print("Code for Fishing bait")
+                print("Code goes here! 0")
+                fishAdv.prompt()
+            elif(fishAction == "1"):
+                print("Code for Crayfish cage")
+                print("Code goes here! 1")
+                fishAdv.prompt()
+            elif(fishAction == "2"):
+                print("Code for Small fishing net")
+                print("Code goes here! 2")
+                fishAdv.prompt()
+            elif(fishAction == "3"):
+                if(fishingLevel >= 16):
+                    print("Code for Big fishing net")
+                print("Code goes here! 3")
+                fishAdv.prompt()
+            elif(fishAction == "4"):
+                if(fishingLevel >= 20 & feathers >= 1):
+                    print("Code for Fishing rod + feathers")
+                print("Code goes here! 4")
+                fishAdv.prompt()
+            elif(fishAction == "5"):
+                if(fishingLevel >= 35):
+                    print("Code for Harpoon")
+                print("Code goes here! 5")
+                fishAdv.prompt()
+            elif(fishAction == "6"):
+                if(fishingLevel >= 40):
+                    print("Code for Lobster pot")
+                print("Code goes here! 6")
+                fishAdv.prompt()
+            elif(fishAction == "7"):
+                if(fishingLevel >= 53):
+                    print("Code for Oily fishing rod")
+                print("Code goes here! 7")
+                fishAdv.prompt()
+            elif(fishAction == "8"):
+                if(fishingLevel >= 65):
+                    print("Code for Karambwan vessel")
+                print("Code goes here! 8")
+                fishAdv.prompt()
+            elif(fishAction == "9"):
+                if(fishingLevel >= 90):
+                    print("Code for Living minerals")
+                print("Code goes here! 9")
+                fishAdv.prompt()
+            else:
+                print("Invalid bait. Sorry!")
+                time.sleep(1.5)
+                fishAdv.prompt()
+        else:
+            print("You done f**ked up, mate.")
+            time.sleep(1.5)
+            fishAdv.prompt()
+
+fishAdv.prompt()
