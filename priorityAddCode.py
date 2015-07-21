@@ -1,11 +1,32 @@
 # User skillsEXP
+global attackEXP
+global attackLevel
 attackEXP = 0
+attackLevel = 0
+global strengthEXP
+global strengthLevel
 strengthEXP = 0
+strengthLevel = 0
+global defenceEXP
+global defenceLevel
 defenceEXP = 0
+defenceLevel = 0
+global healthEXP
+global healthLevel
 healthEXP = 0
+healthLevel = 0
+global fishingEXP
+global fishingLevel
 fishingEXP = 0
+fishingLevel = 0
+global cookingEXP
+global cookingLevel
 cookingEXP = 0
+cookingLevel = 0
+global cookingEXP
+global cookingLevel
 otherSkills = 0
+otherLevels = 0
 
 import math
 
@@ -16,11 +37,10 @@ for level in range(1,99):
     str = "Level %d = %d" % (level + 1, points / 4)
     print(str)
 
-def myEXP(iEXP, iLevel):
+def myEXP(iEXP):
     global exp
     global level
     exp = iEXP
-    level = iLevel
     if(exp < 83):
         level = 1
     elif(exp < 174):
@@ -225,6 +245,6 @@ def myEXP(iEXP, iLevel):
 global exp
 global level
 fishEXP = 18275
-myEXP(fishEXP,0)
+myEXP(fishEXP)
 fishLevel = level
 print("Your level is %i" % fishLevel)
