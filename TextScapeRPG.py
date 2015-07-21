@@ -1,5 +1,5 @@
 # Base game file
-# v1.8.4-beta
+# v1.9.1-beta
 # official version: 2.3
 
 import sys
@@ -376,75 +376,46 @@ class fight:
                 time.sleep(2.5)
                 actionPrompt()
 
-class fishChoose:
-    def init():
-        fishChoose.arrays()
-        if(fishingSkill < 5):
-            return
-        elif(fishingSkill < 10):
-            fishChoose.level5()
-        elif(fishingSkill < 15):
-            fishChoose.level10()
-        elif(fishingSkill < 16):
-            fishChoose.level15()
-        elif(fishingSkill < 20):
-            fishChoose.level16()
-        elif(fishingSkill < 23):
-            fishChoose.level20()
-        elif(fishingSkill < 25):
-            fishChoose.level23()
+
+class fishType(object):
+    def __init__(self, name, levelReq, caughtWith):
+        self.name = name
+        self.levelReq = levelReq
+        self.caughtWith = caughtWith
+    def catchAble(self):
+        global fishPoss
+        if(self.caughtWith == bait and self.levelReq <= fishingSkill):
+            fishPoss.append(self.name)
         else:
-            fishChoose.level25()
-
-    def arrays():
-        global fishPoss
-        global fishingSkill5
-        global fishingSkill10
-        global fishingSkill15
-        global fishingSkill16
-        global fishingSkill20
-        global fishingSkill23
-        global fishingSkill25
-        fishPoss=["Shrimp", "Crayfish", "Minnow"]
-        fishingSkill5=["Karabwanji", "Sardine"]
-        fishingSkill10=["Herring"]
-        fishingSkill15=["Anchovies"]
-        fishingSkill16=["Mackeral"]
-        fishingSkill20=["Trout"]
-        fishingSkill23=["Cod"]
-        fishingSkill25=["Pike"]
-
-    def level5():
-        global fishPoss
-        fishPoss.extend(fishingSkill5)
-    def level10():
-        global fishPoss
-        fishChoose.level5()
-        fishPoss.extend(fishingSkill10)
-    def level15():
-        global fishPoss
-        fishChoose.level10()
-        fishPoss.extend(fishingSkill15)
-    def level16():
-        global fishPoss
-        fishChoose.level15()
-        fishPoss.extend(fishingSkill16)
-    def level20():
-        global fishPoss
-        fishChoose.level16()
-        fishPoss.extend(fishingSkill20)
-    def level23():
-        global fishPoss
-        fishChoose.level20()
-        fishPoss.extend(fishingSkill23)
-    def level25():
-        global fishPoss
-        fishChoose.level23()
-        fishPoss.extend(fishingSkill25)
-
+            pass
+def defFish():
+    global shrimp
+    global crayfish
+    global minnow
+    global karambwanji
+    global sardine
+    global herring
+    global anchovies
+    shrimp=fishType("Shrimp", 1, 'net')
+    crayfish=fishType("Crayfish", 1, 'crayfish cage')
+    minnow=fishType("Minnow", 1, 'net')
+    karambwanji=fishType("Karambwanji", 5, 'net')
+    sardine=fishType("Sardine", 5, 'bait')
+    herring=fishType("Herring", 10, 'bait')
+    anchovies=fishType("Anchovies", 15, 'net')
+def checkCatch():
+    fishType.catchAble(shrimp)
+    fishType.catchAble(crayfish)
+    fishType.catchAble(minnow)
+    fishType.catchAble(karambwanji)
+    fishType.catchAble(sardine)
+    fishType.catchAble(herring)
+    fishType.catchAble(anchovies)
 class fish:
     def init():
         system.clear()
+        global fishPoss
+        fishPoss=[]
         print("Raw fish: %i || Bait: %i" % (fishCount, baitCount))
         print("What would you like to do?")
         print("Type 'f' to fish, 'b' to buy bait, 's' to display stats or 'e' to exit")
@@ -460,18 +431,30 @@ class fish:
         else:
             print("Invalid action!")
             fish.init()
+    def askBait():
+        global bait
+        validBait=["net", "crayfish cage", "bait"]
+        print("What bait would you like to use?")
+        bait=input("Bait type: ").lower()
+        if(bait in validBait):
+            defFish()
+            checkCatch()
+            fish.fishing()
+        else:
+            print("Invalid Bait Type")
+            time.sleep(1)
+            fish.askBait()
     def checkBait():
         if (baitCount == 0):
             print("You don't have any bait!")
             time.sleep(0.5)
             fish.init()
         else:
-            fish.fishing()
+            fish.askBait()
     def fishing():
         global baitCount
         global fishCount
         global caughtFish
-        fishChoose.init()
         fishCatch=random.randint(0, (len(fishPoss)-1))
         print("You cast your line..")
         time.sleep(0.5)

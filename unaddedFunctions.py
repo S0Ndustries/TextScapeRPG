@@ -1,6 +1,7 @@
 import os
 import platform
 import time
+import random
 
 def fishAdv():
     clearScreen()
@@ -150,3 +151,52 @@ class mining:
             mineAble.append("Adamantite")
             mineAble.append("Bane")
             mineAble.append("Runite")
+
+
+
+
+
+bait=input("Bait: ")
+level=input("Level: ")
+level=int(level)
+fishPoss=[]
+
+class fishType(object):
+    def __init__(self, name, levelReq, caughtWith):
+        self.name = name
+        self.levelReq = levelReq
+        self.caughtWith = caughtWith
+    def catchAble(self):
+        if(self.caughtWith == bait and self.levelReq <= level):
+            self.canCatch=True
+        else:
+            self.canCatch=False
+        self.catchMsg()
+    def catchMsg(self):
+        global fishPoss
+        if(self.canCatch):
+            fishPoss.append(self.name)
+        else:
+            pass
+
+
+
+shrimp=fishType("Shrimp", 1, 'net')
+crayfish=fishType("Crayfish", 1, 'crayfish cage')
+minnow=fishType("Minnow", 1, 'net')
+karambwanji=fishType("Karambwanji", 5, 'net')
+sardine=fishType("Sardine", 5, 'bait')
+herring=fishType("Herring", 10, 'bait')
+anchovies=fishType("Anchovies", 15, 'net')
+
+fishType.catchAble(shrimp)
+fishType.catchAble(crayfish)
+fishType.catchAble(minnow)
+fishType.catchAble(karambwanji)
+fishType.catchAble(sardine)
+fishType.catchAble(herring)
+fishType.catchAble(anchovies)
+
+print("You Can Catch: %a" % fishPoss)
+fishPossChoose=random.randint(0, (len(fishPoss)-1))
+print("You Caught: '%s'" % fishPoss[fishPossChoose])
