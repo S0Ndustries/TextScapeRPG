@@ -1,10 +1,42 @@
 import time
 import os
 class fishAdv():
+    # Fish arrays
+    global minnow
+    global crayfish
+    global shrimp
+    global sardine
+    global karambwanji
+    global herring
+    global anchovies
+    global casket
+    global mackerel
+    global oyster
+    global seaweed
+    global trout
+    global cod
+    global pike
+    global slimyeel
+    global salmon
+    global frogspawn
+    global tuna
+    global caveeel
+    global rainbowfish
+    global lobster
+    global bass
+    global swordfish
+    global lavaeel
+    global monkfish
+    global karambwan
+    global shark
+    global baronshark
+    global cavefish
+    global rocktail
+    # Other variables
     global fishAction
-    global fishingLevel
+    global fishLevel
     global feathers
-    fishingLevel = 48
+    fishLevel = 10
     feathers = 4
     def prompt():
         global fishAction
@@ -61,6 +93,36 @@ class fishAdv():
         fishAdv.prompt()
 
     def fishes():
+        global minnow
+        global crayfish
+        global shrimp
+        global sardine
+        global karambwanji
+        global herring
+        global anchovies
+        global casket
+        global mackerel
+        global oyster
+        global seaweed
+        global trout
+        global cod
+        global pike
+        global slimyeel
+        global salmon
+        global frogspawn
+        global tuna
+        global caveeel
+        global rainbowfish
+        global lobster
+        global bass
+        global swordfish
+        global lavaeel
+        global monkfish
+        global karambwan
+        global shark
+        global baronshark
+        global cavefish
+        global rocktail
         minnow      = ["Minnow",       1,  0, 10 ]
         crayfish    = ["Crayfish",     1,  1, 10 ]
         shrimp      = ["Shrimps",      1,  2, 10 ]
@@ -83,35 +145,85 @@ class fishAdv():
         rainbowfish = ["Rainbow fish", 38, 4, 80 ]
         lobster     = ["Lobster",      40, 6, 90 ]
         bass        = ["Bass",         46, 3, 100]
-        
+        swordfish   = ["Swordfish",    50, 5, 100]
+        lavaeel     = ["Lava eel",     53, 7, 60]
+        monkfish    = ["Monkfish",     62, 2, 120]
+        karambwan   = ["Karambwan",    65, 8, 105]
+        shark       = ["Shark",        76, 5, 110]
+        baronshark  = ["Baron shark",  76, 5, 110]
+        # seaturtle   = ["Sea turtle",   79, 69, 38]
+        # mantaray    = ["Manta Ray",    81, 69, 46]
+        cavefish    = ["Cavefish",     85, 0, 300]
+        rocktail    = ["Rocktail",     90, 9, 380]
+        # tigershark  = ["Tiger Shark",  95, 69, 69]
 
-    def tBait(fish):
-
+    def tBait(fType):
+        if(fType[2] == 0):
+            print("You cast your line into the water.")
+            print("Your line is hooked!")
+            print("You reel in: %s" % fish[0])
 
 
     def fish(baitSel):
+        # Fish arrays
+        global minnow
+        global crayfish
+        global shrimp
+        global sardine
+        global karambwanji
+        global herring
+        global anchovies
+        global casket
+        global mackerel
+        global oyster
+        global seaweed
+        global trout
+        global cod
+        global pike
+        global slimyeel
+        global salmon
+        global frogspawn
+        global tuna
+        global caveeel
+        global rainbowfish
+        global lobster
+        global bass
+        global swordfish
+        global lavaeel
+        global monkfish
+        global karambwan
+        global shark
+        global baronshark
+        global cavefish
+        global rocktail
+        # Other variables
         global fishAction
-        global fishingLevel
+        global fishLevel
         global feathers
+        baitCount = 10
         fishAction = baitSel
         baitType = ["bait","crayfishcage","smallnet","bignet","flyfishingrod","harpoon","lobsterpot","oilyfishingrod","karambwanvessel","livingminerals"]
         baitTypeNum = ["0","1","2","3","4","5","6","7","8","9"]
         if(str(fishAction) in baitTypeNum):
             if(fishAction == "0"):
-                if(fishLevel >= 85):
-
-                elif(fishLevel >= 38):
-
-                elif(fishLevel >= 28):
-
-                elif(fishLevel >= 25):
-
-                elif(fishLevel >= 10):
-
-                elif(fishLevel >= 5):
-
+                if(baitCount >= 1):
+                    baitCount -= 1
+                    if(fishLevel >= 85):
+                        fishAdv.tBait(cavefish)
+                    elif(fishLevel >= 38):
+                        fishAdv.tBait(caveeel)
+                    elif(fishLevel >= 28):
+                        fishAdv.tBait(slimyeel)
+                    elif(fishLevel >= 25):
+                        fishAdv.tBait(pike)
+                    elif(fishLevel >= 10):
+                        fishAdv.tBait(herring)
+                    elif(fishLevel >= 5):
+                        fishAdv.tBait(sardine)
+                    else:
+                        fishAdv.tBait(minnow)
                 else:
-
+                    print("Not enough bait!")
                 fishAdv.prompt()
             elif(fishAction == "1"):
                 print("Code for Crayfish cage")
