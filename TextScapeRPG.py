@@ -1,5 +1,5 @@
 # Base game file
-# v2.0.1-beta
+# v2.1.0-beta
 
 import sys
 import time
@@ -62,6 +62,11 @@ if platform.system()=="Windows":
 else:
     system = unix
 
+def initializeGame():
+    # Sets all fish item traits.
+    fishAdv.fishes()
+    # Anything else to be initialized can go here
+
 def loadTitle():
     system.clear()
     s = "\n                                   Welcome to                                   \n\nd888888P                   dP   .d88888b                                      \n   88                      88   88.    \"'                                     \n   88  .d8888b. dP.  .dP d8888P `Y88888b. .d8888b. .d8888b. 88d888b. .d8888b. \n   88  88ooood8  `8bd8'    88         `8b 88'  `\"\" 88'  `88 88'  `88 88ooood8 \n   88  88.  ...  .d88b.    88   d8'   .8P 88.  ... 88.  .88 88.  .88 88.  ... \n   dP  `88888P' dP'  `dP   dP   `Y88888P' `88888P' `88888P8 88Y888P' `88888P' \n                                                            88                \n                                                            dP                \n"
@@ -69,6 +74,7 @@ def loadTitle():
         sys.stdout.write('%s' % c )
         sys.stdout.flush()
         time.sleep(0.010)
+
 def nameSelect():
     global playerHP
     global monsterHP
@@ -142,6 +148,7 @@ class stats:
 def runGame():
     system.clear()
     # loadTitle()
+    initializeGame()
     nameSelect()
     actionPrompt()
 
@@ -254,9 +261,9 @@ def actionPrompt():
         if (action==actionList[0]):
             fight.setup()
         elif(action==actionList[1]):
-            fish.init()
+            fishAdv.prompt()
         elif(action==actionList[2]):
-            #Jesse, we need to-
+            # Jesse, we need to -
             cook.init()
         elif(action==actionList[3]):
             fight.heal(0)
@@ -272,7 +279,7 @@ def actionPrompt():
             system.clear()
             exit()
         else:
-            print("this doesn't work")
+            print("This doesn't work")
     else:
         print("Sorry, invalid option.")
         time.sleep(1)
@@ -374,124 +381,6 @@ class fight:
                 print("\nYou earned %i coins! Your balance is now: %i" % (monsterCoins, playerBal))
                 time.sleep(2.5)
                 actionPrompt()
-
-
-class fishType(object):
-    def __init__(self, name, levelReq, caughtWith):
-        self.name = name
-        self.levelReq = levelReq
-        self.caughtWith = caughtWith
-    def catchAble(self):
-        global fishPoss
-        if(self.caughtWith == bait and self.levelReq <= fishingSkill):
-            fishPoss.append(self.name)
-        else:
-            pass
-def defFish():
-    global shrimp
-    global crayfish
-    global minnow
-    global karambwanji
-    global sardine
-    global herring
-    global anchovies
-    shrimp=fishType("Shrimp", 1, 'net')
-    crayfish=fishType("Crayfish", 1, 'crayfish cage')
-    minnow=fishType("Minnow", 1, 'net')
-    karambwanji=fishType("Karambwanji", 5, 'net')
-    sardine=fishType("Sardine", 5, 'bait')
-    herring=fishType("Herring", 10, 'bait')
-    anchovies=fishType("Anchovies", 15, 'net')
-def checkCatch():
-    fishType.catchAble(shrimp)
-    fishType.catchAble(crayfish)
-    fishType.catchAble(minnow)
-    fishType.catchAble(karambwanji)
-    fishType.catchAble(sardine)
-    fishType.catchAble(herring)
-    fishType.catchAble(anchovies)
-class fish:
-    def init():
-        system.clear()
-        global fishPoss
-        fishPoss=[]
-        print("Raw fish: %i || Bait: %i" % (fishCount, baitCount))
-        print("What would you like to do?")
-        print("Type 'f' to fish, 'b' to buy bait, 's' to display stats or 'e' to exit")
-        fishAction=input("Fish action:")
-        if(fishAction=="f"):
-            fish.checkBait()
-        elif(fishAction=="b"):
-            fish.buyBait()
-        elif(fishAction=="s"):
-            fish.stats()
-        elif(fishAction=="e"):
-            actionPrompt()
-        else:
-            print("Invalid action!")
-            fish.init()
-    def askBait():
-        global bait
-        validBait=["net", "crayfish cage", "bait"]
-        print("What bait would you like to use?")
-        bait=input("Bait type: ").lower()
-        if(bait in validBait):
-            defFish()
-            checkCatch()
-            fish.fishing()
-        else:
-            print("Invalid Bait Type")
-            time.sleep(1)
-            fish.askBait()
-    def checkBait():
-        if (baitCount == 0):
-            print("You don't have any bait!")
-            time.sleep(0.5)
-            fish.init()
-        else:
-            fish.askBait()
-    def fishing():
-        global baitCount
-        global fishCount
-        global caughtFish
-        fishCatch=random.randint(0, (len(fishPoss)-1))
-        print("You cast your line..")
-        time.sleep(0.5)
-        print("You feel a bite!")
-        time.sleep(0.3)
-        print("You reel in your fish!")
-        time.sleep(0.2)
-        print("You have caught: %a" % fishPoss[fishCatch])
-        baitCount -= 1
-        fishCount += 1
-        caughtFish += 1
-        time.sleep(0.6)
-        fish.init()
-    def buyBait():
-        global playerBal
-        global baitCount
-        print("\nWould you like to purchase some bait for 3 coins?")
-        print("Your balance: %i" % playerBal)
-        print("Type 'y' to buy 3 bait, or 'n' to cancel.")
-        buyBait=input("Buy?: ")
-        if (buyBait == "y"):
-            if (playerBal>=3):
-                print("\nYou have bought some bait!")
-                playerBal -= 3
-                baitCount += 3
-                time.sleep(0.3)
-                fish.init()
-            else:
-                print("You don't have enough coins!")
-        elif (buyBait == "n"):
-            fish.init()
-        else:
-            print("That's not an option!")
-            fish.buyBait()
-    def stats():
-        stats.fish()
-        time.sleep(4)
-        fish.init()
 
 class cook:
     def init():

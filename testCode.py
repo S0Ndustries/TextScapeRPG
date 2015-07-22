@@ -4,6 +4,7 @@
 
 import time
 import os
+
 class fishAdv():
     # Fish arrays
     global minnow
@@ -42,67 +43,283 @@ class fishAdv():
     global fishEXP
     global feathers
     fishEXP = 1000
-    fishLevel = 20
     feathers = 4
+
+    def myEXP(iEXP):
+        global exp
+        global level
+        exp = iEXP
+        if(exp < 83):
+            level = 1
+        elif(exp < 174):
+            level = 2
+        elif(exp < 276):
+            level = 3
+        elif(exp < 388):
+            level = 4
+        elif(exp < 512):
+            level = 5
+        elif(exp < 650):
+            level = 6
+        elif(exp < 801):
+            level = 7
+        elif(exp < 969):
+            level = 8
+        elif(exp < 1154):
+            level = 9
+        elif(exp < 1358):
+            level = 10
+        elif(exp < 1584):
+            level = 11
+        elif(exp < 1833):
+            level = 12
+        elif(exp < 2107):
+            level = 13
+        elif(exp < 2411):
+            level = 14
+        elif(exp < 2746):
+            level = 15
+        elif(exp < 3115):
+            level = 16
+        elif(exp < 3523):
+            level = 17
+        elif(exp < 3973):
+            level = 18
+        elif(exp < 4470):
+            level = 19
+        elif(exp < 5018):
+            level = 20
+        elif(exp < 5624):
+            level = 21
+        elif(exp < 6291):
+            level = 22
+        elif(exp < 7028):
+            level = 23
+        elif(exp < 7842):
+            level = 24
+        elif(exp < 8740):
+            level = 25
+        elif(exp < 9730):
+            level = 26
+        elif(exp < 10824):
+            level = 27
+        elif(exp < 12031):
+            level = 28
+        elif(exp < 13363):
+            level = 29
+        elif(exp < 14833):
+            level = 30
+        elif(exp < 16456):
+            level = 31
+        elif(exp < 18247):
+            level = 32
+        elif(exp < 20224):
+            level = 33
+        elif(exp < 22406):
+            level = 34
+        elif(exp < 24815):
+            level = 35
+        elif(exp < 27473):
+            level = 36
+        elif(exp < 30408):
+            level = 37
+        elif(exp < 33648):
+            level = 38
+        elif(exp < 37224):
+            level = 39
+        elif(exp < 41171):
+            level = 40
+        elif(exp < 45529):
+            level = 41
+        elif(exp < 50339):
+            level = 42
+        elif(exp < 55649):
+            level = 43
+        elif(exp < 61512):
+            level = 44
+        elif(exp < 67983):
+            level = 45
+        elif(exp < 75127):
+            level = 46
+        elif(exp < 83014):
+            level = 47
+        elif(exp < 91721):
+            level = 48
+        elif(exp < 101333):
+            level = 49
+        elif(exp < 111945):
+            level = 50
+        elif(exp < 123660):
+            level = 51
+        elif(exp < 136594):
+            level = 52
+        elif(exp < 150872):
+            level = 53
+        elif(exp < 166636):
+            level = 54
+        elif(exp < 184040):
+            level = 55
+        elif(exp < 203254):
+            level = 56
+        elif(exp < 224466):
+            level = 57
+        elif(exp < 247886):
+            level = 58
+        elif(exp < 273742):
+            level = 59
+        elif(exp < 302288):
+            level = 60
+        elif(exp < 333804):
+            level = 61
+        elif(exp < 368599):
+            level = 62
+        elif(exp < 407015):
+            level = 63
+        elif(exp < 449428):
+            level = 64
+        elif(exp < 496254):
+            level = 65
+        elif(exp < 547953):
+            level = 66
+        elif(exp < 605032):
+            level = 67
+        elif(exp < 668051):
+            level = 68
+        elif(exp < 737627):
+            level = 69
+        elif(exp < 814445):
+            level = 70
+        elif(exp < 899257):
+            level = 71
+        elif(exp < 992895):
+            level = 72
+        elif(exp < 1096278):
+            level = 73
+        elif(exp < 1210421):
+            level = 74
+        elif(exp < 1336443):
+            level = 75
+        elif(exp < 1475581):
+            level = 76
+        elif(exp < 1629200):
+            level = 77
+        elif(exp < 1798808):
+            level = 78
+        elif(exp < 1986068):
+            level = 79
+        elif(exp < 2192818):
+            level = 80
+        elif(exp < 2421087):
+            level = 81
+        elif(exp < 2673114):
+            level = 82
+        elif(exp < 2951373):
+            level = 83
+        elif(exp < 3258594):
+            level = 84
+        elif(exp < 3597792):
+            level = 85
+        elif(exp < 3972294):
+            level = 86
+        elif(exp < 4385776):
+            level = 87
+        elif(exp < 4842295):
+            level = 88
+        elif(exp < 5346332):
+            level = 89
+        elif(exp < 5902831):
+            level = 90
+        elif(exp < 6517253):
+            level = 91
+        elif(exp < 7195629):
+            level = 92
+        elif(exp < 7944614):
+            level = 93
+        elif(exp < 8771558):
+            level = 94
+        elif(exp < 9684577):
+            level = 95
+        elif(exp < 10692629):
+            level = 96
+        elif(exp < 11805606):
+            level = 97
+        elif(exp < 13034431):
+            level = 98
+        elif(exp < 14391160):
+            level = 99
+        else:
+            level = 99
+
+    def stats():
+        global fishEXP
+        global fishLevel
+        global exp
+        global level
+        fishAdv.myEXP(fishEXP)
+        fishLevel = level
+        print("Your fishing XP amount is: %i" % fishEXP)
+        print("Your fishing level is now: %i" % fishLevel)
+        rexturn = input("Press enter to return")
+        fishAdv.prompt()
 
     def tBaits(fType):
         global fishEXP
         if(fType[2] == 0):
-            print("You cast your line into the water.")
+            print("\nYou cast your line into the water.")
             print("Your line is hooked!")
             print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3]))
             fishEXP += fType[3]
             time.sleep(2)
         elif(fType[2] == 1):
-            print("You thrust your cage into the water.")
+            print("\nYou thrust your cage into the water.")
             print("You pull it back out!")
             print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3]))
             fishEXP += fType[3]
             time.sleep(2)
         elif(fType[2] == 2):
-            print("You dip your small net into the water.")
+            print("\nYou dip your small net into the water.")
             print("You pull it back out!")
             print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3]))
             fishEXP += fType[3]
             time.sleep(2)
         elif(fType[2] == 3):
-            print("You cast your large net into the water.")
+            print("\nYou cast your large net into the water.")
             print("You pull it back out!")
             print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3]))
             fishEXP += fType[3]
             time.sleep(2)
         elif(fType[2] == 4):
-            print("You cast your line into the water.")
+            print("\nYou cast your line into the water.")
             print("You reel it in!")
             print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3]))
             fishEXP += fType[3]
             time.sleep(2)
         elif(fType[2] == 5):
-            print("You stab your harpoon into the water.")
+            print("\nYou stab your harpoon into the water.")
             print("You pull it back out!")
             print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3]))
             fishEXP += fType[3]
             time.sleep(2)
         elif(fType[2] == 6):
-            print("You place your lobster pot into the water.")
+            print("\nYou place your lobster pot into the water.")
             print("You pull it back out!")
             print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3]))
             fishEXP += fType[3]
             time.sleep(2)
         elif(fType[2] == 7):
-            print("You cast your line into the water.")
+            print("\nYou cast your line into the water.")
             print("You reel it in!")
             print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3]))
             fishEXP += fType[3]
             time.sleep(2)
         elif(fType[2] == 6):
-            print("You mysteriously use your karambwanvessel.")
+            print("\nYou mysteriously use your karambwanvessel.")
             print("You feel a bite!")
             print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3]))
             fishEXP += fType[3]
             time.sleep(2)
         elif(fType[2] == 7):
-            print("You mysteriously use your living minerals.")
+            print("\nYou mysteriously use your living minerals.")
             print("You feel a bite!")
             print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3]))
             fishEXP += fType[3]
@@ -110,7 +327,7 @@ class fishAdv():
 
     def prompt():
         global fishAction
-        fishCMDs = ["0","1","2","3","4","5","6","7","8","9","list","guide","exit"]
+        fishCMDs = ["0","1","2","3","4","5","6","7","8","9","list","guide","exit", "stats"]
         # clearScreen()
         os.system('clear')
         print("Enter an action, type 'guide' for help, or 'exit' to exit!")
@@ -123,6 +340,8 @@ class fishAdv():
             elif(fishAction == "exit"):
                 print("Exiting...")
                 time.sleep(1)
+            elif(fishAction == "stats"):
+                fishAdv.stats()
             else:
                 fishAdv.fish(fishAction)
         else:
@@ -154,7 +373,8 @@ class fishAdv():
         print("   Level(s): 90")
         print("\nlist = Displays a list of all fish + level & bait needed.")
         print("\nexit = Will exit back to main menu")
-        done=input("Press enter to continue")
+        print("\nstats = Will display fishing stats.")
+        done = input("\nPress enter to continue")
         fishAdv.prompt()
 
     def list():
@@ -226,6 +446,7 @@ class fishAdv():
         cavefish    = ["Cavefish",     85, 0, 300]
         rocktail    = ["Rocktail",     90, 9, 380]
         # tigershark  = ["Tiger Shark",  95, 69, 69]
+
     def fish(baitSel):
         # Fish arrays
         global minnow
@@ -303,9 +524,20 @@ class fishAdv():
                     fishAdv.tBaits(shrimps)
                 fishAdv.prompt()
             elif(fishAction == "3"):
-                if(fishLevel >= 16):
-                    print("Code for Big fishing net")
-                print("Code goes here! 3")
+                if(fishLevel >= 46):
+                    fishAdv.tBaits(bass)
+                elif(fishLevel >= 23):
+                    fishAdv.tBaits(cod)
+                else:
+                    whichFish = random.randint(1, 100)
+                    if(whichFish in range(1,33)):
+                        fishAdv.tBaits(seaweed)
+                    elif(whichFish in range(34,66)):
+                        fishAdv.tBaits(mackerel)
+                    elif(whichFish in range(67-99)):
+                        fishAdv.tBaits(oyster)
+                    else:
+                        fishAdv.tBaits(casket)
                 fishAdv.prompt()
             elif(fishAction == "4"):
                 if(fishLevel >= 20 & feathers >= 1):

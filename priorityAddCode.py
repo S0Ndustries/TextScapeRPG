@@ -37,6 +37,7 @@ for level in range(1,99):
     str = "Level %d = %d" % (level + 1, points / 4)
     print(str)
 
+
 def myEXP(iEXP):
     global exp
     global level
