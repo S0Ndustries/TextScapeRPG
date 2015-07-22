@@ -1,3 +1,7 @@
+# This code is runnable
+# Here is a fishing table
+# Click this link: http://services.runescape.com/m=rswiki/en/Fishing_Table
+
 import time
 import os
 class fishAdv():
@@ -161,8 +165,44 @@ class fishAdv():
         if(fType[2] == 0):
             print("You cast your line into the water.")
             print("Your line is hooked!")
-            print("You reel in: %s" % fish[0])
 
+            print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3)])
+            fishEXP += int(fType[3])
+
+        elif(fType[2] == 1):
+            print("You thrust your cage into the water.")
+            print("You pull it back out!")
+
+            print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3)])
+            fishEXP += int(fType[3])
+
+        elif(fType[2] == 2):
+            print("You dip your net into the water.")
+            print("You pull it back out!")
+
+            print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3)])
+            fishEXP += int(fType[3])
+
+        elif(fType[2] == 3):
+            print("You thrust your cage into the water.")
+            print("You pull it back out!")
+
+            print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3)])
+            fishEXP += int(fType[3])
+
+        elif(fType[2] == 4):
+            print("You thrust your cage into the water.")
+            print("You pull it back out!")
+
+            print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3)])
+            fishEXP += int(fType[3])
+
+        elif(fType[2] == 1):
+            print("You thrust your cage into the water.")
+            print("You pull it back out!")
+
+            print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3)])
+            fishEXP += int(fType[3])
 
     def fish(baitSel):
         # Fish arrays
@@ -277,4 +317,5 @@ class fishAdv():
             time.sleep(1.5)
             fishAdv.prompt()
 
+fishAdv.fishes()
 fishAdv.prompt()
