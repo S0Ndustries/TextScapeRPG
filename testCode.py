@@ -160,50 +160,6 @@ class fishAdv():
         cavefish    = ["Cavefish",     85, 0, 300]
         rocktail    = ["Rocktail",     90, 9, 380]
         # tigershark  = ["Tiger Shark",  95, 69, 69]
-
-    def tBait(fType):
-        if(fType[2] == 0):
-            print("You cast your line into the water.")
-            print("Your line is hooked!")
-
-            print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3)])
-            fishEXP += int(fType[3])
-
-        elif(fType[2] == 1):
-            print("You thrust your cage into the water.")
-            print("You pull it back out!")
-
-            print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3)])
-            fishEXP += int(fType[3])
-
-        elif(fType[2] == 2):
-            print("You dip your net into the water.")
-            print("You pull it back out!")
-
-            print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3)])
-            fishEXP += int(fType[3])
-
-        elif(fType[2] == 3):
-            print("You thrust your cage into the water.")
-            print("You pull it back out!")
-
-            print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3)])
-            fishEXP += int(fType[3])
-
-        elif(fType[2] == 4):
-            print("You thrust your cage into the water.")
-            print("You pull it back out!")
-
-            print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3)])
-            fishEXP += int(fType[3])
-
-        elif(fType[2] == 1):
-            print("You thrust your cage into the water.")
-            print("You pull it back out!")
-
-            print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3)])
-            fishEXP += int(fType[3])
-
     def fish(baitSel):
         # Fish arrays
         global minnow
@@ -249,29 +205,36 @@ class fishAdv():
                 if(baitCount >= 1):
                     baitCount -= 1
                     if(fishLevel >= 85):
-                        fishAdv.tBait(cavefish)
+                        fishAdv.tBaits(cavefish)
                     elif(fishLevel >= 38):
-                        fishAdv.tBait(caveeel)
+                        fishAdv.tBaits(caveeel)
                     elif(fishLevel >= 28):
-                        fishAdv.tBait(slimyeel)
+                        fishAdv.tBaits(slimyeel)
                     elif(fishLevel >= 25):
-                        fishAdv.tBait(pike)
+                        fishAdv.tBaits(pike)
                     elif(fishLevel >= 10):
-                        fishAdv.tBait(herring)
+                        fishAdv.tBaits(herring)
                     elif(fishLevel >= 5):
-                        fishAdv.tBait(sardine)
+                        fishAdv.tBaits(sardine)
                     else:
-                        fishAdv.tBait(minnow)
+                        fishAdv.tBaits(minnow)
                 else:
                     print("Not enough bait!")
                 fishAdv.prompt()
             elif(fishAction == "1"):
-                print("Code for Crayfish cage")
-                print("Code goes here! 1")
+                tBaits(crayfish)
                 fishAdv.prompt()
             elif(fishAction == "2"):
-                print("Code for Small fishing net")
-                print("Code goes here! 2")
+                if(fishLevel >= 62):
+                    fishAdv.tBaits(monkfish)
+                elif(fishLevel >= 33):
+                    fishAdv.tBaits(frogspawn)
+                elif(fishLevel >= 15):
+                    fishAdv.tBaits(anchovies)
+                elif(fishLevel >= 5):
+                    fishAdv.tBaits(karambwanji)
+                else:
+                    fishAdv.tBaits(shrimps)
                 fishAdv.prompt()
             elif(fishAction == "3"):
                 if(fishingLevel >= 16):
