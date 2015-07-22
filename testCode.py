@@ -6,7 +6,87 @@ import time
 import os
 import random
 import sys
+import platform
 
+class unix:
+    def clear():
+        os.system('clear')
+        print("<--- TextScapeRPG - by - S0Ndustries --->\n")
+
+class windows:
+    def clear():
+        os.system('cls')
+        print("<--- TextScapeRPG - by - S0Ndustries --->\n")
+
+if platform.system()=="Windows":
+    system = windows
+else:
+    system = unix
+
+global itemRAWMinnow
+global itemRAWCrayfish
+global itemRAWShrimp
+global itemRAWSardine
+global itemRAWKarambwanji
+global itemRAWHerring
+global itemRAWAnchovies
+global itemRAWMackerel
+global itemRAWSeaweed
+global itemRAWTrout
+global itemRAWCod
+global itemRAWPike
+global itemRAWSlimyEel
+global itemRAWSalmon
+global itemRAWFrogSpawn
+global itemRAWTuna
+global itemRAWCaveEel
+global itemRAWRainbowFish
+global itemRAWLobster
+global itemRAWBass
+global itemRAWSwordfish
+global itemRAWLavaEel
+global itemRAWMonkfish
+global itemRAWKarambwan
+global itemRAWShark
+global itemRAWBaronShark
+global itemRAWCavefish
+global itemRAWRocktail
+
+itemRAWMinnow = ["Raw Minnow", 111, 000, 111, 000, 0]
+itemRAWCrayfish = ["Raw Crayfish", 111, 000, 111, 000, 0]
+itemRAWShrimp = ["Raw Shrimp", 111, 000, 111, 000, 0]
+itemRAWSardine = ["Raw Sardine", 111, 000, 111, 000, 0]
+itemRAWKarambwanji = ["Raw Karambwanji", 111, 000, 111, 000, 0]
+itemRAWHerring = ["Raw Herring", 111, 000, 111, 000, 0]
+itemRAWAnchovies = ["Raw Anchovies", 111, 000, 111, 000, 0]
+itemRAWMackerel = ["Raw Mackerel", 111, 000, 111, 000, 0]
+itemRAWSeaweed = ["Raw Seaweed", 111, 000, 111, 000, 0]
+itemRAWTrout = ["Raw Trout", 111, 000, 111, 000, 0]
+itemRAWCod = ["Raw Cod", 111, 000, 111, 000, 0]
+itemRAWPike = ["Raw Pike", 111, 000, 111, 000, 0]
+itemRAWSlimyEel = ["Raw Slimy eel", 111, 000, 111, 000, 0]
+itemRAWSalmon = ["Raw Salmon", 111, 000, 111, 000, 0]
+itemRAWFrogSpawn = ["Raw Frog spawn", 111, 000, 111, 000, 0]
+itemRAWTuna = ["Raw Tuna", 111, 000, 111, 000, 0]
+itemRAWCaveEel = ["Raw Cave eel", 111, 000, 111, 000, 0]
+itemRAWRainbowFish = ["Raw Rainbow fish", 111, 000, 111, 000, 0]
+itemRAWLobster = ["Raw Lobster", 111, 000, 111, 000, 0]
+itemRAWBass = ["Raw Bass", 111, 000, 111, 000, 0]
+itemRAWSwordfish = ["Raw Swordfish", 111, 000, 111, 000, 0]
+itemRAWLavaEel = ["Raw Lava eel", 111, 000, 111, 000, 0]
+itemRAWMonkfish = ["Raw Monkfish", 111, 000, 111, 000, 0]
+itemRAWKarambwan = ["Raw Karambwan", 111, 000, 111, 000, 0]
+itemRAWShark = ["Raw Shark", 111, 000, 111, 000, 0]
+itemRAWBaronShark = ["Raw Baron shark", 111, 000, 111, 000, 0]
+itemRAWCavefish = ["Raw Cave fish", 111, 000, 111, 000, 0]
+itemRAWRocktail = ["Raw Rocktail", 111, 000, 111, 000, 0]
+
+
+global itemOyster
+global itemCasket
+
+itemOyster = ["Raw Oyster", 111, 111, 111, 000, 0]
+itemCasket = ["Casket", 111, 111, 111, 000, 0]
 class fishAdv():
     # Fish arrays
     global minnow
@@ -517,54 +597,72 @@ class fishAdv():
                     baitCount -= 1
                     if(fishLevel >= 85):
                         fishAdv.tBaits(cavefish)
+                        itemRAWCavefish[5] += 1
                     elif(fishLevel >= 38):
                         fishAdv.tBaits(caveeel)
+                        itemRAWCaveEel[5] += 1
                     elif(fishLevel >= 28):
                         fishAdv.tBaits(slimyeel)
+                        itemRAWSlimyEel[5] += 1
                     elif(fishLevel >= 25):
                         fishAdv.tBaits(pike)
+                        itemRAWPike[5] += 1
                     elif(fishLevel >= 10):
                         fishAdv.tBaits(herring)
+                        itemRAWHerring[5] += 1
                     elif(fishLevel >= 5):
-                        print(baitCount)
                         fishAdv.tBaits(sardine)
+                        itemRAWSardine[5] += 1
                     else:
                         fishAdv.tBaits(minnow)
+                        itemRAWMinnow[5] += 1
                 else:
                     print("Not enough bait!")
                     time.sleep(1)
                 fishAdv.prompt()
             elif(fishAction == "1"):
                 fishAdv.tBaits(crayfish)
+                itemRAWCrayfish[5] += 1
                 fishAdv.prompt()
             elif(fishAction == "2"):
                 if(fishLevel >= 62):
                     fishAdv.tBaits(monkfish)
+                    itemRAWMonkfish[5] += 1
                 elif(fishLevel >= 33):
                     fishAdv.tBaits(frogspawn)
+                    itemRAWFrogSpawn[5] += 1
                 elif(fishLevel >= 15):
                     fishAdv.tBaits(anchovies)
+                    itemRAWAnchovies[5] += 1
                 elif(fishLevel >= 5):
                     fishAdv.tBaits(karambwanji)
+                    itemRAWKarambwanji[5] += 1
                 else:
                     fishAdv.tBaits(shrimp)
+                    itemRAWShrimp[5] += 1
                 fishAdv.prompt()
             elif(fishAction == "3"):
                 if(fishLevel >= 46):
                     fishAdv.tBaits(bass)
+                    itemRAWBass[5] += 1
                 elif(fishLevel >= 23):
                     fishAdv.tBaits(cod)
+                    itemRAWCod[5] += 1
                 elif(fishLevel >=16):
                     whichFish = random.randint(1, 100)
                     if(whichFish in range(67,99)):
                         fishAdv.tBaits(seaweed)
+                        itemRAWSeaweed[5] += 1
                     elif(whichFish in range(34,66)):
                         fishAdv.tBaits(mackerel)
+                        itemRAWMackerel[5] += 1
                     elif(whichFish in range(1,33)):
                         fishAdv.tBaits(oyster)
+                        itemOyster[5] += 1
                     elif(whichFish == 100):
                         fishAdv.tBaits(casket)
                         casketCash = random.randint(1, 10000)
+                        print("You have found %i coins!" % casketCash)
                     else:
                         print("Error, please post on forums: #FER%i" % whichFish)
                         go=input("Press enter to continue")
@@ -577,10 +675,13 @@ class fishAdv():
                     feathers -= 1
                     if(fishLevel >= 38):
                         fishAdv.tBaits(rainbowfish)
+                        itemRAWRainbowFish[5] += 1
                     elif(fishLevel >= 30):
                         fishAdv.tBaits(salmon)
+                        itemRAWSalmon[5] += 1
                     elif(fishLevel >= 20):
                         fishAdv.tBaits(trout)
+                        itemRAWTrout[5] += 1
                     else:
                         print("You are not a high enough level! Minimum level: 20")
                         go=input("Press enter to continue")
@@ -590,12 +691,16 @@ class fishAdv():
                     whichFish = random.randint(1, 100)
                     if(whichFish in range(1,49)):
                         fishAdv.tBaits(shark)
+                        itemRAWShark[5] += 1
                     elif(whichFish in range(50,100)):
                         fishAdv.tBaits(baronshark)
+                        itemRAWBaronShark[5] += 1
                 elif(fishLevel >= 50):
                     fishAdv.tBaits(swordfish)
+                    itemRAWSwordfish[5] += 1
                 elif(fishLevel >= 35):
                     fishAdv.tBaits(tuna)
+                    itemRAWTuna[5] += 1
                 else:
                     print("You are not a high enough level! Minimum level: 35")
                     go=input("Press enter to continue")
@@ -603,6 +708,7 @@ class fishAdv():
             elif(fishAction == "6"):
                 if(fishLevel >= 40):
                     fishAdv.tBaits(lobster)
+                    itemRAWLobster[5] += 1
                 else:
                     print("You are not a high enough level! Minimum level: 40")
                     go=input("Press enter to continue")
@@ -610,6 +716,7 @@ class fishAdv():
             elif(fishAction == "7"):
                 if(fishLevel >= 53):
                     fishAdv.tBaits(lavaeel)
+                    itemRAWLavaEel[5] += 1
                 else:
                     print("You are not a high enough level! Minimum level: 53")
                     go=input("Press enter to continue")
@@ -617,6 +724,7 @@ class fishAdv():
             elif(fishAction == "8"):
                 if(fishLevel >= 65):
                     fishAdv.tBaits(karambwan)
+                    itemRAWKarambwan[5] += 1
                 else:
                     print("You are not a high enough level! Minimum level: 65")
                     go=input("Press enter to continue")
@@ -624,6 +732,7 @@ class fishAdv():
             elif(fishAction == "9"):
                 if(fishLevel >= 90):
                     fishAdv.tBaits(rocktail)
+                    itemRAWRocktail[5] += 1
                 else:
                     print("You are not a high enough level! Minimum level: 90")
                     go=input("Press enter to continue")
@@ -639,5 +748,5 @@ class fishAdv():
 
 
 fishAdv.fishes()
-fishAdv.stats()
+fishAdv.firstStats()
 fishAdv.prompt()
