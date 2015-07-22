@@ -85,6 +85,13 @@ itemRAWRocktail = ["Raw Rocktail", 111, 000, 111, 000, 0]
 global itemOyster
 global itemCasket
 
+global fishEXP
+global feathers
+global baitCount
+fishEXP = 0
+feathers = 3
+baitCount = 3
+
 itemOyster = ["Raw Oyster", 111, 111, 111, 000, 0]
 itemCasket = ["Casket", 111, 111, 111, 000, 0]
 class fishAdv():
@@ -331,6 +338,38 @@ class fishAdv():
         else:
             level = 99
 
+    def fishInv():
+        print("\nYour fish:")
+        print("%s: %i" % (itemRAWMinnow[0], itemRAWMinnow[5]))
+        print("%s: %i" % (itemRAWCrayfish[0], itemRAWCrayfish[5]))
+        print("%s: %i" % (itemRAWShrimp[0], itemRAWShrimp[5]))
+        print("%s: %i" % (itemRAWSardine[0], itemRAWSardine[5]))
+        print("%s: %i" % (itemRAWKarambwanji[0], itemRAWKarambwanji[5]))
+        print("%s: %i" % (itemRAWHerring[0], itemRAWHerring[5]))
+        print("%s: %i" % (itemRAWAnchovies[0], itemRAWAnchovies[5]))
+        print("%s: %i" % (itemRAWMackerel[0], itemRAWMackerel[5]))
+        print("%s: %i" % (itemRAWSeaweed[0], itemRAWSeaweed[5]))
+        print("%s: %i" % (itemRAWTrout[0], itemRAWTrout[5]))
+        print("%s: %i" % (itemRAWCod[0], itemRAWCod[5]))
+        print("%s: %i" % (itemRAWPike[0], itemRAWPike[5]))
+        print("%s: %i" % (itemRAWSlimyEel[0], itemRAWSlimyEel[5]))
+        print("%s: %i" % (itemRAWSalmon[0], itemRAWSalmon[5]))
+        print("%s: %i" % (itemRAWFrogSpawn[0], itemRAWFrogSpawn[5]))
+        print("%s: %i" % (itemRAWTuna[0], itemRAWTuna[5]))
+        print("%s: %i" % (itemRAWCaveEel[0], itemRAWCaveEel[5]))
+        print("%s: %i" % (itemRAWRainbowFish[0], itemRAWRainbowFish[5]))
+        print("%s: %i" % (itemRAWLobster[0], itemRAWLobster[5]))
+        print("%s: %i" % (itemRAWBass[0], itemRAWBass[5]))
+        print("%s: %i" % (itemRAWSwordfish[0], itemRAWSwordfish[5]))
+        print("%s: %i" % (itemRAWLavaEel[0], itemRAWLavaEel[5]))
+        print("%s: %i" % (itemRAWMonkfish[0], itemRAWMonkfish[5]))
+        print("%s: %i" % (itemRAWKarambwan[0], itemRAWKarambwan[5]))
+        print("%s: %i" % (itemRAWShark[0], itemRAWShark[5]))
+        print("%s: %i" % (itemRAWBaronShark[0], itemRAWBaronShark[5]))
+        print("%s: %i" % (itemRAWCavefish[0], itemRAWCavefish[5]))
+        print("%s: %i" % (itemRAWRocktail[0], itemRAWRocktail[5]))
+        go=input("\nPress enter to continue.")
+        fishAdv.prompt()
     def stats():
         global fishEXP
         global fishLevel
@@ -433,7 +472,7 @@ class fishAdv():
     def prompt():
         system.clear()
         global fishAction
-        fishCMDs = ["0","1","2","3","4","5","6","7","8","9","list","guide","exit", "stats"]
+        fishCMDs = ["0","1","2","3","4","5","6","7","8","9","list","guide","exit", "stats", "fish"]
         print("Enter an action, type 'guide' for help, or 'exit' to exit!")
         fishAction=input("Fish action: ")
         if (fishAction in fishCMDs):
@@ -446,6 +485,8 @@ class fishAdv():
                 time.sleep(1)
             elif(fishAction == "stats"):
                 fishAdv.stats()
+            elif(fishAction == "fish"):
+                fishAdv.fishInv()
             else:
                 fishAdv.fish(fishAction)
         else:
@@ -478,6 +519,7 @@ class fishAdv():
         print("\nlist = Displays a list of all fish + level & bait needed.")
         print("\nexit = Will exit back to main menu")
         print("\nstats = Will display fishing stats.")
+        print("\nfish = Displays amount of fish in your bag")
         done = input("\nPress enter to continue")
         fishAdv.prompt()
 
