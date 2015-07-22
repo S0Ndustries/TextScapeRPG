@@ -4,6 +4,8 @@
 
 import time
 import os
+import random
+import sys
 
 class fishAdv():
     # Fish arrays
@@ -42,8 +44,7 @@ class fishAdv():
     global fishLevel
     global fishEXP
     global feathers
-    fishEXP = 1000
-    feathers = 4
+    global baitCount
 
     def myEXP(iEXP):
         global exp
@@ -261,75 +262,98 @@ class fishAdv():
         print("Your fishing level is now: %i" % fishLevel)
         rexturn = input("Press enter to return")
         fishAdv.prompt()
+    def firstStats():
+        global fishEXP
+        global fishLevel
+        global exp
+        global level
+        fishAdv.myEXP(fishEXP)
+        fishLevel = level
+
+    def loadBar():
+        s = "[==========]"
+        for c in s:
+            sys.stdout.write('%s' % c )
+            sys.stdout.flush()
+            time.sleep(0.2)
 
     def tBaits(fType):
         global fishEXP
         if(fType[2] == 0):
             print("\nYou cast your line into the water.")
-            print("Your line is hooked!")
+            fishAdv.loadBar()
+            print("\nYour line is hooked!")
             print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3]))
             fishEXP += fType[3]
-            time.sleep(2)
+            time.sleep(1)
         elif(fType[2] == 1):
             print("\nYou thrust your cage into the water.")
-            print("You pull it back out!")
+            fishAdv.loadBar()
+            print("\nYou pull it back out!")
             print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3]))
             fishEXP += fType[3]
-            time.sleep(2)
+            time.sleep(1)
         elif(fType[2] == 2):
             print("\nYou dip your small net into the water.")
-            print("You pull it back out!")
+            fishAdv.loadBar()
+            print("\nYou pull it back out!")
             print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3]))
             fishEXP += fType[3]
-            time.sleep(2)
+            time.sleep(1)
         elif(fType[2] == 3):
             print("\nYou cast your large net into the water.")
-            print("You pull it back out!")
+            fishAdv.loadBar()
+            print("\nYou pull it back out!")
             print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3]))
             fishEXP += fType[3]
-            time.sleep(2)
+            time.sleep(1)
         elif(fType[2] == 4):
             print("\nYou cast your line into the water.")
-            print("You reel it in!")
+            fishAdv.loadBar()
+            print("\nYou reel it in!")
             print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3]))
             fishEXP += fType[3]
-            time.sleep(2)
+            time.sleep(1)
         elif(fType[2] == 5):
             print("\nYou stab your harpoon into the water.")
-            print("You pull it back out!")
+            fishAdv.loadBar()
+            print("\nYou pull it back out!")
             print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3]))
             fishEXP += fType[3]
-            time.sleep(2)
+            time.sleep(1)
         elif(fType[2] == 6):
             print("\nYou place your lobster pot into the water.")
-            print("You pull it back out!")
+            fishAdv.loadBar()
+            print("\nYou pull it back out!")
             print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3]))
             fishEXP += fType[3]
-            time.sleep(2)
+            time.sleep(1)
         elif(fType[2] == 7):
             print("\nYou cast your line into the water.")
-            print("You reel it in!")
+            fishAdv.loadBar()
+            print("\nYou reel it in!")
             print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3]))
             fishEXP += fType[3]
-            time.sleep(2)
+            time.sleep(1)
         elif(fType[2] == 6):
             print("\nYou mysteriously use your karambwanvessel.")
-            print("You feel a bite!")
+            fishAdv.loadBar()
+            print("\nYou feel a bite!")
             print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3]))
             fishEXP += fType[3]
-            time.sleep(2)
+            time.sleep(1)
         elif(fType[2] == 7):
             print("\nYou mysteriously use your living minerals.")
-            print("You feel a bite!")
+            fishAdv.loadBar()
+            print("\nYou feel a bite!")
             print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3]))
             fishEXP += fType[3]
-            time.sleep(2)
+            time.sleep(1)
 
     def prompt():
+        system.clear()
         global fishAction
         fishCMDs = ["0","1","2","3","4","5","6","7","8","9","list","guide","exit", "stats"]
-        # clearScreen()
-        os.system('clear')
         print("Enter an action, type 'guide' for help, or 'exit' to exit!")
         fishAction=input("Fish action: ")
         if (fishAction in fishCMDs):
@@ -483,7 +507,7 @@ class fishAdv():
         global fishAction
         global fishLevel
         global feathers
-        baitCount = 10
+        global baitCount
         fishAction = baitSel
         baitType = ["bait","crayfishcage","smallnet","bignet","flyfishingrod","harpoon","lobsterpot","oilyfishingrod","karambwanvessel","livingminerals"]
         baitTypeNum = ["0","1","2","3","4","5","6","7","8","9"]
@@ -502,11 +526,13 @@ class fishAdv():
                     elif(fishLevel >= 10):
                         fishAdv.tBaits(herring)
                     elif(fishLevel >= 5):
+                        print(baitCount)
                         fishAdv.tBaits(sardine)
                     else:
                         fishAdv.tBaits(minnow)
                 else:
                     print("Not enough bait!")
+                    time.sleep(1)
                 fishAdv.prompt()
             elif(fishAction == "1"):
                 fishAdv.tBaits(crayfish)
@@ -521,62 +547,97 @@ class fishAdv():
                 elif(fishLevel >= 5):
                     fishAdv.tBaits(karambwanji)
                 else:
-                    fishAdv.tBaits(shrimps)
+                    fishAdv.tBaits(shrimp)
                 fishAdv.prompt()
             elif(fishAction == "3"):
                 if(fishLevel >= 46):
                     fishAdv.tBaits(bass)
                 elif(fishLevel >= 23):
                     fishAdv.tBaits(cod)
-                else:
+                elif(fishLevel >=16):
                     whichFish = random.randint(1, 100)
-                    if(whichFish in range(1,33)):
+                    if(whichFish in range(67,99)):
                         fishAdv.tBaits(seaweed)
                     elif(whichFish in range(34,66)):
                         fishAdv.tBaits(mackerel)
-                    elif(whichFish in range(67-99)):
+                    elif(whichFish in range(1,33)):
                         fishAdv.tBaits(oyster)
-                    else:
+                    elif(whichFish == 100):
                         fishAdv.tBaits(casket)
+                        casketCash = random.randint(1, 10000)
+                    else:
+                        print("Error, please post on forums: #FER%i" % whichFish)
+                        go=input("Press enter to continue")
+                else:
+                    print("You are not a high enough level! Minimum level: 16")
+                    go=input("Press enter to continue")
                 fishAdv.prompt()
             elif(fishAction == "4"):
-                if(fishLevel >= 20 & feathers >= 1):
-                    print("Code for Fishing rod + feathers")
-                print("Code goes here! 4")
+                if(feathers >= 1):
+                    feathers -= 1
+                    if(fishLevel >= 38):
+                        fishAdv.tBaits(rainbowfish)
+                    elif(fishLevel >= 30):
+                        fishAdv.tBaits(salmon)
+                    elif(fishLevel >= 20):
+                        fishAdv.tBaits(trout)
+                    else:
+                        print("You are not a high enough level! Minimum level: 20")
+                        go=input("Press enter to continue")
                 fishAdv.prompt()
             elif(fishAction == "5"):
-                if(fishLevel >= 35):
-                    print("Code for Harpoon")
-                print("Code goes here! 5")
+                if(fishLevel >= 76):
+                    whichFish = random.randint(1, 100)
+                    if(whichFish in range(1,49)):
+                        fishAdv.tBaits(shark)
+                    elif(whichFish in range(50,100)):
+                        fishAdv.tBaits(baronshark)
+                elif(fishLevel >= 50):
+                    fishAdv.tBaits(swordfish)
+                elif(fishLevel >= 35):
+                    fishAdv.tBaits(tuna)
+                else:
+                    print("You are not a high enough level! Minimum level: 35")
+                    go=input("Press enter to continue")
                 fishAdv.prompt()
             elif(fishAction == "6"):
                 if(fishLevel >= 40):
-                    print("Code for Lobster pot")
-                print("Code goes here! 6")
+                    fishAdv.tBaits(lobster)
+                else:
+                    print("You are not a high enough level! Minimum level: 40")
+                    go=input("Press enter to continue")
                 fishAdv.prompt()
             elif(fishAction == "7"):
                 if(fishLevel >= 53):
-                    print("Code for Oily fishing rod")
-                print("Code goes here! 7")
+                    fishAdv.tBaits(lavaeel)
+                else:
+                    print("You are not a high enough level! Minimum level: 53")
+                    go=input("Press enter to continue")
                 fishAdv.prompt()
             elif(fishAction == "8"):
                 if(fishLevel >= 65):
-                    print("Code for Karambwan vessel")
-                print("Code goes here! 8")
+                    fishAdv.tBaits(karambwan)
+                else:
+                    print("You are not a high enough level! Minimum level: 65")
+                    go=input("Press enter to continue")
                 fishAdv.prompt()
             elif(fishAction == "9"):
                 if(fishLevel >= 90):
-                    print("Code for Living minerals")
-                print("Code goes here! 9")
+                    fishAdv.tBaits(rocktail)
+                else:
+                    print("You are not a high enough level! Minimum level: 90")
+                    go=input("Press enter to continue")
                 fishAdv.prompt()
             else:
                 print("Invalid bait. Sorry!")
                 time.sleep(1.5)
                 fishAdv.prompt()
         else:
-            print("You done f**ked up, mate.")
+            print("Unknown issue, please report: FBR00.")
             time.sleep(1.5)
             fishAdv.prompt()
 
+
 fishAdv.fishes()
+fishAdv.stats()
 fishAdv.prompt()
