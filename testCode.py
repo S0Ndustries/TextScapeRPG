@@ -12,6 +12,9 @@ global agilityLevel
 global strengthLevel
 global loadTime
 
+global strengthEXP
+strengthEXP = 0
+
 global fishLevel
 fishLevel = 1
 
@@ -99,12 +102,9 @@ global itemCasket
 global fishEXP
 global feathers
 global baitCount
-fishEXP = 1000
+fishEXP = 100
 feathers = 3
 baitCount = 3
-
-itemOyster = ["Raw Oyster", 111, 111, 111, 000, 0]
-itemCasket = ["Casket", 111, 111, 111, 000, 0]
 class fishAdv():
     # Fish arrays
     global minnow
@@ -397,6 +397,7 @@ class fishAdv():
     def tBaits(fType):
         global fishEXP
         global loadTimeX
+        global strengthEXP
         fishAdv.firstStats()
         if(fType[2] == 0):
             print("\nYou cast your line into the water.")
@@ -472,7 +473,7 @@ class fishAdv():
     def prompt():
         system.clear()
         global fishAction
-        fishCMDs = ["0","1","2","3","4","5","6","7","8","9","list","guide","exit", "stats", "fish","betaTest"]
+        fishCMDs = ["0","1","2","3","4","5","6","7","8","9", "list", "guide", "exit", "stats", "fish", "fish1", "betaTest"]
         print("Enter an action, type 'guide' for help, or 'exit' to exit!")
         fishAction=input("Fish action: ")
         if (fishAction in fishCMDs):
@@ -489,6 +490,9 @@ class fishAdv():
                 fishAdv.fishInv()
             elif(fishAction == "betaTest"):
                 fishAdv.betaTest()
+            elif(fishAction == "fish1"):
+                fishAction1=input("Enter bait type: ")
+                fishAdv.fish(fishAction1)
             else:
                 fishAdv.fish2(fishAction)
         else:
@@ -868,28 +872,24 @@ class fishAdv():
             fishType = fishList[fishSel]
             if(fishType[2] == int(fishAction)):
                 if(fishType[1] <= fishLevel):
-                    fishAdv.tBaits(fishType[fishSel])
-                    print("Fished successfully")
-                    time.sleep(1)
-                    idk = 1
+                    fishAdv.tBaits(fishType)
+                    runLoop = 1
                     fishAdv.prompt()
                 else:
                     if(fishSel >= 0):
                         fishSel -= 1
-                        print(fishType[0])
-                        print("\nLevel: %s/%s\nBait: %s/%s\n" % (fishType[1], fishLevel, fishType[2], fishAction))
-                        time.sleep(0.1)
             else:
                 if(fishSel >= 0):
                     fishSel -= 1
-                    print(fishType[0])
-                    print("\nLevel: %s/%s\nBait: %s/%s\n" % (fishType[1], fishLevel, fishType[2], fishAction))
-                    time.sleep(0.1)
                 else:
                     print("Error")
                     time.sleep(1.5)
                     fishAdv.prompt()
-
+        else:
+            print("\nYou aren't a high enough level!")
+            print("Try 'guide' to find level required")
+            time.sleep(1)
+            fishAdv.prompt()
 
 
 
