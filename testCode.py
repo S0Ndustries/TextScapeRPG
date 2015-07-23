@@ -863,15 +863,22 @@ class fishAdv():
         baitType = ["bait","crayfishcage","smallnet","bignet","flyfishingrod","harpoon","lobsterpot","oilyfishingrod","karambwanvessel","livingminerals"]
         baitTypeNum = ["0","1","2","3","4","5","6","7","8","9"]
         fishSel = 29
-        idk = 0
-        while(idk == 0 and fishSel >= 0):
+        runLoop = 0
+        while(runLoop == 0 and fishSel >= 0):
             fishType = fishList[fishSel]
-            if(fishType[1] <= fishLevel & fishType[2] == fishAction):
-                tBaits(fishType[fishSel])
-                print("Fished successfully")
-                time.sleep(1)
-                idk = 1
-                fishAdv.prompt()
+            if(fishType[2] == int(fishAction)):
+                if(fishType[1] <= fishLevel):
+                    fishAdv.tBaits(fishType[fishSel])
+                    print("Fished successfully")
+                    time.sleep(1)
+                    idk = 1
+                    fishAdv.prompt()
+                else:
+                    if(fishSel >= 0):
+                        fishSel -= 1
+                        print(fishType[0])
+                        print("\nLevel: %s/%s\nBait: %s/%s\n" % (fishType[1], fishLevel, fishType[2], fishAction))
+                        time.sleep(0.1)
             else:
                 if(fishSel >= 0):
                     fishSel -= 1
