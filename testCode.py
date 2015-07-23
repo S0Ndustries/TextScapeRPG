@@ -99,7 +99,7 @@ global itemCasket
 global fishEXP
 global feathers
 global baitCount
-fishEXP = 0
+fishEXP = 1000
 feathers = 3
 baitCount = 3
 
@@ -490,7 +490,7 @@ class fishAdv():
             elif(fishAction == "betaTest"):
                 fishAdv.betaTest()
             else:
-                fishAdv.fish(fishAction)
+                fishAdv.fish2(fishAction)
         else:
             print("That's not a command!")
             time.sleep(1.5)
@@ -821,6 +821,65 @@ class fishAdv():
             print("Unknown issue, please report: FBR00.")
             time.sleep(1.5)
             fishAdv.prompt()
+    def fish2(baitSel):
+        # Fish arrays
+        global minnow
+        global crayfish
+        global shrimp
+        global sardine
+        global karambwanji
+        global herring
+        global anchovies
+        global casket
+        global mackerel
+        global oyster
+        global seaweed
+        global trout
+        global cod
+        global pike
+        global slimyeel
+        global salmon
+        global frogspawn
+        global tuna
+        global caveeel
+        global rainbowfish
+        global lobster
+        global bass
+        global swordfish
+        global lavaeel
+        global monkfish
+        global karambwan
+        global shark
+        global baronshark
+        global cavefish
+        global rocktail
+        # Other variables
+        global fishAction
+        global fishLevel
+        global feathers
+        global baitCount
+        fishAction = baitSel
+        fishList = [minnow, crayfish, shrimp, sardine, karambwanji, herring, anchovies, casket, mackerel, oyster, seaweed, trout, cod, pike, slimyeel, salmon, frogspawn, tuna, caveeel, rainbowfish, lobster, bass, swordfish, lavaeel, monkfish, karambwan, shark, baronshark, cavefish, rocktail]
+        baitType = ["bait","crayfishcage","smallnet","bignet","flyfishingrod","harpoon","lobsterpot","oilyfishingrod","karambwanvessel","livingminerals"]
+        baitTypeNum = ["0","1","2","3","4","5","6","7","8","9"]
+        fishSel = 29
+        idk = 0
+        while(idk == 0 & fishSel >= 0):
+            fishType = fishList[fishSel]
+            if(fishType[1] <= fishLevel & fishType[2] == fishAction):
+                tBaits(fishType[fishSel])
+                print("Fished successfully")
+                time.sleep(1)
+                idk = 1
+                fishAdv.prompt()
+            else:
+                fishSel -= 1
+                print(fishType[0])
+                print("\nLevel: %s/%s\nBait: %s/%s\n" % (fishType[1], fishLevel, fishType[2], fishAction))
+                time.sleep(0.1)
+
+
+
 
 
 fishAdv.fishes()
