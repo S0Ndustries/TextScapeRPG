@@ -873,10 +873,15 @@ class fishAdv():
                 idk = 1
                 fishAdv.prompt()
             else:
-                fishSel -= 1
-                print(fishType[0])
-                print("\nLevel: %s/%s\nBait: %s/%s\n" % (fishType[1], fishLevel, fishType[2], fishAction))
-                time.sleep(0.1)
+                if(fishSel >= 0):
+                    fishSel -= 1
+                    print(fishType[0])
+                    print("\nLevel: %s/%s\nBait: %s/%s\n" % (fishType[1], fishLevel, fishType[2], fishAction))
+                    time.sleep(0.1)
+                else:
+                    print("Error")
+                    time.sleep(1.5)
+                    fishAdv.prompt()
 
 
 
