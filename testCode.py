@@ -8,6 +8,17 @@ import random
 import sys
 import platform
 
+global agilityLevel
+global strengthLevel
+global loadTime
+
+global fishLevel
+fishLevel = 1
+
+agilityLevel = 30
+strengthLevel = 30
+loadTime = 0.4 / ((fishLevel * (agilityLevel * 0.1) * (strengthLevel * 0.1) * 0.005) + 0.995)
+
 class unix:
     def clear():
         os.system('clear')
@@ -353,10 +364,12 @@ class fishAdv():
         global fishLevel
         global exp
         global level
+        global loadTime
         fishAdv.myEXP(fishEXP)
         fishLevel = level
         print("\nYour fishing XP amount is: %i" % fishEXP)
         print("Your fishing level is now: %i" % fishLevel)
+        print("You take: %s seconds to catch a fish!" % (loadTime * 12))
         rexturn = input("\nPress enter to return")
         fishAdv.prompt()
     def firstStats():
@@ -368,89 +381,98 @@ class fishAdv():
         fishLevel = level
 
     def loadBar():
+        global fishLevel
+        global loadTime
+        global agilityLevel
+        global strengthLevel
+        global loadTimeX
+        loadTimeX = loadTime * 7
+        loadTime = 0.2 / ((fishLevel * (strengthLevel * 0.1) * 0.005) + 0.995)
         s = "[==========]"
         for c in s:
             sys.stdout.write('%s' % c )
             sys.stdout.flush()
-            time.sleep(0.2)
+            time.sleep(loadTime)
 
     def tBaits(fType):
         global fishEXP
+        global loadTimeX
+        fishAdv.firstStats()
         if(fType[2] == 0):
             print("\nYou cast your line into the water.")
             fishAdv.loadBar()
             print("\nYour line is hooked!")
-            print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3]))
-            fishEXP += fType[3]
-            time.sleep(1)
         elif(fType[2] == 1):
             print("\nYou thrust your cage into the water.")
             fishAdv.loadBar()
             print("\nYou pull it back out!")
-            print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3]))
-            fishEXP += fType[3]
-            time.sleep(1)
         elif(fType[2] == 2):
             print("\nYou dip your small net into the water.")
             fishAdv.loadBar()
             print("\nYou pull it back out!")
-            print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3]))
-            fishEXP += fType[3]
-            time.sleep(1)
         elif(fType[2] == 3):
             print("\nYou cast your large net into the water.")
             fishAdv.loadBar()
             print("\nYou pull it back out!")
-            print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3]))
-            fishEXP += fType[3]
-            time.sleep(1)
         elif(fType[2] == 4):
             print("\nYou cast your line into the water.")
             fishAdv.loadBar()
             print("\nYou reel it in!")
-            print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3]))
-            fishEXP += fType[3]
-            time.sleep(1)
         elif(fType[2] == 5):
             print("\nYou stab your harpoon into the water.")
             fishAdv.loadBar()
             print("\nYou pull it back out!")
-            print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3]))
-            fishEXP += fType[3]
-            time.sleep(1)
         elif(fType[2] == 6):
             print("\nYou place your lobster pot into the water.")
             fishAdv.loadBar()
             print("\nYou pull it back out!")
-            print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3]))
-            fishEXP += fType[3]
-            time.sleep(1)
         elif(fType[2] == 7):
             print("\nYou cast your line into the water.")
             fishAdv.loadBar()
             print("\nYou reel it in!")
-            print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3]))
-            fishEXP += fType[3]
-            time.sleep(1)
         elif(fType[2] == 6):
             print("\nYou mysteriously use your karambwanvessel.")
             fishAdv.loadBar()
             print("\nYou feel a bite!")
-            print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3]))
-            fishEXP += fType[3]
-            time.sleep(1)
         elif(fType[2] == 7):
             print("\nYou mysteriously use your living minerals.")
             fishAdv.loadBar()
             print("\nYou feel a bite!")
-            print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3]))
-            fishEXP += fType[3]
-            time.sleep(1)
-
+        print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3]))
+        fishEXP += fType[3]
+        strengthEXP += (fType[3] / 10)
+        time.sleep(loadTimeX)
+    def betaTest():
+        global strengthLevel
+        global fishEXP
+        global agilityLevel
+        levelUp=input("Enter beta command:")
+        if(levelUp == "str"):
+            strengthLevel += 1
+            print(strengthLevel)
+            time.sleep(0.5)
+            fishAdv.betaTest()
+        elif(levelUp == "agil"):
+            agilityLevel += 1
+            print(agilityLevel)
+            time.sleep(0.5)
+            fishAdv.betaTest()
+        elif(levelUp == "fsh"):
+            fishEXP += 500
+            fishAdv.firstStats()
+            print(fishLevel)
+            time.sleep(0.5)
+            fishAdv.betaTest()
+        elif(levelUp == "exit"):
+            fishAdv.prompt()
+        else:
+            print("Please leave this command prompt if you are not a beta tester")
+            go=input("Press enter to leave")
+            fishAdv.prompt()
     def prompt():
         system.clear()
         global fishAction
-        fishCMDs = ["0","1","2","3","4","5","6","7","8","9","list","guide","exit", "stats", "fish"]
+        fishCMDs = ["0","1","2","3","4","5","6","7","8","9","list","guide","exit", "stats", "fish","betaTest"]
         print("Enter an action, type 'guide' for help, or 'exit' to exit!")
         fishAction=input("Fish action: ")
         if (fishAction in fishCMDs):
@@ -465,6 +487,8 @@ class fishAdv():
                 fishAdv.stats()
             elif(fishAction == "fish"):
                 fishAdv.fishInv()
+            elif(fishAction == "betaTest"):
+                fishAdv.betaTest()
             else:
                 fishAdv.fish(fishAction)
         else:
