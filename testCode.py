@@ -864,7 +864,7 @@ class fishAdv():
         baitTypeNum = ["0","1","2","3","4","5","6","7","8","9"]
         fishSel = 29
         idk = 0
-        while(idk == 0 & fishSel >= 0):
+        while(idk == 0 and fishSel >= 0):
             fishType = fishList[fishSel]
             if(fishType[1] <= fishLevel & fishType[2] == fishAction):
                 tBaits(fishType[fishSel])
