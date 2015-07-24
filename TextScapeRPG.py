@@ -16,11 +16,11 @@ global rawFishList
 rawFishList = [itemRAWMinnow, itemRAWCrayfish, itemRAWShrimp, itemRAWSardine, itemRAWKarambwanji, itemRAWHerring, itemRAWAnchovies, itemRAWMackerel, itemRAWSeaweed, itemRAWTrout, itemRAWCod, itemRAWPike, itemRAWSlimyEel, itemRAWSalmon, itemRAWFrogSpawn, itemRAWTuna, itemRAWCaveEel, itemRAWRainbowFish, itemRAWLobster, itemRAWBass, itemRAWSwordfish, itemRAWLavaEel, itemRAWMonkfish, itemRAWKarambwan, itemRAWShark, itemRAWBaronShark, itemRAWCavefish, itemRAWRocktail]
     #Other fished items
 global itemCasket; global itemOyster
-itemCasket = ["Casket", 111, 111, 111, 000, 0]; itemOyster = ["Oyster", 111, 111, 111, 000, 0]
+itemCasket = ["Casket", 111, 111, 111, 000, 0]; itemOyster = ["Oyster", 111, 111, 111, 000, 0]; itemSeaweed = ["Seaweed", 111, 000, 111, 000, 0, 0, 0]; itemFrogSpawn = ["Frog spawn", 111, 000, 111, 000, 0, 0, 0];
     # Cooked items
 global itemMinnow; global itemCrayfish; global itemShrimp; global itemSardine; global itemKarambwanji; global itemHerring; global itemAnchovies; global itemMackerel; global itemSeaweed; global itemTrout; global itemCod; global itemPike; global itemSlimyEel; global itemSalmon; global itemFrogSpawn; global itemTuna; global itemCaveEel; global itemRainbowFish; global itemLobster; global itemBass; global itemSwordfish; global itemLavaEel; global itemMonkfish; global itemKarambwan; global itemShark; global itemBaronShark; global itemCavefish; global itemRocktail
 itemMinnow = ["Minnow", 000, 111, 111, 000, 0, 10, 150]; itemCrayfish = ["Crayfish", 000, 111, 111, 000, 0, 21, 200]; itemShrimp = ["Shrimp", 000, 111, 111, 000, 0, 14, 200]
-itemSardine = ["Sardine", 000, 111, 111, 000, 0, 10, 108]; itemKarambwanji = ["Karambwanji", 000, 111, 111, 000, 0, 666, 200]; itemHerring = ["Herring", 000, 111, 111, 000, 0, 10, 200]; itemAnchovies = ["Anchovies", 000, 111, 111, 000, 0, 16, 200]; itemMackerel = ["Mackeral", 000, 111, 111, 000, 0, 5, 200]; itemTrout = ["Trout", 000, 111, 111, 000, 0, 37, 300]; itemCod = ["Cod", 000, 111, 111, 000, 0, 65, 450]; itemPike = ["Pike", 000, 111, 111, 000, 0, 42, 400]; itemSlimyEel = ["Slimy eel", 000, 111, 111, 000, 0, 233, 700]; itemSalmon = ["Salmon", 000, 111, 111, 000, 0, 101, 500]; itemTuna = ["Tuna", 000, 111, 111, 000, 0, 167, 750]; itemCaveEel = ["Cave eel", 000, 111, 111, 000, 0, 160, 950]; itemRainbowFish = ["Rainbow fish", 000, 111, 111, 000, 0, 176, 875]; itemLobster = ["Lobster", 000, 111, 111, 000, 0, 252, 1200]; itemBass = ["Bass", 000, 111, 111, 000, 0, 306, 1300]; itemSwordfish = ["Swordfish", 000, 111, 111, 000, 0, 379, 1400]; itemLavaEel = ["Lava eel", 000, 111, 111, 000, 0, 666, 1060]; itemMonkfish = ["Monkfish", 000, 111, 111, 000, 0, 441, 1600]; itemKarambwan = ["Karambwan", 000, 111, 111, 000, 0, 3347, 750]; itemShark = ["Shark", 000, 111, 111, 000, 0, 817, 2000]; itemBaronShark = ["Baron shark", 000, 111, 111, 000, 1302, 2100]; itemCavefish = ["Cave fish", 000, 111, 111, 000, 0, 1827, 2000]; itemRocktail = ["Rocktail", 000, 111, 111, 000, 0, 2559, 2300]
+itemSardine = ["Sardine", 000, 111, 111, 000, 0, 10, 108]; itemKarambwanji = ["Karambwanji", 000, 111, 111, 000, 0, 666, 200]; itemHerring = ["Herring", 000, 111, 111, 000, 0, 10, 200]; itemAnchovies = ["Anchovies", 000, 111, 111, 000, 0, 16, 200]; itemMackerel = ["Mackeral", 000, 111, 111, 000, 0, 5, 200]; itemTrout = ["Trout", 000, 111, 111, 000, 0, 37, 300]; itemCod = ["Cod", 000, 111, 111, 000, 0, 65, 450]; itemPike = ["Pike", 000, 111, 111, 000, 0, 42, 400]; itemSlimyEel = ["Slimy eel", 000, 111, 111, 000, 0, 233, 700]; itemSalmon = ["Salmon", 000, 111, 111, 000, 0, 101, 500]; itemTuna = ["Tuna", 000, 111, 111, 000, 0, 167, 750]; itemCaveEel = ["Cave eel", 000, 111, 111, 000, 0, 160, 950]; itemRainbowFish = ["Rainbow fish", 000, 111, 111, 000, 0, 176, 875]; itemLobster = ["Lobster", 000, 111, 111, 000, 0, 252, 1200]; itemBass = ["Bass", 000, 111, 111, 000, 0, 306, 1300]; itemSwordfish = ["Swordfish", 000, 111, 111, 000, 0, 379, 1400]; itemLavaEel = ["Lava eel", 000, 111, 111, 000, 0, 666, 1060]; itemMonkfish = ["Monkfish", 000, 111, 111, 000, 0, 441, 1600]; itemKarambwan = ["Karambwan", 000, 111, 111, 000, 0, 3347, 750]; itemShark = ["Shark", 000, 111, 111, 000, 0, 817, 2000]; itemBaronShark = ["Baron shark", 000, 111, 111, 000, 0, 1302, 2100]; itemCavefish = ["Cave fish", 000, 111, 111, 000, 0, 1827, 2000]; itemRocktail = ["Rocktail", 000, 111, 111, 000, 0, 2559, 2300]
 
 # Global variables
 global playerHP
@@ -154,7 +154,7 @@ class randomActions:
             time.sleep(1.5)
             playerHP -= 25
             playerBal -= 25
-            actionPrompt()
+            game.actionPrompt()
         elif(fuckChoose==2):
             print("You walk out onto the street...")
             time.sleep(0.7)
@@ -167,7 +167,7 @@ class randomActions:
             print("You were pepper sprayed! You lose 10HP")
             time.sleep(1.5)
             playerHP -= 10
-            actionPrompt()
+            game.actionPrompt()
         elif(fuckChoose==3):
             print("You walk out onto the street...")
             time.sleep(0.7)
@@ -180,7 +180,7 @@ class randomActions:
             print("You were arrested! You were fined 50 coins")
             time.sleep(1.5)
             playerBal -= 50
-            actionPrompt()
+            game.actionPrompt()
         elif(fuckChoose==4):
             print("You walk out onto the street...")
             time.sleep(0.7)
@@ -193,7 +193,7 @@ class randomActions:
             print("You wake up with AIDS! You lost 25HP!")
             time.sleep(1.5)
             playerHP -= 25
-            actionPrompt()
+            game.actionPrompt()
         elif(fuckChoose==5):
             print("You walk out onto the street...")
             time.sleep(0.7)
@@ -207,7 +207,7 @@ class randomActions:
             time.sleep(1.5)
             playerHP += 25
             playerBal -= 25
-            actionPrompt()
+            game.actionPrompt()
     def fart():
         print("You empty your bowels of the fumes plaguing them.")
         time.sleep(0.7)
@@ -215,12 +215,12 @@ class randomActions:
         time.sleep(1)
         print("You wake up in Hospital! You have lost 5HP")
         time.sleep(1.5)
-        actionPrompt()
+        game.actionPrompt()
 
 class game:
     def runGame():
         system.clear()
-        game.loadTitle()
+        # game.loadTitle()
         game.initializeGame()
         game.nameSelect()
         game.actionPrompt()
@@ -238,7 +238,7 @@ class game:
                 # Jesse, we need to -
                 cookAdv.prompt()
             elif(action==actionList[3]):
-                fight.heal(0)
+                healAdv.prompt(0)
             elif(action==actionList[4]):
                 help_func()
             elif(action==actionList[5]):
@@ -610,7 +610,7 @@ class fight:
                 if (action==fightActionList[0]):
                     fight.message()
                 elif(action==fightActionList[1]):
-                    heal(1)
+                    healAdv.prompt(1)
                 elif(action==fightActionList[2]):
                     fight.run()
                 else:
@@ -677,7 +677,7 @@ class cookAdv:
                     go=input("Press enter to continue.")
                     runCook = 0
             else:
-                if(incX <= 26):
+                if(incX < 25):
                     incX += 1
                 else:
                     print("\nInvalid command, sorry!")
@@ -711,7 +711,7 @@ class cookAdv:
             doneFood = doneFishList[incY2]
             print("    %s: %i" % (doneFood[0], doneFood[5]))
             incY2 += 1
-            if(incY2 == 28):
+            if(incY2 == 26):
                 dF = 0
         go=input("\nPress enter to continue.")
         cookAdv.prompt()
@@ -745,7 +745,7 @@ class cookAdv:
         game.myEXP(cookEXP)
         cookLevel = level
 
-class fishAdv():
+class fishAdv:
     # Fish arrays
     global minnow
     global crayfish
@@ -1329,7 +1329,89 @@ class fishAdv():
             time.sleep(1)
             fishAdv.prompt()
 
+class healAdv:
+    global itemMinnow; global itemCrayfish; global itemShrimp; global itemSardine; global itemKarambwanji; global itemHerring; global itemAnchovies; global itemMackerel; global itemTrout; global itemCod; global itemPike; global itemSlimyEel; global itemSalmon; global itemTuna; global itemCaveEel; global itemRainbowFish; global itemLobster; global itemBass; global itemSwordfish; global itemLavaEel; global itemMonkfish; global itemKarambwan; global itemShark; global itemBaronShark; global itemCavefish; global itemRocktail
+    global doneFishList
+    doneFishList = [itemMinnow, itemCrayfish, itemShrimp, itemSardine, itemKarambwanji, itemHerring, itemAnchovies, itemMackerel, itemTrout, itemCod, itemPike, itemSlimyEel, itemSalmon, itemTuna, itemCaveEel, itemRainbowFish, itemLobster, itemBass, itemSwordfish, itemLavaEel, itemMonkfish, itemKarambwan, itemShark, itemBaronShark, itemCavefish, itemRocktail]
 
+    def prompt(m):
+        global f
+        global playerHP
+        f = m
+        print()
+        print("playerHP")
+        healActionList = ["food", "exit", "help"]
+        print("Enter an action, type 'help' for help, or 'exit' to exit!")
+        healAction=input("Heal action: ")
+        if(healAction in healActionList):
+            if(healAction == "food"):
+                healAdv.food()
+            elif(healAction == "exit"):
+                game.actionPrompt()
+            elif(healAction == "help"):
+                healAdv.help()
+        else:
+            healAdv.heal(healAction)
+
+    def heal(healAction):
+        global f
+        global playerHP
+        runHeal = 1
+        incX = 0
+        while(runHeal == 1):
+            fishDone = doneFishList[incX]
+            if(healAction.lower() == fishDone[0].lower()):
+                if(fishDone[5] >= 1):
+                    print("Healed!")
+                    fishDone[5] -= 1
+                    playerHP += fishDone[7]
+                    go=input("Press enter to continue.")
+                    runHeal = 0
+                else:
+                    print("\nYou don't have any %s to eat!" % fishDone[0])
+                    go=input("Press enter to continue.")
+                    runHeal = 0
+            else:
+                if(incX <= 24):
+                    incX += 1
+                else:
+                    print("\nInvalid command, sorry!")
+                    go=input("Press enter to continue.")
+                    healAdv.prompt(f)
+        healAdv.prompt(f)
+
+    def food():
+        global f
+        print("\nYour food:")
+        incY2 = 0
+        dF = 1
+        while(dF == 1):
+            doneFood = doneFishList[incY2]
+            print("    %s: %i" % (doneFood[0], doneFood[5]))
+            incY2 += 1
+            if(incY2 == 26):
+                dF = 0
+        go=input("\nPress enter to continue.")
+        healAdv.prompt(f)
+
+    def help():
+        global f
+        global playerHP
+        print("Your health: %i\n" % playerHP)
+        print("\nCommands: ")
+        print("    food = Displays your food")
+        print("    exit = Exits the program")
+        print("    help = Displays this screen")
+        print("\nOr enter a food name to heal.")
+        go=input("Press enter to continue.")
+        healAdv.prompt(f)
+
+    def exit():
+        global f
+        if(f == 0):
+            print("Action Prompt")
+        else:
+            print("Fight Prompt")
 
 
 # Actions
