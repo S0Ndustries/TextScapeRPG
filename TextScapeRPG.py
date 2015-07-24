@@ -19,8 +19,8 @@ global itemCasket; global itemOyster
 itemCasket = ["Casket", 111, 111, 111, 000, 0]; itemOyster = ["Oyster", 111, 111, 111, 000, 0]
     # Cooked items
 global itemMinnow; global itemCrayfish; global itemShrimp; global itemSardine; global itemKarambwanji; global itemHerring; global itemAnchovies; global itemMackerel; global itemSeaweed; global itemTrout; global itemCod; global itemPike; global itemSlimyEel; global itemSalmon; global itemFrogSpawn; global itemTuna; global itemCaveEel; global itemRainbowFish; global itemLobster; global itemBass; global itemSwordfish; global itemLavaEel; global itemMonkfish; global itemKarambwan; global itemShark; global itemBaronShark; global itemCavefish; global itemRocktail
-itemMinnow = ["Minnow", 000, 111, 111, 000, 0]; itemCrayfish = ["Crayfish", 000, 111, 111, 000, 0]; itemShrimp = ["Shrimp", 000, 111, 111, 000, 0]; itemSardine = ["Sardine", 000, 111, 111, 000, 0]; itemKarambwanji = ["Karambwanji", 000, 111, 111, 000, 0]; itemHerring = ["Herring", 000, 111, 111, 000, 0]; itemAnchovies = ["Anchovies", 000, 111, 111, 000, 0]; itemMackerel = ["Mackeral", 000, 111, 111, 000, 0]; itemSeaweed = ["Seaweed", 000, 111, 111, 000, 0]; itemTrout = ["Trout", 000, 111, 111, 000, 0]; itemCod = ["Cod", 000, 111, 111, 000, 0]; itemPike = ["Pike", 000, 111, 111, 000, 0]; itemSlimyEel = ["Slimy eel", 000, 111, 111, 000, 0]; itemSalmon = ["Salmon", 000, 111, 111, 000, 0]; itemFrogSpawn = ["Frog spawn", 000, 111, 111, 000, 0]; itemTuna = ["Tuna", 000, 111, 111, 000, 0]; itemCaveEel = ["Cave eel", 000, 111, 111, 000, 0]; itemRainbowFish = ["Rainbow fish", 000, 111, 111, 000, 0]; itemLobster = ["Lobster", 000, 111, 111, 000, 0]; itemBass = ["Bass", 000, 111, 111, 000, 0]; itemSwordfish = ["Swordfish", 000, 111, 111, 000, 0]; itemLavaEel = ["Lava eel", 000, 111, 111, 000, 0]; itemMonkfish = ["Monkfish", 000, 111, 111, 000, 0]; itemKarambwan = ["Karambwan", 000, 111, 111, 000, 0]; itemShark = ["Shark", 000, 111, 111, 000, 0]; itemBaronShark = ["Baron shark", 000, 111, 111, 000, 0]; itemCavefish = ["Cave fish", 000, 111, 111, 000, 0]; itemRocktail = ["Rocktail", 000, 111, 111, 000, 0]
-
+itemMinnow = ["Minnow", 000, 111, 111, 000, 0, 10, 150]; itemCrayfish = ["Crayfish", 000, 111, 111, 000, 0, 21, 200]; itemShrimp = ["Shrimp", 000, 111, 111, 000, 0, 14, 200]
+itemSardine = ["Sardine", 000, 111, 111, 000, 0, 10, 108]; itemKarambwanji = ["Karambwanji", 000, 111, 111, 000, 0, 666, 200]; itemHerring = ["Herring", 000, 111, 111, 000, 0, 10, 200]; itemAnchovies = ["Anchovies", 000, 111, 111, 000, 0, 16, 200]; itemMackerel = ["Mackeral", 000, 111, 111, 000, 0, 5, 200]; itemTrout = ["Trout", 000, 111, 111, 000, 0, 37, 300]; itemCod = ["Cod", 000, 111, 111, 000, 0, 65, 450]; itemPike = ["Pike", 000, 111, 111, 000, 0, 42, 400]; itemSlimyEel = ["Slimy eel", 000, 111, 111, 000, 0, 233, 700]; itemSalmon = ["Salmon", 000, 111, 111, 000, 0, 101, 500]; itemTuna = ["Tuna", 000, 111, 111, 000, 0, 167, 750]; itemCaveEel = ["Cave eel", 000, 111, 111, 000, 0, 160, 950]; itemRainbowFish = ["Rainbow fish", 000, 111, 111, 000, 0, 176, 875]; itemLobster = ["Lobster", 000, 111, 111, 000, 0, 252, 1200]; itemBass = ["Bass", 000, 111, 111, 000, 0, 306, 1300]; itemSwordfish = ["Swordfish", 000, 111, 111, 000, 0, 379, 1400]; itemLavaEel = ["Lava eel", 000, 111, 111, 000, 0, 666, 1060]; itemMonkfish = ["Monkfish", 000, 111, 111, 000, 0, 441, 1600]; itemKarambwan = ["Karambwan", 000, 111, 111, 000, 0, 3347, 750]; itemShark = ["Shark", 000, 111, 111, 000, 0, 817, 2000]; itemBaronShark = ["Baron shark", 000, 111, 111, 000, 1302, 2100]; itemCavefish = ["Cave fish", 000, 111, 111, 000, 0, 1827, 2000]; itemRocktail = ["Rocktail", 000, 111, 111, 000, 0, 2559, 2300]
 
 # Global variables
 global playerHP
@@ -236,7 +236,7 @@ class game:
                 fishAdv.prompt()
             elif(action==actionList[2]):
                 # Jesse, we need to -
-                cook.init()
+                cookAdv.prompt()
             elif(action==actionList[3]):
                 fight.heal(0)
             elif(action==actionList[4]):
@@ -284,7 +284,7 @@ class game:
         global baitCount
         global fishEXP
         global feathers
-        bonusNames = ["Elijah", "Evan", "betaTest"]
+        bonusNames = ["Son", "Evan", "betaTest"]
         print("Please enter your name!")
         name = input("Name: ")
         if(name in bonusNames):
@@ -563,26 +563,6 @@ class stats:
         print("Fishing Level: %i" % fishLevel)
 
 class fight:
-    def heal(m):
-        global cookedFish
-        global playerHP
-        if(cookedFish > 0):
-            print("\nYou have healed 5 HP! You have %i cooked fish left" % cookedFish)
-            playerHP += 5
-            print("Your health is %i" % playerHP)
-            cookedFish -= 1
-            time.sleep(0.8)
-            if(m):
-                fight.ask()
-            else:
-                game.actionPrompt()
-        else:
-            print("\nNot enough cooked fish!")
-            time.sleep(0.6)
-            if(m):
-                fight.ask()
-            else:
-                game.actionPrompt()
     def run():
         print("You have run away!")
         time.sleep(0.1)
@@ -630,7 +610,7 @@ class fight:
                 if (action==fightActionList[0]):
                     fight.message()
                 elif(action==fightActionList[1]):
-                    fight.heal(1)
+                    heal(1)
                 elif(action==fightActionList[2]):
                     fight.run()
                 else:
@@ -647,37 +627,123 @@ class fight:
                 time.sleep(2.5)
                 game.actionPrompt()
 
-class cook:
-    def init():
-        global cookAmount
-        print("\nYou have %i raw fish & %i cooked fish." % (fishCount, cookedFish))
-        print("Type the amount you'd like to cook, or 'e' to exit!")
+class cookAdv:
+    global itemRAWMinnow; global itemRAWCrayfish; global itemRAWShrimp; global itemRAWSardine; global itemRAWKarambwanji; global itemRAWHerring; global itemRAWAnchovies; global itemRAWMackerel; global itemRAWSeaweed; global itemRAWTrout; global itemRAWCod; global itemRAWPike; global itemRAWSlimyEel; global itemRAWSalmon; global itemRAWFrogSpawn; global itemRAWTuna; global itemRAWCaveEel; global itemRAWRainbowFish; global itemRAWLobster; global itemRAWBass; global itemRAWSwordfish; global itemRAWLavaEel; global itemRAWMonkfish; global itemRAWKarambwan; global itemRAWShark; global itemRAWBaronShark; global itemRAWCavefish; global itemRAWRocktail
+    itemRAWMinnow = ["Raw Minnow", 111, 000, 111, 000, 0]; itemRAWCrayfish = ["Raw Crayfish", 111, 000, 111, 000, 0]; itemRAWShrimp = ["Raw Shrimp", 111, 000, 111, 000, 0]; itemRAWSardine = ["Raw Sardine", 111, 000, 111, 000, 0]; itemRAWKarambwanji = ["Raw Karambwanji", 111, 000, 111, 000, 0]; itemRAWHerring = ["Raw Herring", 111, 000, 111, 000, 0]; itemRAWAnchovies = ["Raw Anchovies", 111, 000, 111, 000, 0]; itemRAWMackerel = ["Raw Mackerel", 111, 000, 111, 000, 0]; itemRAWSeaweed = ["Raw Seaweed", 111, 000, 111, 000, 0]; itemRAWTrout = ["Raw Trout", 111, 000, 111, 000, 0]; itemRAWCod = ["Raw Cod", 111, 000, 111, 000, 0]; itemRAWPike = ["Raw Pike", 111, 000, 111, 000, 0]; itemRAWSlimyEel = ["Raw Slimy eel", 111, 000, 111, 000, 0]; itemRAWSalmon = ["Raw Salmon", 111, 000, 111, 000, 0]; itemRAWFrogSpawn = ["Raw Frog spawn", 111, 000, 111, 000, 0]; itemRAWTuna = ["Raw Tuna", 111, 000, 111, 000, 0]; itemRAWCaveEel = ["Raw Cave eel", 111, 000, 111, 000, 0]; itemRAWRainbowFish = ["Raw Rainbow fish", 111, 000, 111, 000, 0]; itemRAWLobster = ["Raw Lobster", 111, 000, 111, 000, 0]; itemRAWBass = ["Raw Bass", 111, 000, 111, 000, 0]; itemRAWSwordfish = ["Raw Swordfish", 111, 000, 111, 000, 0]; itemRAWLavaEel = ["Raw Lava eel", 111, 000, 111, 000, 0]; itemRAWMonkfish = ["Raw Monkfish", 111, 000, 111, 000, 0]; itemRAWKarambwan = ["Raw Karambwan", 111, 000, 111, 000, 0]; itemRAWShark = ["Raw Shark", 111, 000, 111, 000, 0]; itemRAWBaronShark = ["Raw Baron shark", 111, 000, 111, 000, 0]; itemRAWCavefish = ["Raw Cave fish", 111, 000, 111, 000, 0]; itemRAWRocktail = ["Raw Rocktail", 111, 000, 111, 000, 0]
+    global rawFishList
+    rawFishList = [itemRAWMinnow, itemRAWCrayfish, itemRAWShrimp, itemRAWSardine, itemRAWKarambwanji, itemRAWHerring, itemRAWAnchovies, itemRAWMackerel, itemRAWSeaweed, itemRAWTrout, itemRAWCod, itemRAWPike, itemRAWSlimyEel, itemRAWSalmon, itemRAWFrogSpawn, itemRAWTuna, itemRAWCaveEel, itemRAWRainbowFish, itemRAWLobster, itemRAWBass, itemRAWSwordfish, itemRAWLavaEel, itemRAWMonkfish, itemRAWKarambwan, itemRAWShark, itemRAWBaronShark, itemRAWCavefish, itemRAWRocktail]
+    # Cooked items
+    global itemMinnow; global itemCrayfish; global itemShrimp; global itemSardine; global itemKarambwanji; global itemHerring; global itemAnchovies; global itemMackerel; global itemSeaweed; global itemTrout; global itemCod; global itemPike; global itemSlimyEel; global itemSalmon; global itemFrogSpawn; global itemTuna; global itemCaveEel; global itemRainbowFish; global itemLobster; global itemBass; global itemSwordfish; global itemLavaEel; global itemMonkfish; global itemKarambwan; global itemShark; global itemBaronShark; global itemCavefish; global itemRocktail
+    global doneFishList
+    doneFishList = [itemMinnow, itemCrayfish, itemShrimp, itemSardine, itemKarambwanji, itemHerring, itemAnchovies, itemMackerel, itemSeaweed, itemTrout, itemCod, itemPike, itemSlimyEel, itemSalmon, itemFrogSpawn, itemTuna, itemCaveEel, itemRainbowFish, itemLobster, itemBass, itemSwordfish, itemLavaEel, itemMonkfish, itemKarambwan, itemShark, itemBaronShark, itemCavefish, itemRocktail]
+
+    global cookLevel
+    global cookEXP
+
+    def prompt():
+        system.clear()
+        cookActionList = ["food", "stats", "exit", "help"]
+        global rawFishList
+        global doneFishList
+        print("Enter an action, type 'help' for help, or 'exit' to exit!")
         cookAction=input("Cook action: ")
-        if(cookAction=="e"):
-            game.actionPrompt()
+        if(cookAction in cookActionList):
+            if(cookAction == "food"):
+                cookAdv.food()
+            elif(cookAction == "stats"):
+                cookAdv.stats()
+            elif(cookAction == "exit"):
+                game.actionPrompt()
+            elif(cookAction == "help"):
+                cookAdv.help()
         else:
-            try:
-                cookAmount=int(cookAction)
-            except:
-                cook.init()
-            cook.cookFish()
-    def cookFish():
-        global cookAmount
-        global fishCount
-        global cookedFish
-        if(cookAmount > fishCount):
-            print("\nYou don't have that many fish!")
-            cook.init()
-        elif(cookAmount <= fishCount and cookAmount > 0):
-            fishCount -= cookAmount
-            cookedFish += cookAmount
-            print("\nYou have cooked %i fish!" % cookAmount)
-            print("You now have %i raw fish & %i cooked fish!" % (fishCount, cookedFish))
-            time.sleep(1)
-            game.actionPrompt()
-        else:
-            system.clear()
-            cook.init()
+            cookAdv.cook(cookAction)
+
+    def cook(cookAction):
+        runCook = 1
+        incX = 0
+        while(runCook == 1):
+            fishCook = rawFishList[incX]
+            fishDone = doneFishList[incX]
+            if(cookAction.lower() == fishDone[0].lower()):
+                if(fishCook[5] >= 1):
+                    print("Cooked: %s!" % fishCook[0])
+                    fishCook[5] -= 1
+                    fishDone[5] += 1
+                    go=input("Press enter to continue.")
+                    runCook = 0
+                else:
+                    print("\nYou don't have any %s to cook!" % fishCook[0])
+                    go=input("Press enter to continue.")
+                    runCook = 0
+            else:
+                if(incX <= 26):
+                    incX += 1
+                else:
+                    print("\nInvalid command, sorry!")
+                    go=input("Press enter to continue.")
+                    cookAdv.prompt()
+        cookAdv.prompt()
+    def loadBar():
+        global cookedLevel
+        global loadCTime
+        loadCTime = 0.2 / ((cookLevel * 0.1 * 0.005) + 0.995)
+        s = "[==========]"
+        for c in s:
+            sys.stdout.write('%s' % c )
+            sys.stdout.flush()
+            time.sleep(loadCTime)
+
+    def food():
+        print("\nRaw food:")
+        incY1 = 0
+        rF = 1
+        while(rF == 1):
+            rawFood = rawFishList[incY1]
+            print("    %s: %i" % (rawFood[0], rawFood[5]))
+            incY1 += 1
+            if(incY1 == 28):
+                rF = 0
+        print("\nCooked food:")
+        incY2 = 0
+        dF = 1
+        while(dF == 1):
+            doneFood = doneFishList[incY2]
+            print("    %s: %i" % (doneFood[0], doneFood[5]))
+            incY2 += 1
+            if(incY2 == 28):
+                dF = 0
+        go=input("\nPress enter to continue.")
+        cookAdv.prompt()
+    def help():
+        print("\nCommands: ")
+        print("    food = Displays your raw & cooked foods")
+        print("    stats = Displays cooking statistics")
+        print("    exit = Exits the program")
+        print("    help = Displays this screen")
+        print("\nOr enter a fish name to cook it.")
+        go=input("Press enter to continue.")
+        cookAdv.prompt()
+    def stats():
+        global cookEXP
+        global cookLevel
+        global exp
+        global level
+        global loadCTime
+        game.myEXP(cookEXP)
+        cookLevel = level
+        print("\nYour cooking XP amount is: %i" % cookEXP)
+        print("Your cooking level is now: %i" % cookLevel)
+        print("You take: %s seconds to cook food!" % (loadCTime * 12))
+        rexturn = input("\nPress enter to return")
+        cookAdv.prompt()
+    def firstStats():
+        global cookEXP
+        global cookLevel
+        global exp
+        global level
+        game.myEXP(cookEXP)
+        cookLevel = level
 
 class fishAdv():
     # Fish arrays

@@ -210,7 +210,8 @@ global cookEXP
 global cookLevel
 cookEXP = 0
 cookLevel = 1
-
+global loadCTime
+loadCTime = 0.2 / ((cookLevel * 0.005) + 0.995)
 class cookAdv:
     global itemRAWMinnow; global itemRAWCrayfish; global itemRAWShrimp; global itemRAWSardine; global itemRAWKarambwanji; global itemRAWHerring; global itemRAWAnchovies; global itemRAWMackerel; global itemRAWSeaweed; global itemRAWTrout; global itemRAWCod; global itemRAWPike; global itemRAWSlimyEel; global itemRAWSalmon; global itemRAWFrogSpawn; global itemRAWTuna; global itemRAWCaveEel; global itemRAWRainbowFish; global itemRAWLobster; global itemRAWBass; global itemRAWSwordfish; global itemRAWLavaEel; global itemRAWMonkfish; global itemRAWKarambwan; global itemRAWShark; global itemRAWBaronShark; global itemRAWCavefish; global itemRAWRocktail
     itemRAWMinnow = ["Raw Minnow", 111, 000, 111, 000, 0]; itemRAWCrayfish = ["Raw Crayfish", 111, 000, 111, 000, 0]; itemRAWShrimp = ["Raw Shrimp", 111, 000, 111, 000, 0]; itemRAWSardine = ["Raw Sardine", 111, 000, 111, 000, 0]; itemRAWKarambwanji = ["Raw Karambwanji", 111, 000, 111, 000, 0]; itemRAWHerring = ["Raw Herring", 111, 000, 111, 000, 0]; itemRAWAnchovies = ["Raw Anchovies", 111, 000, 111, 000, 0]; itemRAWMackerel = ["Raw Mackerel", 111, 000, 111, 000, 0]; itemRAWSeaweed = ["Raw Seaweed", 111, 000, 111, 000, 0]; itemRAWTrout = ["Raw Trout", 111, 000, 111, 000, 0]; itemRAWCod = ["Raw Cod", 111, 000, 111, 000, 0]; itemRAWPike = ["Raw Pike", 111, 000, 111, 000, 0]; itemRAWSlimyEel = ["Raw Slimy eel", 111, 000, 111, 000, 0]; itemRAWSalmon = ["Raw Salmon", 111, 000, 111, 000, 0]; itemRAWFrogSpawn = ["Raw Frog spawn", 111, 000, 111, 000, 0]; itemRAWTuna = ["Raw Tuna", 111, 000, 111, 000, 0]; itemRAWCaveEel = ["Raw Cave eel", 111, 000, 111, 000, 0]; itemRAWRainbowFish = ["Raw Rainbow fish", 111, 000, 111, 000, 0]; itemRAWLobster = ["Raw Lobster", 111, 000, 111, 000, 0]; itemRAWBass = ["Raw Bass", 111, 000, 111, 000, 0]; itemRAWSwordfish = ["Raw Swordfish", 111, 000, 111, 000, 0]; itemRAWLavaEel = ["Raw Lava eel", 111, 000, 111, 000, 0]; itemRAWMonkfish = ["Raw Monkfish", 111, 000, 111, 000, 0]; itemRAWKarambwan = ["Raw Karambwan", 111, 000, 111, 000, 0]; itemRAWShark = ["Raw Shark", 111, 000, 111, 000, 0]; itemRAWBaronShark = ["Raw Baron shark", 111, 000, 111, 000, 0]; itemRAWCavefish = ["Raw Cave fish", 111, 000, 111, 000, 0]; itemRAWRocktail = ["Raw Rocktail", 111, 000, 111, 000, 0]
@@ -269,6 +270,15 @@ class cookAdv:
                     go=input("Press enter to continue.")
                     cookAdv.prompt()
         cookAdv.prompt()
+    def loadBar():
+        global cookedLevel
+        global loadCTime
+        loadCTime = 0.2 / ((cookLevel * 0.1 * 0.005) + 0.995)
+        s = "[==========]"
+        for c in s:
+            sys.stdout.write('%s' % c )
+            sys.stdout.flush()
+            time.sleep(loadCTime)
 
     def food():
         print("\nRaw food:")
@@ -305,12 +315,12 @@ class cookAdv:
         global cookLevel
         global exp
         global level
-        global loadTime
+        global loadCTime
         game.myEXP(cookEXP)
         cookLevel = level
         print("\nYour cooking XP amount is: %i" % cookEXP)
         print("Your cooking level is now: %i" % cookLevel)
-        print("You take: %s seconds to cook food!" % (loadTime * 12))
+        print("You take: %s seconds to cook food!" % (loadCTime * 12))
         rexturn = input("\nPress enter to return")
         cookAdv.prompt()
     def firstStats():
