@@ -218,7 +218,6 @@ class randomActions:
         actionPrompt()
 
 class game:
-
     def runGame():
         system.clear()
         game.loadTitle()
@@ -339,182 +338,6 @@ class game:
             fishEXP = 0
             feathers = 0
             time.sleep(1.5)
-
-class stats:
-    def init():
-        system.clear()
-        stats.general()
-        stats.fish()
-        go=input("\nPress enter to continue.")
-        game.actionPrompt()
-    def general():
-        print("General Stats")
-        print("Player Coins: %i" % playerBal)
-        print("Player Health: %i" % playerHP)
-    def fish():
-        print("\nFishing Stats")
-        print("Cooked Fish: %i" % cookedFish)
-        print("Uncooked Fish: %i" % fishCount)
-        print("Amount of Bait: %i" % baitCount)
-        print("Total Fish Caught: %i" % caughtFish)
-        print("Fishing Level: %i" % fishLevel)
-
-class fight:
-    def heal(m):
-        global cookedFish
-        global playerHP
-        if(cookedFish > 0):
-            print("\nYou have healed 5 HP! You have %i cooked fish left" % cookedFish)
-            playerHP += 5
-            print("Your health is %i" % playerHP)
-            cookedFish -= 1
-            time.sleep(0.8)
-            if(m):
-                fight.ask()
-            else:
-                game.actionPrompt()
-        else:
-            print("\nNot enough cooked fish!")
-            time.sleep(0.6)
-            if(m):
-                fight.ask()
-            else:
-                game.actionPrompt()
-    def run():
-        print("You have run away!")
-        time.sleep(0.1)
-        game.actionPrompt()
-    def setup():
-        system.clear()
-        selectMonster()
-        global monsterName
-        global monsterXP
-        print("")
-        print(monsterName + " has appeared! HP:" + str(monsterHP))
-        print("")
-        time.sleep(1)
-        fight.ask()
-    def message():
-        system.clear()
-        global monsterHP
-        global playerHP
-        global monsterMaxHit
-        playerDMG = random.randint(0, 10)
-        monsterDMG = random.randint(0, monsterMaxHit)
-        time.sleep(0.1)
-        print("You attacked! %s has lost %i HP" % (monsterName, playerDMG))
-        time.sleep(0.1)
-        print("%s attacks! You lost %i HP" % (monsterName, monsterDMG))
-        monsterHP -= playerDMG
-        playerHP -= monsterDMG
-        time.sleep(0.3)
-    def ask():
-        system.clear()
-        global monsterGoblin
-        global monsterName
-        global monsterHP
-        global monsterMaxHit
-        global monsterXP
-        global monsterCoins
-        global monsterItemsDropped
-        global playerBal
-        while(monsterHP > 0):
-            fightActionList = ["a","h","r"]
-            print("\nYour HP: %i || Monster HP: %i" % (playerHP, monsterHP))
-            print("Type 'a' to attack, 'h' to heal, or 'r' to run!")
-            action=input("Fight action: ")
-            if(action in fightActionList):
-                if (action==fightActionList[0]):
-                    fight.message()
-                elif(action==fightActionList[1]):
-                    fight.heal(1)
-                elif(action==fightActionList[2]):
-                    fight.run()
-                else:
-                    print("Something's up...")
-        else:
-            if(playerHP < 0):
-                print("You Lost")
-                # Loss code here
-                game.actionPrompt()
-            else:
-                playerBal += monsterCoins
-                time.sleep(0.5)
-                print("\nYou earned %i coins! Your balance is now: %i" % (monsterCoins, playerBal))
-                time.sleep(2.5)
-                game.actionPrompt()
-
-class cook:
-    def init():
-        global cookAmount
-        print("\nYou have %i raw fish & %i cooked fish." % (fishCount, cookedFish))
-        print("Type the amount you'd like to cook, or 'e' to exit!")
-        cookAction=input("Cook action: ")
-        if(cookAction=="e"):
-            game.actionPrompt()
-        else:
-            try:
-                cookAmount=int(cookAction)
-            except:
-                cook.init()
-            cook.cookFish()
-    def cookFish():
-        global cookAmount
-        global fishCount
-        global cookedFish
-        if(cookAmount > fishCount):
-            print("\nYou don't have that many fish!")
-            cook.init()
-        elif(cookAmount <= fishCount and cookAmount > 0):
-            fishCount -= cookAmount
-            cookedFish += cookAmount
-            print("\nYou have cooked %i fish!" % cookAmount)
-            print("You now have %i raw fish & %i cooked fish!" % (fishCount, cookedFish))
-            time.sleep(1)
-            game.actionPrompt()
-        else:
-            system.clear()
-            cook.init()
-
-class fishAdv():
-    # Fish arrays
-    global minnow
-    global crayfish
-    global shrimp
-    global sardine
-    global karambwanji
-    global herring
-    global anchovies
-    global casket
-    global mackerel
-    global oyster
-    global seaweed
-    global trout
-    global cod
-    global pike
-    global slimyeel
-    global salmon
-    global frogspawn
-    global tuna
-    global caveeel
-    global rainbowfish
-    global lobster
-    global bass
-    global swordfish
-    global lavaeel
-    global monkfish
-    global karambwan
-    global shark
-    global baronshark
-    global cavefish
-    global rocktail
-    # Other variables
-    global fishAction
-    global fishLevel
-    global fishEXP
-    global feathers
-    global baitCount
-
     def myEXP(iEXP):
         global exp
         global level
@@ -720,6 +543,181 @@ class fishAdv():
         else:
             level = 99
 
+class stats:
+    def init():
+        system.clear()
+        stats.general()
+        stats.fish()
+        go=input("\nPress enter to continue.")
+        game.actionPrompt()
+    def general():
+        print("General Stats")
+        print("Player Coins: %i" % playerBal)
+        print("Player Health: %i" % playerHP)
+    def fish():
+        print("\nFishing Stats")
+        print("Cooked Fish: %i" % cookedFish)
+        print("Uncooked Fish: %i" % fishCount)
+        print("Amount of Bait: %i" % baitCount)
+        print("Total Fish Caught: %i" % caughtFish)
+        print("Fishing Level: %i" % fishLevel)
+
+class fight:
+    def heal(m):
+        global cookedFish
+        global playerHP
+        if(cookedFish > 0):
+            print("\nYou have healed 5 HP! You have %i cooked fish left" % cookedFish)
+            playerHP += 5
+            print("Your health is %i" % playerHP)
+            cookedFish -= 1
+            time.sleep(0.8)
+            if(m):
+                fight.ask()
+            else:
+                game.actionPrompt()
+        else:
+            print("\nNot enough cooked fish!")
+            time.sleep(0.6)
+            if(m):
+                fight.ask()
+            else:
+                game.actionPrompt()
+    def run():
+        print("You have run away!")
+        time.sleep(0.1)
+        game.actionPrompt()
+    def setup():
+        system.clear()
+        selectMonster()
+        global monsterName
+        global monsterXP
+        print("")
+        print(monsterName + " has appeared! HP:" + str(monsterHP))
+        print("")
+        time.sleep(1)
+        fight.ask()
+    def message():
+        system.clear()
+        global monsterHP
+        global playerHP
+        global monsterMaxHit
+        playerDMG = random.randint(0, 10)
+        monsterDMG = random.randint(0, monsterMaxHit)
+        time.sleep(0.1)
+        print("You attacked! %s has lost %i HP" % (monsterName, playerDMG))
+        time.sleep(0.1)
+        print("%s attacks! You lost %i HP" % (monsterName, monsterDMG))
+        monsterHP -= playerDMG
+        playerHP -= monsterDMG
+        time.sleep(0.3)
+    def ask():
+        system.clear()
+        global monsterGoblin
+        global monsterName
+        global monsterHP
+        global monsterMaxHit
+        global monsterXP
+        global monsterCoins
+        global monsterItemsDropped
+        global playerBal
+        while(monsterHP > 0):
+            fightActionList = ["a","h","r"]
+            print("\nYour HP: %i || Monster HP: %i" % (playerHP, monsterHP))
+            print("Type 'a' to attack, 'h' to heal, or 'r' to run!")
+            action=input("Fight action: ")
+            if(action in fightActionList):
+                if (action==fightActionList[0]):
+                    fight.message()
+                elif(action==fightActionList[1]):
+                    fight.heal(1)
+                elif(action==fightActionList[2]):
+                    fight.run()
+                else:
+                    print("Something's up...")
+        else:
+            if(playerHP < 0):
+                print("You Lost")
+                # Loss code here
+                game.actionPrompt()
+            else:
+                playerBal += monsterCoins
+                time.sleep(0.5)
+                print("\nYou earned %i coins! Your balance is now: %i" % (monsterCoins, playerBal))
+                time.sleep(2.5)
+                game.actionPrompt()
+
+class cook:
+    def init():
+        global cookAmount
+        print("\nYou have %i raw fish & %i cooked fish." % (fishCount, cookedFish))
+        print("Type the amount you'd like to cook, or 'e' to exit!")
+        cookAction=input("Cook action: ")
+        if(cookAction=="e"):
+            game.actionPrompt()
+        else:
+            try:
+                cookAmount=int(cookAction)
+            except:
+                cook.init()
+            cook.cookFish()
+    def cookFish():
+        global cookAmount
+        global fishCount
+        global cookedFish
+        if(cookAmount > fishCount):
+            print("\nYou don't have that many fish!")
+            cook.init()
+        elif(cookAmount <= fishCount and cookAmount > 0):
+            fishCount -= cookAmount
+            cookedFish += cookAmount
+            print("\nYou have cooked %i fish!" % cookAmount)
+            print("You now have %i raw fish & %i cooked fish!" % (fishCount, cookedFish))
+            time.sleep(1)
+            game.actionPrompt()
+        else:
+            system.clear()
+            cook.init()
+
+class fishAdv():
+    # Fish arrays
+    global minnow
+    global crayfish
+    global shrimp
+    global sardine
+    global karambwanji
+    global herring
+    global anchovies
+    global casket
+    global mackerel
+    global oyster
+    global seaweed
+    global trout
+    global cod
+    global pike
+    global slimyeel
+    global salmon
+    global frogspawn
+    global tuna
+    global caveeel
+    global rainbowfish
+    global lobster
+    global bass
+    global swordfish
+    global lavaeel
+    global monkfish
+    global karambwan
+    global shark
+    global baronshark
+    global cavefish
+    global rocktail
+    # Other variables
+    global fishAction
+    global fishLevel
+    global fishEXP
+    global feathers
+    global baitCount
+
     def fishInv():
         rawArray = (itemRAWMinnow, itemRAWCrayfish, itemRAWShrimp, itemRAWSardine, itemRAWKarambwanji, itemRAWHerring, itemRAWAnchovies, itemRAWMackerel, itemRAWSeaweed, itemRAWTrout, itemRAWCod, itemRAWPike, itemRAWSlimyEel, itemRAWSalmon, itemRAWFrogSpawn, itemRAWTuna, itemRAWCaveEel, itemRAWRainbowFish, itemRAWLobster, itemRAWBass, itemRAWSwordfish, itemRAWLavaEel, itemRAWMonkfish, itemRAWKarambwan, itemRAWShark, itemRAWBaronShark, itemRAWCavefish, itemRAWRocktail)
         print("\nYour fish\n")
@@ -736,7 +734,7 @@ class fishAdv():
         global exp
         global level
         global loadTime
-        fishAdv.myEXP(fishEXP)
+        game.myEXP(fishEXP)
         fishLevel = level
         print("\nYour fishing XP amount is: %i" % fishEXP)
         print("Your fishing level is now: %i" % fishLevel)
@@ -748,7 +746,7 @@ class fishAdv():
         global fishLevel
         global exp
         global level
-        fishAdv.myEXP(fishEXP)
+        game.myEXP(fishEXP)
         fishLevel = level
 
     def loadBar():
