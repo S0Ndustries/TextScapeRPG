@@ -15,10 +15,10 @@ itemRAWMinnow = ["Raw Minnow", 111, 000, 111, 000, 0]; itemRAWCrayfish = ["Raw C
 global rawFishList
 rawFishList = [itemRAWMinnow, itemRAWCrayfish, itemRAWShrimp, itemRAWSardine, itemRAWKarambwanji, itemRAWHerring, itemRAWAnchovies, itemRAWMackerel, itemRAWSeaweed, itemRAWTrout, itemRAWCod, itemRAWPike, itemRAWSlimyEel, itemRAWSalmon, itemRAWFrogSpawn, itemRAWTuna, itemRAWCaveEel, itemRAWRainbowFish, itemRAWLobster, itemRAWBass, itemRAWSwordfish, itemRAWLavaEel, itemRAWMonkfish, itemRAWKarambwan, itemRAWShark, itemRAWBaronShark, itemRAWCavefish, itemRAWRocktail]
     #Other fished items
-global itemCasket; global itemOyster
+global itemCasket; global itemOyster; global itemSeaweed; global itemFrogSpawn
 itemCasket = ["Casket", 111, 111, 111, 000, 0]; itemOyster = ["Oyster", 111, 111, 111, 000, 0]; itemSeaweed = ["Seaweed", 111, 000, 111, 000, 0, 0, 0]; itemFrogSpawn = ["Frog spawn", 111, 000, 111, 000, 0, 0, 0];
     # Cooked items
-global itemMinnow; global itemCrayfish; global itemShrimp; global itemSardine; global itemKarambwanji; global itemHerring; global itemAnchovies; global itemMackerel; global itemSeaweed; global itemTrout; global itemCod; global itemPike; global itemSlimyEel; global itemSalmon; global itemFrogSpawn; global itemTuna; global itemCaveEel; global itemRainbowFish; global itemLobster; global itemBass; global itemSwordfish; global itemLavaEel; global itemMonkfish; global itemKarambwan; global itemShark; global itemBaronShark; global itemCavefish; global itemRocktail
+global itemMinnow; global itemCrayfish; global itemShrimp; global itemSardine; global itemKarambwanji; global itemHerring; global itemAnchovies; global itemMackerel; global itemTrout; global itemCod; global itemPike; global itemSlimyEel; global itemSalmon; global itemTuna; global itemCaveEel; global itemRainbowFish; global itemLobster; global itemBass; global itemSwordfish; global itemLavaEel; global itemMonkfish; global itemKarambwan; global itemShark; global itemBaronShark; global itemCavefish; global itemRocktail
 itemMinnow = ["Minnow", 000, 111, 111, 000, 0, 10, 150]; itemCrayfish = ["Crayfish", 000, 111, 111, 000, 0, 21, 200]; itemShrimp = ["Shrimp", 000, 111, 111, 000, 0, 14, 200]
 itemSardine = ["Sardine", 000, 111, 111, 000, 0, 10, 108]; itemKarambwanji = ["Karambwanji", 000, 111, 111, 000, 0, 666, 200]; itemHerring = ["Herring", 000, 111, 111, 000, 0, 10, 200]; itemAnchovies = ["Anchovies", 000, 111, 111, 000, 0, 16, 200]; itemMackerel = ["Mackeral", 000, 111, 111, 000, 0, 5, 200]; itemTrout = ["Trout", 000, 111, 111, 000, 0, 37, 300]; itemCod = ["Cod", 000, 111, 111, 000, 0, 65, 450]; itemPike = ["Pike", 000, 111, 111, 000, 0, 42, 400]; itemSlimyEel = ["Slimy eel", 000, 111, 111, 000, 0, 233, 700]; itemSalmon = ["Salmon", 000, 111, 111, 000, 0, 101, 500]; itemTuna = ["Tuna", 000, 111, 111, 000, 0, 167, 750]; itemCaveEel = ["Cave eel", 000, 111, 111, 000, 0, 160, 950]; itemRainbowFish = ["Rainbow fish", 000, 111, 111, 000, 0, 176, 875]; itemLobster = ["Lobster", 000, 111, 111, 000, 0, 252, 1200]; itemBass = ["Bass", 000, 111, 111, 000, 0, 306, 1300]; itemSwordfish = ["Swordfish", 000, 111, 111, 000, 0, 379, 1400]; itemLavaEel = ["Lava eel", 000, 111, 111, 000, 0, 666, 1060]; itemMonkfish = ["Monkfish", 000, 111, 111, 000, 0, 441, 1600]; itemKarambwan = ["Karambwan", 000, 111, 111, 000, 0, 3347, 750]; itemShark = ["Shark", 000, 111, 111, 000, 0, 817, 2000]; itemBaronShark = ["Baron shark", 000, 111, 111, 000, 0, 1302, 2100]; itemCavefish = ["Cave fish", 000, 111, 111, 000, 0, 1827, 2000]; itemRocktail = ["Rocktail", 000, 111, 111, 000, 0, 2559, 2300]
 
@@ -45,7 +45,8 @@ global monsterItemsDropped
 # EXP stats
 global attackEXP; global strengthEXP; global defenceEXP; global rangedEXP; global magicEXP; global healthEXP; global craftingEXP; global miningEXP; global fishEXP; global cookingEXP; global woodcuttingEXP; global agilityEXP; global herbloreEXP; global farmingEXP; global huntingEXP; global summoningEXP
 attackEXP = 0; strengthEXP = 0; defenceEXP = 0; rangedEXP = 0; magicEXP = 0; healthEXP = 0; craftingEXP = 0; miningEXP = 0; fishEXP = 0; cookingEXP = 0; woodcuttingEXP = 0; agilityEXP = 0; herbloreEXP = 0; farmingEXP = 0; huntingEXP = 0; summoningEXP = 0
-
+global skillEXPList
+skillEXPList = [attackEXP, strengthEXP, defenceEXP, rangedEXP, magicEXP, healthEXP, craftingEXP, miningEXP, fishEXP, cookingEXP, woodcuttingEXP, agilityEXP, herbloreEXP, farmingEXP, huntingEXP, summoningEXP]
 # Player Skills
 global attackLevel; global strengthLevel; global defenceLevel; global rangedLevel; global magicLevel; global healthLevel; global craftingLevel; global miningLevel; global fishLevel; global cookingLevel; global woodcuttingLevel; global agilityLevel; global herbloreLevel; global farmingLevel; global huntingLevel; global summoningLevel
 attackLevel = 1; strengthLevel = 1; defenceLevel = 1; rangedLevel = 1; magicLevel = 1; healthLevel = 1; craftingLevel = 1; miningLevel = 1; fishLevel = 1; cookingLevel = 1; woodcuttingLevel = 1; agilityLevel = 1; herbloreLevel = 1; farmingLevel = 1; huntingLevel = 1; summoningLevel = 1
@@ -99,41 +100,6 @@ def help_func():
     print("Help: Gives general information about commands")
     print("Exit: Closes the game")
     go=input("\nPress enter to continue.")
-    game.actionPrompt()
-
-def skills():
-    print ("attack level: %i" % skillList[skillNum])
-    skillNum += 1
-    print ("strength level: %i" % skillList[skillNum])
-    skillNum += 1
-    print ("defence level: %i" % skillList[skillNum])
-    skillNum += 1
-    print ("ranged level: %i" % skillList[skillNum])
-    skillNum += 1
-    print ("magic level: %i" % skillList[skillNum])
-    skillNum += 1
-    print ("health level: %i" % skillList[skillNum])
-    skillNum += 1
-    print ("crafting level: %i" % skillList[skillNum])
-    skillNum += 1
-    print ("mining level: %i" % skillList[skillNum])
-    skillNum += 1
-    print ("fish level: %i" % skillList[skillNum])
-    skillNum += 1
-    print ("cooking level: %i" % skillList[skillNum])
-    skillNum += 1
-    print ("woodcutting level: %i" % skillList[skillNum])
-    skillNum += 1
-    print ("agility level: %i" % skillList[skillNum])
-    skillNum += 1
-    print ("herblore level: %i" % skillList[skillNum])
-    skillNum += 1
-    print ("farming level: %i" % skillList[skillNum])
-    skillNum += 1
-    print ("hunting level: %i" % skillList[skillNum])
-    skillNum += 1
-    print ("summoningLevel: %i" % skillList[skillNum])
-    go=input("Press enter to continue.")
     game.actionPrompt()
 
 class randomActions:
@@ -225,6 +191,7 @@ class game:
         game.nameSelect()
         game.actionPrompt()
     def actionPrompt():
+        actionList = ["fight", "fish", "cook", "heal", "help", "fuck", "fart", "stats", "exit", "skills"]
         system.clear()
         print("What would you like to do?")
         print("Enter 'help' for more options.")
@@ -251,7 +218,7 @@ class game:
                 system.clear()
                 exit()
             elif(action==actionList[9]):
-                stats()
+                game.skills()
             else:
                 print("This doesn't work")
         else:
@@ -542,6 +509,44 @@ class game:
             level = 99
         else:
             level = 99
+    def skills():
+        global attackLevel; global strengthLevel; global defenceLevel; global rangedLevel; global magicLevel; global healthLevel; global craftingLevel; global miningLevel; global fishLevel; global cookingLevel; global woodcuttingLevel; global agilityLevel; global herbloreLevel; global farmingLevel; global huntingLevel; global summoningLevel
+        global attackEXP; global strengthEXP; global defenceEXP; global rangedEXP; global magicEXP; global healthEXP; global craftingEXP; global miningEXP; global fishEXP; global cookingEXP; global woodcuttingEXP; global agilityEXP; global herbloreEXP; global farmingEXP; global huntingEXP; global summoningEXP
+        print("Skills: \n")
+        print("attackLevel = %i" % attackLevel)
+        print("    attackEXP = %i\n" % attackEXP)
+        print("strengthLevel = %i" % strengthLevel)
+        print("    strengthEXP = %i\n" % strengthEXP)
+        print("defenceLevel = %i" % defenceLevel)
+        print("    defenceEXP = %i\n" % defenceEXP)
+        print("rangedLevel = %i" % rangedLevel)
+        print("    rangedEXP = %i\n" % rangedEXP)
+        print("magicLevel = %i" % magicLevel)
+        print("    magicEXP = %i\n" % magicEXP)
+        print("healthLevel = %i" % healthLevel)
+        print("    healthEXP = %i\n" % healthEXP)
+        print("craftingLevel = %i" % craftingLevel)
+        print("    craftingEXP = %i\n" % craftingEXP)
+        print("miningLevel = %i" % miningLevel)
+        print("    miningEXP = %i\n" % miningEXP)
+        print("fishLevel = %i" % fishLevel)
+        print("    fishEXP = %i\n" % fishEXP)
+        print("cookingLevel = %i" % cookingLevel)
+        print("    cookingEXP = %i\n" % cookingEXP)
+        print("woodcuttingLevel = %i" % woodcuttingLevel)
+        print("    woodcuttingEXP = %i\n" % woodcuttingEXP)
+        print("agilityLevel = %i" % agilityLevel)
+        print("    agilitxEXP = %i\n" % agilityEXP)
+        print("herbloreLevel = %i" % herbloreLevel)
+        print("    herbloreEXP = %i\n" % herbloreEXP)
+        print("farmingLevel = %i" % farmingLevel)
+        print("    farmingEXP = %i\n" % farmingEXP)
+        print("huntingLevel = %i" % huntingLevel)
+        print("    huntingEXP = %i\n" % huntingEXP)
+        print("summoningLevel = %i" % summoningLevel)
+        print("    summoningEXP = %i\n" % summoningEXP)
+        go=input("Press enter to continue.")
+        game.actionPrompt()
 
 class stats:
     def init():
@@ -629,11 +634,10 @@ class fight:
 
 class cookAdv:
     global itemRAWMinnow; global itemRAWCrayfish; global itemRAWShrimp; global itemRAWSardine; global itemRAWKarambwanji; global itemRAWHerring; global itemRAWAnchovies; global itemRAWMackerel; global itemRAWSeaweed; global itemRAWTrout; global itemRAWCod; global itemRAWPike; global itemRAWSlimyEel; global itemRAWSalmon; global itemRAWFrogSpawn; global itemRAWTuna; global itemRAWCaveEel; global itemRAWRainbowFish; global itemRAWLobster; global itemRAWBass; global itemRAWSwordfish; global itemRAWLavaEel; global itemRAWMonkfish; global itemRAWKarambwan; global itemRAWShark; global itemRAWBaronShark; global itemRAWCavefish; global itemRAWRocktail
-    itemRAWMinnow = ["Raw Minnow", 111, 000, 111, 000, 0]; itemRAWCrayfish = ["Raw Crayfish", 111, 000, 111, 000, 0]; itemRAWShrimp = ["Raw Shrimp", 111, 000, 111, 000, 0]; itemRAWSardine = ["Raw Sardine", 111, 000, 111, 000, 0]; itemRAWKarambwanji = ["Raw Karambwanji", 111, 000, 111, 000, 0]; itemRAWHerring = ["Raw Herring", 111, 000, 111, 000, 0]; itemRAWAnchovies = ["Raw Anchovies", 111, 000, 111, 000, 0]; itemRAWMackerel = ["Raw Mackerel", 111, 000, 111, 000, 0]; itemRAWSeaweed = ["Raw Seaweed", 111, 000, 111, 000, 0]; itemRAWTrout = ["Raw Trout", 111, 000, 111, 000, 0]; itemRAWCod = ["Raw Cod", 111, 000, 111, 000, 0]; itemRAWPike = ["Raw Pike", 111, 000, 111, 000, 0]; itemRAWSlimyEel = ["Raw Slimy eel", 111, 000, 111, 000, 0]; itemRAWSalmon = ["Raw Salmon", 111, 000, 111, 000, 0]; itemRAWFrogSpawn = ["Raw Frog spawn", 111, 000, 111, 000, 0]; itemRAWTuna = ["Raw Tuna", 111, 000, 111, 000, 0]; itemRAWCaveEel = ["Raw Cave eel", 111, 000, 111, 000, 0]; itemRAWRainbowFish = ["Raw Rainbow fish", 111, 000, 111, 000, 0]; itemRAWLobster = ["Raw Lobster", 111, 000, 111, 000, 0]; itemRAWBass = ["Raw Bass", 111, 000, 111, 000, 0]; itemRAWSwordfish = ["Raw Swordfish", 111, 000, 111, 000, 0]; itemRAWLavaEel = ["Raw Lava eel", 111, 000, 111, 000, 0]; itemRAWMonkfish = ["Raw Monkfish", 111, 000, 111, 000, 0]; itemRAWKarambwan = ["Raw Karambwan", 111, 000, 111, 000, 0]; itemRAWShark = ["Raw Shark", 111, 000, 111, 000, 0]; itemRAWBaronShark = ["Raw Baron shark", 111, 000, 111, 000, 0]; itemRAWCavefish = ["Raw Cave fish", 111, 000, 111, 000, 0]; itemRAWRocktail = ["Raw Rocktail", 111, 000, 111, 000, 0]
     global rawFishList
     rawFishList = [itemRAWMinnow, itemRAWCrayfish, itemRAWShrimp, itemRAWSardine, itemRAWKarambwanji, itemRAWHerring, itemRAWAnchovies, itemRAWMackerel, itemRAWSeaweed, itemRAWTrout, itemRAWCod, itemRAWPike, itemRAWSlimyEel, itemRAWSalmon, itemRAWFrogSpawn, itemRAWTuna, itemRAWCaveEel, itemRAWRainbowFish, itemRAWLobster, itemRAWBass, itemRAWSwordfish, itemRAWLavaEel, itemRAWMonkfish, itemRAWKarambwan, itemRAWShark, itemRAWBaronShark, itemRAWCavefish, itemRAWRocktail]
     # Cooked items
-    global itemMinnow; global itemCrayfish; global itemShrimp; global itemSardine; global itemKarambwanji; global itemHerring; global itemAnchovies; global itemMackerel; global itemSeaweed; global itemTrout; global itemCod; global itemPike; global itemSlimyEel; global itemSalmon; global itemFrogSpawn; global itemTuna; global itemCaveEel; global itemRainbowFish; global itemLobster; global itemBass; global itemSwordfish; global itemLavaEel; global itemMonkfish; global itemKarambwan; global itemShark; global itemBaronShark; global itemCavefish; global itemRocktail
+    global itemMinnow; global itemCrayfish; global itemShrimp; global itemSardine; global itemKarambwanji; global itemHerring; global itemAnchovies; global itemMackerel; global itemTrout; global itemCod; global itemPike; global itemSlimyEel; global itemSalmon; global itemFrogSpawn; global itemTuna; global itemCaveEel; global itemRainbowFish; global itemLobster; global itemBass; global itemSwordfish; global itemLavaEel; global itemMonkfish; global itemKarambwan; global itemShark; global itemBaronShark; global itemCavefish; global itemRocktail
     global doneFishList
     doneFishList = [itemMinnow, itemCrayfish, itemShrimp, itemSardine, itemKarambwanji, itemHerring, itemAnchovies, itemMackerel, itemSeaweed, itemTrout, itemCod, itemPike, itemSlimyEel, itemSalmon, itemFrogSpawn, itemTuna, itemCaveEel, itemRainbowFish, itemLobster, itemBass, itemSwordfish, itemLavaEel, itemMonkfish, itemKarambwan, itemShark, itemBaronShark, itemCavefish, itemRocktail]
 
@@ -833,8 +837,8 @@ class fishAdv:
         global fishEXP
         global loadTimeX
         global strengthEXP
+        global fishLevel
         fishAdv.firstStats()
-        fishEXP += fType[3]
         if(fType[2] == 0):
             print("\nYou cast your line into the water.")
             fishAdv.loadBar()
@@ -876,9 +880,9 @@ class fishAdv:
             fishAdv.loadBar()
             print("\nYou feel a bite!")
         print("You have caught: %s! & gained %i XP!" % (fType[0], fType[3]))
-        fishEXP += fType[3]
+        fishEXP += (fType[3] * (1.0 + ((fishLevel - 1) * 0.01)))
         strengthEXP += (fType[3] / 10)
-        time.sleep(loadTimeX)
+        go=input("Press enter to continue.")
     def betaTest():
         global strengthLevel
         global fishEXP
@@ -1415,7 +1419,6 @@ class healAdv:
 
 
 # Actions
-actionList = ["fight", "fish", "cook", "heal", "help", "fuck", "fart", "stats", "exit", "skills"]
 #
 
 # Monsters
