@@ -1,5 +1,5 @@
 # Base game file
-# v2.2.0-beta
+# v2.4.0-beta
 
 import sys
 import time
