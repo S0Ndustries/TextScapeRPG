@@ -704,23 +704,33 @@ class cookAdv:
 
     def food():
         print("\nRaw food:")
-        incY1 = 0
-        rF = 1
-        while(rF == 1):
-            rawFood = rawFishList[incY1]
-            print("    %s: %i" % (rawFood[0], rawFood[5]))
-            incY1 += 1
-            if(incY1 == 28):
-                rF = 0
+        y = 0
+        x = 0
+        lol = 0
+        while(x <= 27):
+            rawFood = rawFishList[x]
+            if(rawFood[5] > 0):
+                print("    %s: %i" % (rawFood[0], rawFood[5]))
+                lol += 1
+            x += 1
+        else:
+            y = 0
+            if(lol == 0):
+                print("None!")
+        y = 0
+        x = 0
+        lol = 0
         print("\nCooked food:")
-        incY2 = 0
-        dF = 1
-        while(dF == 1):
-            doneFood = doneFishList[incY2]
-            print("    %s: %i" % (doneFood[0], doneFood[5]))
-            incY2 += 1
-            if(incY2 == 26):
-                dF = 0
+        while(x < 26):
+            doneFood = doneFishList[x]
+            if(doneFood[5] > 0):
+                print("    %s: %i" % (doneFood[0], doneFood[5]))
+                lol += 1
+            x += 1
+        else:
+            if(lol == 0):
+                print("None!")
+            y = 0
         go=input("\nPress enter to continue.")
         cookAdv.prompt()
     def help():
@@ -796,10 +806,15 @@ class fishAdv:
         rawArray = (itemRAWMinnow, itemRAWCrayfish, itemRAWShrimp, itemRAWSardine, itemRAWKarambwanji, itemRAWHerring, itemRAWAnchovies, itemRAWMackerel, itemSeaweed, itemRAWTrout, itemRAWCod, itemRAWPike, itemRAWSlimyEel, itemRAWSalmon, itemFrogSpawn, itemRAWTuna, itemRAWCaveEel, itemRAWRainbowFish, itemRAWLobster, itemRAWBass, itemRAWSwordfish, itemRAWLavaEel, itemRAWMonkfish, itemRAWKarambwan, itemRAWShark, itemRAWBaronShark, itemRAWCavefish, itemRAWRocktail)
         print("\nYour fish\n")
         x = 0
+        lol = 0
         while(x < 28):
             theFish = rawArray[x]
-            print("%s: %s" % (theFish[0], theFish[5]))
+            if(theFish[5] > 0):
+                print("%s: %s" % (theFish[0], theFish[5]))
+                lol += 1
             x += 1
+        if(lol == 0):
+            print("None!")
         go=input("\nPress enter to continue.")
         fishAdv.prompt()
     def stats():
@@ -1347,7 +1362,7 @@ class healAdv:
         global playerHP
         f = m
         print()
-        print("playerHP")
+        print("Your HP: %i" % playerHP)
         healActionList = ["food", "exit", "help"]
         print("Enter an action, type 'help' for help, or 'exit' to exit!")
         healAction=input("Heal action: ")
@@ -1393,12 +1408,17 @@ class healAdv:
         print("\nYour food:")
         incY2 = 0
         dF = 1
+        lol = 0
         while(dF == 1):
             doneFood = doneFishList[incY2]
-            print("    %s: %i" % (doneFood[0], doneFood[5]))
+            if(doneFood[5] > 0):
+                print("    %s: %i" % (doneFood[0], doneFood[5]))
+                lol += 1
             incY2 += 1
             if(incY2 == 26):
                 dF = 0
+        if(lol == 0):
+            print("None!")
         go=input("\nPress enter to continue.")
         healAdv.prompt(f)
 
@@ -1461,12 +1481,16 @@ class shop:
         if(buyItem == "list"):
             print("Buyable items: \n")
             y = 0
+            lol = 0
             while(y == 0):
                 if(x < 56):
                     itemBuy = buyableItemList[x]
                     print("%s" % itemBuy[0])
                     x += 1
+                    lol += 1
                 else:
+                    if(lol == 0):
+                        print("None!\n")
                     go=input("Press enter to continue.")
                     shop.buy()
         elif(buyItem == "exit"):
@@ -1485,6 +1509,7 @@ class shop:
                             shop.buy()
                         else:
                             print("Not enough money! Item costs: %i" % itemBuy[6])
+                            time.sleep(0.3)
                             shop.buy()
                     else:
                         x += 1
@@ -1508,13 +1533,17 @@ class shop:
             print("\nSellable items: \n")
             y = 0
             x = 0
+            lol = 0
             while(y == 0):
                 if(x < 56):
                     itemSell = buyableItemList[x]
                     if(itemSell[5] > 0):
                         print("%s: %s" % (itemSell[0], itemSell[5]))
+                        lol +=  1
                     x += 1
                 else:
+                    if(lol == 0):
+                        print("None!\n")
                     go=input("Press enter to continue.")
                     shop.sell()
         elif(sellItem == "exit"):
@@ -1534,6 +1563,7 @@ class shop:
                             shop.sell()
                         else:
                             print("You don't have any %s to sell!" % itemSell[0])
+                            time.sleep(0.3)
                             shop.sell()
                     else:
                         x += 1
