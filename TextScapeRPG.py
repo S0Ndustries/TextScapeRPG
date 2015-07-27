@@ -27,7 +27,7 @@ itemSardine = ["Sardine", 000, 111, 111, 000, 0, 10, 108]; itemKarambwanji = ["K
 
 itemCasket = ["Casket", 111, 111, 111, 000, 0]; itemOyster = ["Oyster", 111, 111, 111, 000, 0]; itemSeaweed = ["Seaweed", 111, 000, 111, 000, 0, 0, 0]; itemFrogSpawn = ["Frog spawn", 111, 000, 111, 000, 0, 0, 0];
 
-buyableItemList = [itemRAWMinnow, itemRAWCrayfish, itemRAWShrimp, itemRAWSardine, itemRAWKarambwanji, itemRAWHerring, itemRAWAnchovies, itemRAWMackerel, itemSeaweed, itemRAWTrout, itemRAWCod, itemRAWPike, itemRAWSlimyEel, itemRAWSalmon, itemFrogSpawn, itemRAWTuna, itemRAWCaveEel, itemRAWRainbowFish, itemRAWLobster, itemRAWBass, itemRAWSwordfish, itemRAWLavaEel, itemRAWMonkfish, itemRAWKarambwan, itemRAWShark, itemRAWBaronShark, itemRAWCavefish, itemRAWRocktail, itemMinnow, itemCrayfish, itemShrimp, itemSardine, itemKarambwanji, itemHerring, itemAnchovies, itemMackerel, itemSeaweed, itemTrout, itemCod, itemPike, itemSlimyEel, itemSalmon, itemFrogSpawn, itemTuna, itemCaveEel, itemRainbowFish, itemLobster, itemBass, itemSwordfish, itemLavaEel, itemMonkfish, itemKarambwan, itemShark, itemBaronShark, itemCavefish, itemRocktail]
+buyableItemList = [itemClay, itemRuneEssence, itemCopperOre, itemTinOre, itemLimestone, itemIronOre, itemSilverOre, itemPureEssence, itemCoal, itemSandstone, itemGoldOre, itemGranite, itemMithrilOre, itemAdamantOre, itemLivingMinerals, itemRuniteOre, itemRAWMinnow, itemRAWCrayfish, itemRAWShrimp, itemRAWSardine, itemRAWKarambwanji, itemRAWHerring, itemRAWAnchovies, itemRAWMackerel, itemSeaweed, itemRAWTrout, itemRAWCod, itemRAWPike, itemRAWSlimyEel, itemRAWSalmon, itemFrogSpawn, itemRAWTuna, itemRAWCaveEel, itemRAWRainbowFish, itemRAWLobster, itemRAWBass, itemRAWSwordfish, itemRAWLavaEel, itemRAWMonkfish, itemRAWKarambwan, itemRAWShark, itemRAWBaronShark, itemRAWCavefish, itemRAWRocktail, itemMinnow, itemCrayfish, itemShrimp, itemSardine, itemKarambwanji, itemHerring, itemAnchovies, itemMackerel, itemSeaweed, itemTrout, itemCod, itemPike, itemSlimyEel, itemSalmon, itemFrogSpawn, itemTuna, itemCaveEel, itemRainbowFish, itemLobster, itemBass, itemSwordfish, itemLavaEel, itemMonkfish, itemKarambwan, itemShark, itemBaronShark, itemCavefish, itemRocktail]
 
 global doneFishList
 global rawFishList
@@ -55,16 +55,16 @@ global monsterCoins
 global monsterItemsDropped
 
 # EXP stats
-global attackEXP; global strengthEXP; global defenceEXP; global rangedEXP; global magicEXP; global healthEXP; global craftingEXP; global mineEXP; global fishEXP; global cookingEXP; global woodcuttingEXP; global agilityEXP; global herbloreEXP; global farmingEXP; global huntingEXP; global summoningEXP
-attackEXP = 0; strengthEXP = 0; defenceEXP = 0; rangedEXP = 0; magicEXP = 0; healthEXP = 0; craftingEXP = 0; mineEXP = 0; fishEXP = 0; cookingEXP = 0; woodcuttingEXP = 0; agilityEXP = 0; herbloreEXP = 0; farmingEXP = 0; huntingEXP = 0; summoningEXP = 0
+global luckEXP; global attackEXP; global strengthEXP; global defenceEXP; global rangedEXP; global magicEXP; global healthEXP; global craftEXP; global mineEXP; global fishEXP; global cookingEXP; global woodcuttingEXP; global agilityEXP; global herbloreEXP; global farmingEXP; global huntingEXP; global summoningEXP
+luckEXP = 0; attackEXP = 0; strengthEXP = 0; defenceEXP = 0; rangedEXP = 0; magicEXP = 0; healthEXP = 0; craftEXP = 0; mineEXP = 0; fishEXP = 0; cookingEXP = 0; woodcuttingEXP = 0; agilityEXP = 0; herbloreEXP = 0; farmingEXP = 0; huntingEXP = 0; summoningEXP = 0
 global skillEXPList
-skillEXPList = [attackEXP, strengthEXP, defenceEXP, rangedEXP, magicEXP, healthEXP, craftingEXP, mineEXP, fishEXP, cookingEXP, woodcuttingEXP, agilityEXP, herbloreEXP, farmingEXP, huntingEXP, summoningEXP]
+skillEXPList = [luckEXP, attackEXP, strengthEXP, defenceEXP, rangedEXP, magicEXP, healthEXP, craftEXP, mineEXP, fishEXP, cookingEXP, woodcuttingEXP, agilityEXP, herbloreEXP, farmingEXP, huntingEXP, summoningEXP]
 # Player Skills
-global attackLevel; global strengthLevel; global defenceLevel; global rangedLevel; global magicLevel; global healthLevel; global craftingLevel; global mineLevel; global fishLevel; global cookingLevel; global woodcuttingLevel; global agilityLevel; global herbloreLevel; global farmingLevel; global huntingLevel; global summoningLevel
-attackLevel = 1; strengthLevel = 1; defenceLevel = 1; rangedLevel = 1; magicLevel = 1; healthLevel = 1; craftingLevel = 1; mineLevel = 1; fishLevel = 1; cookingLevel = 1; woodcuttingLevel = 1; agilityLevel = 1; herbloreLevel = 1; farmingLevel = 1; huntingLevel = 1; summoningLevel = 1
+global luckLevel; global attackLevel; global strengthLevel; global defenceLevel; global rangedLevel; global magicLevel; global healthLevel; global craftLevel; global mineLevel; global fishLevel; global cookingLevel; global woodcuttingLevel; global agilityLevel; global herbloreLevel; global farmingLevel; global huntingLevel; global summoningLevel
+luckLevel = 1; attackLevel = 1; strengthLevel = 1; defenceLevel = 1; rangedLevel = 1; magicLevel = 1; healthLevel = 1; craftLevel = 1; mineLevel = 1; fishLevel = 1; cookingLevel = 1; woodcuttingLevel = 1; agilityLevel = 1; herbloreLevel = 1; farmingLevel = 1; huntingLevel = 1; summoningLevel = 1
     # Skill list
 global skillList
-skillList = [attackLevel, strengthLevel, defenceLevel, rangedLevel, magicLevel, healthLevel, craftingLevel, mineLevel, fishLevel, cookingLevel, woodcuttingLevel, agilityLevel, herbloreLevel, farmingLevel, huntingLevel, summoningLevel]
+skillList = [luckLevel, attackLevel, strengthLevel, defenceLevel, rangedLevel, magicLevel, healthLevel, craftLevel, mineLevel, fishLevel, cookingLevel, woodcuttingLevel, agilityLevel, herbloreLevel, farmingLevel, huntingLevel, summoningLevel]
 
 
 global loadTime
@@ -198,7 +198,7 @@ class randomActions:
 class game:
     def runGame():
         system.clear()
-        # game.loadTitle()
+        game.loadTitle()
         game.initializeGame()
         game.nameSelect()
         game.actionPrompt()
@@ -251,7 +251,7 @@ class game:
         # Anything else to be initialized can go here
     def loadTitle():
         system.clear()
-        s = "\n                                   Welcome to                                   \n\nd888888P                   dP   .d88888b                                      \n   88                      88   88.    \"'                                     \n   88  .d8888b. dP.  .dP d8888P `Y88888b. .d8888b. .d8888b. 88d888b. .d8888b. \n   88  88ooood8  `8bd8'    88         `8b 88'  `\"\" 88'  `88 88'  `88 88ooood8 \n   88  88.  ...  .d88b.    88   d8'   .8P 88.  ... 88.  .88 88.  .88 88.  ... \n   dP  `88888P' dP'  `dP   dP   `Y88888P' `88888P' `88888P8 88Y888P' `88888P' \n                                                            88                \n                                                            dP                \n"
+        s = "\n                                   Welcome to                                   \n\nd888888P                   dP   .d88888b                                      \n   88                      88   88.    \"'                                     \n   88  .d8888b. dP.  .dP d8888P `Y88888b. .d8888b. .d8888b. 88d888b. .d8888b. \n   88  88ooood8  `8bd8'    88         `8b 88'  `\"\" 88'  `88 88'  `88 88ooood8 \n   88  88.  ...  .d88b.    88   d8'   .8P 88.  ... 88.  .88 88.  .88 88.  ... \n   dP  `88888P' dP'  `dP   dP   `Y88888P' `88888P' `88888P8 88Y888P' `88888P' \n                                                            88                \n                                                            dP        <RPG>   \n"
         for c in s:
             sys.stdout.write('%s' % c )
             sys.stdout.flush()
@@ -526,8 +526,8 @@ class game:
         else:
             level = 99
     def skills():
-        global attackLevel; global strengthLevel; global defenceLevel; global rangedLevel; global magicLevel; global healthLevel; global craftingLevel; global mineLevel; global fishLevel; global cookingLevel; global woodcuttingLevel; global agilityLevel; global herbloreLevel; global farmingLevel; global huntingLevel; global summoningLevel
-        global attackEXP; global strengthEXP; global defenceEXP; global rangedEXP; global magicEXP; global healthEXP; global craftingEXP; global mineEXP; global fishEXP; global cookingEXP; global woodcuttingEXP; global agilityEXP; global herbloreEXP; global farmingEXP; global huntingEXP; global summoningEXP
+        global attackLevel; global strengthLevel; global defenceLevel; global rangedLevel; global magicLevel; global healthLevel; global craftLevel; global mineLevel; global fishLevel; global cookingLevel; global woodcuttingLevel; global agilityLevel; global herbloreLevel; global farmingLevel; global huntingLevel; global summoningLevel
+        global attackEXP; global strengthEXP; global defenceEXP; global rangedEXP; global magicEXP; global healthEXP; global craftEXP; global mineEXP; global fishEXP; global cookingEXP; global woodcuttingEXP; global agilityEXP; global herbloreEXP; global farmingEXP; global huntingEXP; global summoningEXP
         print("Skills: \n")
         print("attackLevel = %i" % attackLevel)
         print("    attackEXP = %i\n" % attackEXP)
@@ -541,8 +541,8 @@ class game:
         print("    magicEXP = %i\n" % magicEXP)
         print("healthLevel = %i" % healthLevel)
         print("    healthEXP = %i\n" % healthEXP)
-        print("craftingLevel = %i" % craftingLevel)
-        print("    craftingEXP = %i\n" % craftingEXP)
+        print("craftLevel = %i" % craftLevel)
+        print("    craftEXP = %i\n" % craftEXP)
         print("mineLevel = %i" % mineLevel)
         print("    mineEXP = %i\n" % mineEXP)
         print("fishLevel = %i" % fishLevel)
@@ -1510,7 +1510,7 @@ class shop:
                         if(itemBuy[6] <= playerBal):
                             itemBuy[5] += 1
                             playerBal -= itemBuy[6]
-                            print("You purchased 1 %s" % itemBuy[0])
+                            print("You purchased 1 %s for %i" % (itemBuy[0], item[6]))
                             time.sleep(0.3)
                             shop.buy()
                         else:
@@ -1564,7 +1564,7 @@ class shop:
                         if(itemSell[5] > 0):
                             itemSell[5] -= 1
                             playerBal += itemSell[6]
-                            print("You sold 1 %s" % itemSell[0])
+                            print("You sold 1 %s for %s" % (itemSell[0], itemSell[6]))
                             time.sleep(0.3)
                             shop.sell()
                         else:
@@ -1583,7 +1583,7 @@ class shop:
 
 class mine:
     def prompt():
-        print("")
+        system.clear()
         print("# The Quarry #\n")
         print("Enter an ore to mine, try 'help' or 'exit'")
         mineAction=input("Mining action: ")
@@ -1660,12 +1660,11 @@ class mine:
         global mineLevel
         global mineEXP
         global level
+        global strengthLevel
+        global strengthEXP
+        global luckLevel
         x = 0
         while(x < 16):
-            global strengthLevel
-            global strengthEXP
-            global mineLevel
-            global mineEXP
             oreNow = oreList[x]
             if(ore.lower() == str(oreNow[0]).lower()):
                 if(mineLevel >= oreNow[8]):
@@ -1681,6 +1680,28 @@ class mine:
                     print("\nYou swing your pickaxe..")
                     mine.loadBar()
                     print("\nYou mined %s and gained + %0.1f XP!" % (oreNow[0], oreNow[7]))
+                    gemFound = "false"
+                    luckinessF = ( (luckLevel * 10) / 2 ) + 10
+                    luckiness = int(luckinessF)
+                    while(gemFound == "false"):
+                        gemFind = random.randint(1, 1000)
+                        if(gemFind in range(0, 10)):
+                            mine.gemFound(1) # Dragonstone
+                            gemFound == "true"
+                        elif(gemFind in range(0, (luckiness + 20))):
+                            mine.gemFound(2) # Diamond
+                            gemFound == "true"
+                        elif(gemFind in range(0, (luckiness + 30))):
+                            mine.gemFound(3) # Ruby
+                            gemFound == "true"
+                        elif(gemFind in range(0, (luckiness + 40))):
+                            mine.gemFound(4) # Emerald
+                            gemFound == "true"
+                        elif(gemFind in range(0, (luckiness + 50))):
+                            mine.gemFound(5) # Sapphire
+                            gemFound == "true"
+                        else:
+                            gemFound = "true"
                     go=input("Press enter to continue.")
                     mine.prompt()
                 else:
@@ -1693,6 +1714,37 @@ class mine:
             print("Invalid action: '%s'" % ore)
             go=input("Press enter to continue.")
             mine.prompt()
+    def gemFound(gem):
+        if(gem == 0):
+            print("<> YOU FOUND AN ONYX!!! + 10000.0 XP")
+            itemUncutOnyx[5] += 1
+            mineEXP += 10000
+            luckEXP += 1000
+        elif(gem == 1):
+            print("<> YOU FOUND A DRAGONSTONE! + 5000.0 XP")
+            itemUncutDragonstone[5] += 1
+            mineEXP += 5000
+            luckEXP += 500
+        elif(gem == 2):
+            print("<> You found a Diamond!!! + 2500.0 XP")
+            itemUncutDiamond[5] += 1
+            mineEXP += 2500
+            luckEXP += 250
+        elif(gem == 3):
+            print("<> You found a Ruby! + 1000.0 XP")
+            itemUncutRuby[5] += 1
+            mineEXP += 1000
+            luckEXP += 100
+        elif(gem == 4):
+            print("<> You found an Emerald! + 500.0 XP")
+            itemUncutEmerald[5] += 1
+            mineEXP += 500
+            luckEXP += 50
+        elif(gem == 5):
+            print("<> You found a Sapphire! + 100.0 XP")
+            itemUncutSapphire[5] += 1
+            mineEXP += 100
+            luckEXP += 10
     def stats():
         global mineLevel
         global mineEXP
