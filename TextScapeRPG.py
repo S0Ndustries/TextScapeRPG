@@ -1,5 +1,5 @@
 # Base game file
-# v2.5.0-beta
+# v2.6.0-beta
 
 import sys
 import time
@@ -55,17 +55,39 @@ global monsterCoins
 global monsterItemsDropped
 
 # EXP stats
-global luckEXP; global attackEXP; global strengthEXP; global defenceEXP; global rangedEXP; global magicEXP; global healthEXP; global craftEXP; global mineEXP; global fishEXP; global cookingEXP; global woodcuttingEXP; global agilityEXP; global herbloreEXP; global farmingEXP; global huntingEXP; global summoningEXP
-luckEXP = 0; attackEXP = 0; strengthEXP = 0; defenceEXP = 0; rangedEXP = 0; magicEXP = 0; healthEXP = 0; craftEXP = 0; mineEXP = 0; fishEXP = 0; cookingEXP = 0; woodcuttingEXP = 0; agilityEXP = 0; herbloreEXP = 0; farmingEXP = 0; huntingEXP = 0; summoningEXP = 0
+global luckEXP; global attackEXP; global strengthEXP; global defenceEXP; global rangedEXP; global magicEXP; global healthEXP; global buildEXP; global mineEXP; global fishEXP; global cookingEXP; global woodcuttingEXP; global agilityEXP; global herbloreEXP; global farmingEXP; global huntingEXP; global summoningEXP
+luckEXP = 0; attackEXP = 0; strengthEXP = 0; defenceEXP = 0; rangedEXP = 0; magicEXP = 0; healthEXP = 0; buildEXP = 0; mineEXP = 0; fishEXP = 0; cookingEXP = 0; woodcuttingEXP = 0; agilityEXP = 0; herbloreEXP = 0; farmingEXP = 0; huntingEXP = 0; summoningEXP = 0
 global skillEXPList
-skillEXPList = [luckEXP, attackEXP, strengthEXP, defenceEXP, rangedEXP, magicEXP, healthEXP, craftEXP, mineEXP, fishEXP, cookingEXP, woodcuttingEXP, agilityEXP, herbloreEXP, farmingEXP, huntingEXP, summoningEXP]
+skillEXPList = [luckEXP, attackEXP, strengthEXP, defenceEXP, rangedEXP, magicEXP, healthEXP, buildEXP, mineEXP, fishEXP, cookingEXP, woodcuttingEXP, agilityEXP, herbloreEXP, farmingEXP, huntingEXP, summoningEXP]
 # Player Skills
-global luckLevel; global attackLevel; global strengthLevel; global defenceLevel; global rangedLevel; global magicLevel; global healthLevel; global craftLevel; global mineLevel; global fishLevel; global cookingLevel; global woodcuttingLevel; global agilityLevel; global herbloreLevel; global farmingLevel; global huntingLevel; global summoningLevel
-luckLevel = 1; attackLevel = 1; strengthLevel = 1; defenceLevel = 1; rangedLevel = 1; magicLevel = 1; healthLevel = 1; craftLevel = 1; mineLevel = 1; fishLevel = 1; cookingLevel = 1; woodcuttingLevel = 1; agilityLevel = 1; herbloreLevel = 1; farmingLevel = 1; huntingLevel = 1; summoningLevel = 1
+global luckLevel; global attackLevel; global strengthLevel; global defenceLevel; global rangedLevel; global magicLevel; global healthLevel; global buildLevel; global mineLevel; global fishLevel; global cookingLevel; global woodcuttingLevel; global agilityLevel; global herbloreLevel; global farmingLevel; global huntingLevel; global summoningLevel
+luckLevel = 1; attackLevel = 1; strengthLevel = 1; defenceLevel = 1; rangedLevel = 1; magicLevel = 1; healthLevel = 1; buildLevel = 1; mineLevel = 1; fishLevel = 1; cookingLevel = 1; woodcuttingLevel = 1; agilityLevel = 1; herbloreLevel = 1; farmingLevel = 1; huntingLevel = 1; summoningLevel = 1
     # Skill list
 global skillList
-skillList = [luckLevel, attackLevel, strengthLevel, defenceLevel, rangedLevel, magicLevel, healthLevel, craftLevel, mineLevel, fishLevel, cookingLevel, woodcuttingLevel, agilityLevel, herbloreLevel, farmingLevel, huntingLevel, summoningLevel]
+skillList = [luckLevel, attackLevel, strengthLevel, defenceLevel, rangedLevel, magicLevel, healthLevel, buildLevel, mineLevel, fishLevel, cookingLevel, woodcuttingLevel, agilityLevel, herbloreLevel, farmingLevel, huntingLevel, summoningLevel]
 
+global itemNullFiller; itemNullFiller = ["Null Filler Item", 111, 111, 111, 000, 1337]
+
+global itemUncutOnyx; itemUncutOnyx = ["Uncut Onyx", 111, 111, 111, 000, 0, 1117368]
+global itemUncutDragonstone; itemUncutDragonstone = ["Uncut Dragonstone", 111, 111, 111, 000, 0, 12,970]
+global itemUncutDiamond; itemUncutDiamond = ["Uncut Diamond", 111, 111, 111, 000, 0, 4018]
+global itemUncutRuby; itemUncutRuby = ["Uncut Ruby", 111, 111, 111, 000, 0, 2132]
+global itemUncutEmerald; itemUncutEmerald = ["Uncut Emerald", 111, 111, 111, 000, 0, 1440]
+global itemUncutSapphire; itemUncutSapphire = ["Uncut Sapphire", 111, 111, 111, 000, 0, 707]
+global itemUncutRedTopaz; itemUncutRedTopaz = ["Uncut Red Topaz", 111, 111, 111, 000, 0, 1014]
+global itemUncutJade; itemUncutJade = ["Uncut Jade", 111, 111, 111, 000, 0, 408]
+global itemUncutOpal; itemUncutOpal = ["Uncut Opal", 111, 111, 111, 000, 0, 489]
+gemList = [itemUncutOnyx, itemUncutDragonstone, itemUncutDiamond, itemUncutRuby, itemUncutEmerald, itemUncutSapphire]
+
+global itemBronzeBar; itemBronzeBar = ["Bronze bar", 111, 111, 111, 000, 0, 283, 6.2, 1, itemCopperOre, itemTinOre, 1]
+global itemIronBar; itemIronBar = ["Iron bar", 111, 111, 111, 000, 0, 347, 12.5, 15, itemIronOre, itemNullFiller, 0]
+global itemSilverBar; itemSilverBar = ["Silver bar", 111, 111, 111, 000, 0, 138, 13.7, 20, itemSilverOre, itemNullFiller, 0]
+global itemSteelBar;itemSteelBar = ["Steel bar", 111, 111, 111, 000, 0, 809, 17.5, 30, itemIronOre, itemCoal, 2]
+global itemGoldBar; itemGoldBar = ["Gold bar", 111, 111, 111, 000, 0, 90, 22.5, 40, itemGoldOre, itemNullFiller, 0]
+global itemMithrilBar; itemMithrilBar = ["Mithril bar", 111, 111, 111, 000, 0, 1358, 30, 50, itemMithrilOre, itemCoal, 4]
+global itemAdamantBar; itemAdamantBar = ["Adamant bar", 111, 111, 111, 000, 0, 2559, 37.5, 70, itemAdamantOre, itemCoal, 6]
+global itemRuneBar; itemRuneBar = ["Rune bar", 111, 111, 111, 000, 0, 14214, 50, 85, itemRuniteOre, itemCoal, 8]
+barList = [itemBronzeBar, itemIronBar, itemSilverBar, itemSteelBar, itemGoldBar, itemMithrilBar, itemAdamantBar, itemRuneBar]
 
 global loadTime
 
@@ -198,49 +220,52 @@ class randomActions:
 class game:
     def runGame():
         system.clear()
-        game.loadTitle()
+        # game.loadTitle()
         game.initializeGame()
         game.nameSelect()
         game.actionPrompt()
     def actionPrompt():
-        actionList = ["fight", "fish", "cook", "heal", "help", "fuck", "fart", "stats", "exit", "skills", "shop", "mine"]
+        actionList = ["fight", "fish", "cook", "heal", "help", "fuck", "fart", "stats", "exit", "skills", "shop", "mine", "build"]
         system.clear()
         print("What would you like to do?")
         print("Enter 'help' for more options.")
         action=input("Action: ").lower()
         if (action in actionList):
-            if (action==actionList[0]):
+            if (action.lower() == actionList[0]):
                 fight.setup()
-            elif(action==actionList[1]):
+            elif(action.lower() == actionList[1]):
                 fishAdv.prompt()
-            elif(action==actionList[2]):
+            elif(action.lower() == actionList[2]):
                 # Jesse, we need to -
                 cookAdv.prompt()
-            elif(action==actionList[3]):
+            elif(action.lower() == actionList[3]):
                 healAdv.prompt(0)
-            elif(action==actionList[4]):
+            elif(action.lower() == actionList[4]):
                 help_func()
-            elif(action==actionList[5]):
+            elif(action.lower() == actionList[5]):
                 randomActions.fuck()
-            elif(action==actionList[6]):
+            elif(action.lower() == actionList[6]):
                 randomActions.fart()
-            elif(action==actionList[7]):
+            elif(action.lower() == actionList[7]):
                 stats.init()
-            elif(action==actionList[8]):
+            elif(action.lower() == actionList[8]):
                 system.clear()
                 exit()
-            elif(action==actionList[9]):
+            elif(action.lower() == actionList[9]):
                 game.skills()
-            elif(action==actionList[10]):
+            elif(action.lower() == actionList[10]):
                 shop.prompt()
-            elif(action==actionList[11]):
+            elif(action.lower() == actionList[11]):
                 mine.prompt()
+            elif(action.lower() == actionList[12]):
+                build.prompt()
             else:
-                print("This doesn't work")
+                print("\nThis doesn't work.. Notify Senpai pl0x.")
+                go=input("Press enter to continue.")
+                game.actionPrompt()
         else:
-            print("Sorry, invalid option.")
-            time.sleep(1)
-            system.clear()
+            print("You can't %s! what are you, stupid? Type help, because you obviously need it n00b!" % action)
+            go=input("Press enter to continue.")
             game.actionPrompt()
     def initializeGame():
         # Sets all fish item traits.
@@ -526,8 +551,8 @@ class game:
         else:
             level = 99
     def skills():
-        global attackLevel; global strengthLevel; global defenceLevel; global rangedLevel; global magicLevel; global healthLevel; global craftLevel; global mineLevel; global fishLevel; global cookingLevel; global woodcuttingLevel; global agilityLevel; global herbloreLevel; global farmingLevel; global huntingLevel; global summoningLevel
-        global attackEXP; global strengthEXP; global defenceEXP; global rangedEXP; global magicEXP; global healthEXP; global craftEXP; global mineEXP; global fishEXP; global cookingEXP; global woodcuttingEXP; global agilityEXP; global herbloreEXP; global farmingEXP; global huntingEXP; global summoningEXP
+        global attackLevel; global strengthLevel; global defenceLevel; global rangedLevel; global magicLevel; global healthLevel; global buildLevel; global mineLevel; global fishLevel; global cookingLevel; global woodcuttingLevel; global agilityLevel; global herbloreLevel; global farmingLevel; global huntingLevel; global summoningLevel
+        global attackEXP; global strengthEXP; global defenceEXP; global rangedEXP; global magicEXP; global healthEXP; global buildEXP; global mineEXP; global fishEXP; global cookingEXP; global woodcuttingEXP; global agilityEXP; global herbloreEXP; global farmingEXP; global huntingEXP; global summoningEXP
         print("Skills: \n")
         print("attackLevel = %i" % attackLevel)
         print("    attackEXP = %i\n" % attackEXP)
@@ -541,8 +566,8 @@ class game:
         print("    magicEXP = %i\n" % magicEXP)
         print("healthLevel = %i" % healthLevel)
         print("    healthEXP = %i\n" % healthEXP)
-        print("craftLevel = %i" % craftLevel)
-        print("    craftEXP = %i\n" % craftEXP)
+        print("buildLevel = %i" % buildLevel)
+        print("    buildEXP = %i\n" % buildEXP)
         print("mineLevel = %i" % mineLevel)
         print("    mineEXP = %i\n" % mineEXP)
         print("fishLevel = %i" % fishLevel)
@@ -628,11 +653,11 @@ class fight:
             print("Type 'a' to attack, 'h' to heal, or 'r' to run!")
             action=input("Fight action: ")
             if(action in fightActionList):
-                if (action==fightActionList[0]):
+                if (action.lower() == fightActionList[0]):
                     fight.message()
-                elif(action==fightActionList[1]):
+                elif(action.lower() == fightActionList[1]):
                     healAdv.prompt(1)
-                elif(action==fightActionList[2]):
+                elif(action.lower() == fightActionList[2]):
                     fight.run()
                 else:
                     print("Something's up...")
@@ -642,9 +667,9 @@ class fight:
                 # Loss code here
                 game.actionPrompt()
             else:
-                playerBal += monsterCoins
+                playerBal += monsterCoins * 10
                 time.sleep(0.5)
-                print("\nYou earned %i coins! Your balance is now: %i" % (monsterCoins, playerBal))
+                print("\nYou earned %i coins! Your balance is now: %i" % (monsterCoins * 10, playerBal))
                 time.sleep(2.5)
                 game.actionPrompt()
 
@@ -1440,13 +1465,6 @@ class healAdv:
         go=input("Press enter to continue.")
         healAdv.prompt(f)
 
-    def exit():
-        global f
-        if(f == 0):
-            print("Action Prompt")
-        else:
-            print("Fight Prompt")
-
 class shop:
     def prompt():
         global playerBal
@@ -1584,7 +1602,7 @@ class shop:
 class mine:
     def prompt():
         system.clear()
-        print("# The Quarry #\n")
+        print("# The Quarry # | Level %i\n" % mineLevel)
         print("Enter an ore to mine, try 'help' or 'exit'")
         mineAction=input("Mining action: ")
         if(mineAction=="help"):
@@ -1715,6 +1733,8 @@ class mine:
             go=input("Press enter to continue.")
             mine.prompt()
     def gemFound(gem):
+        global mineEXP
+        global luckEXP
         if(gem == 0):
             print("<> YOU FOUND AN ONYX!!! + 10000.0 XP")
             itemUncutOnyx[5] += 1
@@ -1770,6 +1790,142 @@ class mine:
             sys.stdout.write('%s' % c )
             sys.stdout.flush()
             time.sleep(loadTime)
+
+class build:
+    def prompt():
+        system.clear()
+        print(":: Building Station :: | Level: %i" % buildLevel)
+        print("Enter type of building, or try 'help' / 'exit'")
+        buildAction=input("Building action: ")
+        if(buildAction.lower() == "help"):
+            build.help()
+        elif(buildAction.lower() == "exit"):
+            game.actionPrompt()
+        elif(buildAction.lower() == "craft"):
+            craft.prompt()
+        elif(buildAction.lower() == "smelt"):
+            smelt.prompt()
+        elif(buildAction.lower() == "smith"):
+            smith.prompt()
+        elif(buildAction.lower() == "fletch"):
+            fletch.prompt()
+        else:
+            print("Invalid action: %s" % buildAction)
+            go=input("Press enter to continue")
+            build.prompt()
+
+    def help():
+        print("Building help")
+        print("'craft'  = Displays crafting interface")
+        print("'smelt'  = Displays smelting interface")
+        print("'smith'  = Displays smithing interface")
+        print("'fletch' = Displays fletching interface")
+        print("'help'   = Displays this interface")
+        print("'exit'   = Exits back to the main prompt")
+        go=input("\nPress enter to continue.")
+        build.prompt()
+
+class smelt:
+    def prompt():
+        system.clear()
+        print("** Blacksmith Workshop **")
+        print("Enter an item to smelt, or try 'help' / exit'")
+        smeltAction=input("Smelting action: ")
+        if(smeltAction.lower() == "bars" or smeltAction.lower() == "list"):
+            smelt.barList()
+        elif(smeltAction.lower() == "help"):
+            smelt.help()
+        elif(smeltAction.lower() == "exit"):
+            build.prompt()
+        else:
+            smelt.smeltBar(smeltAction)
+    def smeltBar(barType):
+        global buildEXP
+        global buildLevel
+        x = 1
+        smeltBar = barList[x - 1]
+        while(x < len(oreList)):
+            if(barType.lower() == smeltBar[0].lower()):
+                if(buildLevel >= smeltBar[8]):
+                    primaryOre = smeltBar[9]
+                    secondaryOre = smeltBar[10]
+                    if(primaryOre[5] >= 1):
+                        if(secondaryOre[5] >= smeltBar[11]):
+                            primaryOre[5] -= 1
+                            secondaryOre[5] -= smeltBar[11]
+                            smeltBar[5] += 1
+                            buildEXP += smeltBar[7]
+                            print("\nYou have smelted %s and earned + %0.1f XP!" % (smeltBar[0], smeltBar[7]))
+                            go=input("Press enter to continue.")
+                            smelt.prompt()
+                        else:
+                            print("\nYou need at least 1 %s & %i %s to do that!" % (primaryOre[0], smeltBar[11], secondaryOre[0]))
+                            print("You have: %i %s & %i %s" % (primaryOre[5], primaryOre[0], secondaryOre[5], secondaryOre[0]))
+                            go=input("Press enter to continue")
+                            smelt.prompt()
+                    else:
+                        print("\nYou need at least 1 %s & %i %s to do that!" % (primaryOre[0], smeltBar[11], secondaryOre[0]))
+                        print("You have: %i %s & %i %s" % (primaryOre[5] , primaryOre[0], secondaryOre[5], secondaryOre[0]))
+                        go=input("Press enter to continue")
+                        smelt.prompt()
+                else:
+                    print("\nNot high enough level! Required level: %i" % smeltBar[8])
+                    go=input("Press enter to continue.")
+                    smelt.prompt()
+            else:
+                x += 1
+                smeltBar = barList[x - 1]
+        else:
+            print("\nInvalid action: %s " % barType)
+            go=input("Press enter to continue.")
+            smelt.prompt()
+        print(len(oreList))
+        print(barType)
+        time.sleep(5)
+    def help():
+        print("Smithing help:\n")
+        print("'bars' = Lists bars")
+        print("'help' = Displays this interface")
+        print("'exit = Exits back to crafting prompt'")
+        go=input("\nPress enter to continue.")
+        smelt.prompt()
+    def barList():
+        print("\nBar list:\n")
+        x = 0
+        barNow = barList[x]
+        primaryOre = barNow[9]; secondaryOre = barNow[10]
+        print("Bronze Bar      - Level: %i  | XP: %0.1f  | Requires: 1 %s ore & %i %s ore" % (barNow[8], barNow[7], primaryOre[0], barNow[11], secondaryOre[0]))
+        x += 1; print("----------------------------+----------+--------->")
+        barNow = barList[x]
+        primaryOre = barNow[9]; secondaryOre = barNow[10]
+        print("Iron Bar        - Level: %i | XP: %0.1f | Requires: 1 %s ore" % (barNow[8], barNow[7], primaryOre[0]))
+        x += 1; print("----------------------------+----------+--------->")
+        barNow = barList[x]
+        primaryOre = barNow[9]; secondaryOre = barNow[10]
+        print("Silver Bar      - Level: %i | XP: %0.1f | Requires: 1 %s ore" % (barNow[8], barNow[7], primaryOre[0]))
+        x += 1; print("----------------------------+----------+--------->")
+        barNow = barList[x]
+        primaryOre = barNow[9]; secondaryOre = barNow[10]
+        print("Steel Bar       - Level: %i | XP: %0.1f | Requires: 1 %s ore & %i %s" % (barNow[8], barNow[7], primaryOre[0], barNow[11], secondaryOre[0]))
+        x += 1; print("----------------------------+----------+--------->")
+        barNow = barList[x]
+        primaryOre = barNow[9]; secondaryOre = barNow[10]
+        print("Gold Bar        - Level: %i | XP: %0.1f | Requires: 1 %s ore" % (barNow[8], barNow[7], primaryOre[0]))
+        x += 1; print("----------------------------+----------+--------->")
+        barNow = barList[x]
+        primaryOre = barNow[9]; secondaryOre = barNow[10]
+        print("Mithril Bar     - Level: %i | XP: %0.1f | Requires: 1 %s ore & %i %s" % (barNow[8], barNow[7], primaryOre[0], barNow[11], secondaryOre[0]))
+        x += 1; print("----------------------------+----------+--------->")
+        barNow = barList[x]
+        primaryOre = barNow[9]; secondaryOre = barNow[10]
+        print("Adamant Bar     - Level: %i | XP: %0.1f | Requires: 1 %s ore & %i %s" % (barNow[8], barNow[7], primaryOre[0], barNow[11], secondaryOre[0]))
+        x += 1; print("----------------------------+----------+--------->")
+        barNow = barList[x]
+        primaryOre = barNow[9]; secondaryOre = barNow[10]
+        print("Runite Bar      - Level: %i | XP: %0.1f | Requires: 1 %s ore & %i %s" % (barNow[8], barNow[7], primaryOre[0], barNow[11], secondaryOre[0]))
+
+        go=input("\nPress enter to continue.")
+        smelt.prompt()
 
 
 # Actions
