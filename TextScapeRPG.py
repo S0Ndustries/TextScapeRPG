@@ -1,5 +1,5 @@
 # Base game file
-# v2.6.0-beta
+# v2.7.0-beta
 
 import sys
 import time
@@ -26,8 +26,6 @@ itemMinnow = ["Minnow", 000, 111, 111, 000, 0, 10, 150]; itemCrayfish = ["Crayfi
 itemSardine = ["Sardine", 000, 111, 111, 000, 0, 10, 108]; itemKarambwanji = ["Karambwanji", 000, 111, 111, 000, 0, 666, 200]; itemHerring = ["Herring", 000, 111, 111, 000, 0, 10, 200]; itemAnchovies = ["Anchovies", 000, 111, 111, 000, 0, 16, 200]; itemMackerel = ["Mackeral", 000, 111, 111, 000, 0, 5, 200]; itemTrout = ["Trout", 000, 111, 111, 000, 0, 37, 300]; itemCod = ["Cod", 000, 111, 111, 000, 0, 65, 450]; itemPike = ["Pike", 000, 111, 111, 000, 0, 42, 400]; itemSlimyEel = ["Slimy eel", 000, 111, 111, 000, 0, 233, 700]; itemSalmon = ["Salmon", 000, 111, 111, 000, 0, 101, 500]; itemTuna = ["Tuna", 000, 111, 111, 000, 0, 167, 750]; itemCaveEel = ["Cave eel", 000, 111, 111, 000, 0, 160, 950]; itemRainbowFish = ["Rainbow fish", 000, 111, 111, 000, 0, 176, 875]; itemLobster = ["Lobster", 000, 111, 111, 000, 0, 252, 1200]; itemBass = ["Bass", 000, 111, 111, 000, 0, 306, 1300]; itemSwordfish = ["Swordfish", 000, 111, 111, 000, 0, 379, 1400]; itemLavaEel = ["Lava eel", 000, 111, 111, 000, 0, 666, 1060]; itemMonkfish = ["Monkfish", 000, 111, 111, 000, 0, 441, 1600]; itemKarambwan = ["Karambwan", 000, 111, 111, 000, 0, 3347, 750]; itemShark = ["Shark", 000, 111, 111, 000, 0, 817, 2000]; itemBaronShark = ["Baron shark", 000, 111, 111, 000, 0, 1302, 2100]; itemCavefish = ["Cave fish", 000, 111, 111, 000, 0, 1827, 2000]; itemRocktail = ["Rocktail", 000, 111, 111, 000, 0, 2559, 2300]
 
 itemCasket = ["Casket", 111, 111, 111, 000, 0]; itemOyster = ["Oyster", 111, 111, 111, 000, 0]; itemSeaweed = ["Seaweed", 111, 000, 111, 000, 0, 0, 0]; itemFrogSpawn = ["Frog spawn", 111, 000, 111, 000, 0, 0, 0];
-
-buyableItemList = [itemClay, itemRuneEssence, itemCopperOre, itemTinOre, itemLimestone, itemIronOre, itemSilverOre, itemPureEssence, itemCoal, itemSandstone, itemGoldOre, itemGranite, itemMithrilOre, itemAdamantOre, itemLivingMinerals, itemRuniteOre, itemRAWMinnow, itemRAWCrayfish, itemRAWShrimp, itemRAWSardine, itemRAWKarambwanji, itemRAWHerring, itemRAWAnchovies, itemRAWMackerel, itemSeaweed, itemRAWTrout, itemRAWCod, itemRAWPike, itemRAWSlimyEel, itemRAWSalmon, itemFrogSpawn, itemRAWTuna, itemRAWCaveEel, itemRAWRainbowFish, itemRAWLobster, itemRAWBass, itemRAWSwordfish, itemRAWLavaEel, itemRAWMonkfish, itemRAWKarambwan, itemRAWShark, itemRAWBaronShark, itemRAWCavefish, itemRAWRocktail, itemMinnow, itemCrayfish, itemShrimp, itemSardine, itemKarambwanji, itemHerring, itemAnchovies, itemMackerel, itemSeaweed, itemTrout, itemCod, itemPike, itemSlimyEel, itemSalmon, itemFrogSpawn, itemTuna, itemCaveEel, itemRainbowFish, itemLobster, itemBass, itemSwordfish, itemLavaEel, itemMonkfish, itemKarambwan, itemShark, itemBaronShark, itemCavefish, itemRocktail]
 
 global doneFishList
 global rawFishList
@@ -90,6 +88,8 @@ global itemRuneBar; itemRuneBar = ["Rune bar", 111, 111, 111, 000, 0, 14214, 50,
 barList = [itemBronzeBar, itemIronBar, itemSilverBar, itemSteelBar, itemGoldBar, itemMithrilBar, itemAdamantBar, itemRuneBar]
 
 global loadTime
+
+buyableItemList = doneFishList + rawFishList + gemList + oreList + barList
 
 # Functions
 class unix:
@@ -1507,7 +1507,7 @@ class shop:
             y = 0
             lol = 0
             while(y == 0):
-                if(x < 56):
+                if(x < len(buyableItemList)):
                     itemBuy = buyableItemList[x]
                     print("%s" % itemBuy[0])
                     x += 1
@@ -1528,7 +1528,7 @@ class shop:
                         if(itemBuy[6] <= playerBal):
                             itemBuy[5] += 1
                             playerBal -= itemBuy[6]
-                            print("You purchased 1 %s for %i" % (itemBuy[0], item[6]))
+                            print("You purchased 1 %s for %i" % (itemBuy[0], itemBuy[6]))
                             time.sleep(0.3)
                             shop.buy()
                         else:
@@ -1559,7 +1559,7 @@ class shop:
             x = 0
             lol = 0
             while(y == 0):
-                if(x < 56):
+                if(x < len(buyableItemList)):
                     itemSell = buyableItemList[x]
                     if(itemSell[5] > 0):
                         print("%s: %s" % (itemSell[0], itemSell[5]))
@@ -1810,7 +1810,7 @@ class build:
         elif(buildAction.lower() == "fletch"):
             fletch.prompt()
         else:
-            print("Invalid action: %s" % buildAction)
+            print("\nInvalid action: %s" % buildAction)
             go=input("Press enter to continue")
             build.prompt()
 
@@ -1842,9 +1842,10 @@ class smelt:
     def smeltBar(barType):
         global buildEXP
         global buildLevel
-        x = 1
-        smeltBar = barList[x - 1]
-        while(x < len(oreList)):
+        runLoop = 1
+        x = 0
+        smeltBar = barList[x]
+        while(runLoop == 1):
             if(barType.lower() == smeltBar[0].lower()):
                 if(buildLevel >= smeltBar[8]):
                     primaryOre = smeltBar[9]
@@ -1873,10 +1874,13 @@ class smelt:
                     go=input("Press enter to continue.")
                     smelt.prompt()
             else:
-                x += 1
-                smeltBar = barList[x - 1]
+                if(x < len(barList)):
+                    x += 1
+                    smeltBar = barList[x - 1]
+                else:
+                    runLoop = 0
         else:
-            print("\nInvalid action: %s " % barType)
+            print("\nInvalid action: %s. Try 'help'" % barType)
             go=input("Press enter to continue.")
             smelt.prompt()
         print(len(oreList))
