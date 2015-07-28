@@ -66,16 +66,29 @@ skillList = [luckLevel, attackLevel, strengthLevel, defenceLevel, rangedLevel, m
 
 global itemNullFiller; itemNullFiller = ["Null Filler Item", 111, 111, 111, 000, 1337]
 
-global itemUncutOnyx; itemUncutOnyx = ["Uncut Onyx", 111, 111, 111, 000, 0, 1117368]
-global itemUncutDragonstone; itemUncutDragonstone = ["Uncut Dragonstone", 111, 111, 111, 000, 0, 12,970]
-global itemUncutDiamond; itemUncutDiamond = ["Uncut Diamond", 111, 111, 111, 000, 0, 4018]
-global itemUncutRuby; itemUncutRuby = ["Uncut Ruby", 111, 111, 111, 000, 0, 2132]
-global itemUncutEmerald; itemUncutEmerald = ["Uncut Emerald", 111, 111, 111, 000, 0, 1440]
-global itemUncutSapphire; itemUncutSapphire = ["Uncut Sapphire", 111, 111, 111, 000, 0, 707]
-global itemUncutRedTopaz; itemUncutRedTopaz = ["Uncut Red Topaz", 111, 111, 111, 000, 0, 1014]
-global itemUncutJade; itemUncutJade = ["Uncut Jade", 111, 111, 111, 000, 0, 408]
-global itemUncutOpal; itemUncutOpal = ["Uncut Opal", 111, 111, 111, 000, 0, 489]
-gemList = [itemUncutOnyx, itemUncutDragonstone, itemUncutDiamond, itemUncutRuby, itemUncutEmerald, itemUncutSapphire]
+global itemUncutHydrix; itemUncutHydrix = ["Uncut Hydrix", 111, 111, 111, 000, 0, 13356199]
+global itemUncutOnyx; itemUncutOnyx = ["Uncut Onyx", 111, 111, 111, 000, 0, 1126129]
+global itemUncutDragonstone; itemUncutDragonstone = ["Uncut Dragonstone", 111, 111, 111, 000, 0, 12840]
+global itemUncutDiamond; itemUncutDiamond = ["Uncut Diamond", 111, 111, 111, 000, 0, 3971]
+global itemUncutRuby; itemUncutRuby = ["Uncut Ruby", 111, 111, 111, 000, 0, 2239]
+global itemUncutEmerald; itemUncutEmerald = ["Uncut Emerald", 111, 111, 111, 000, 0, 1462]
+global itemUncutSapphire; itemUncutSapphire = ["Uncut Sapphire", 111, 111, 111, 000, 0, 690]
+global itemUncutRedTopaz; itemUncutRedTopaz = ["Uncut Red Topaz", 111, 111, 111, 000, 0, 1059]
+global itemUncutJade; itemUncutJade = ["Uncut Jade", 111, 111, 111, 000, 0, 398]
+global itemUncutOpal;itemUncutOpal = ["Uncut Opal", 111, 111, 111, 000, 0, 509]
+uncutGemList = [itemUncutHydrix, itemUncutOnyx, itemUncutDragonstone, itemUncutDiamond, itemUncutRuby, itemUncutEmerald, itemUncutSapphire]
+
+global itemHydrix; itemHydrix = ["Hydrix", 111, 111, 111, 000, 0, 19538637, 197.5, 79]
+global itemOnyx; itemOnyx = ["Onyx", 111, 111, 111, 000, 0, 1135644, 167.5, 67]
+global itemDragonstone; itemDragonstone = ["Dragonstone", 111, 111, 111, 000, 0, 12, 9468, 137.5, 55]
+global itemDiamond; itemDiamond = ["Diamond", 111, 111, 111, 000, 0, 1825, 107.5, 43]
+global itemRuby; itemRuby = ["Ruby", 111, 111, 111, 000, 0, 911, 85, 34]
+global itemEmerald; itemEmerald = ["Emerald", 111, 111, 111, 000, 0, 673, 67.5, 27]
+global itemSapphire; itemSapphire = ["Sapphire", 111, 111, 111, 000, 0, 191, 50, 20]
+global itemRedTopaz; itemRedTopaz = ["Red Topaz", 111, 111, 111, 000, 0, 659, 25, 16]
+global itemJade; itemJade = ["Jade", 111, 111, 111, 000, 0, 290, 20, 13]
+global itemOpal; itemOpal = ["Opal", 111, 111, 111, 000, 0, 182, 15, 1]
+gemList = [itemHydrix, itemOnyx, itemDragonstone, itemDiamond, itemRuby, itemEmerald, itemSapphire]
 
 global itemBronzeBar; itemBronzeBar = ["Bronze bar", 111, 111, 111, 000, 0, 283, 6.2, 1, itemCopperOre, itemTinOre, 1]
 global itemIronBar; itemIronBar = ["Iron bar", 111, 111, 111, 000, 0, 347, 12.5, 15, itemIronOre, itemNullFiller, 0]
@@ -89,7 +102,7 @@ barList = [itemBronzeBar, itemIronBar, itemSilverBar, itemSteelBar, itemGoldBar,
 
 global loadTime
 
-buyableItemList = doneFishList + rawFishList + gemList + oreList + barList
+buyableItemList = doneFishList + rawFishList + gemList + uncutGemList + oreList + barList
 
 # Functions
 class unix:
