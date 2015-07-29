@@ -249,3 +249,48 @@ fishEXP = 18275
 myEXP(fishEXP)
 fishLevel = level
 print("Your level is %i" % fishLevel)
+
+
+
+
+fileExists=True
+class saveSystem:
+    def __init__(self):
+        global statsFile
+        global fileExists
+        try:
+            statsFile = open("stats.txt", "r+")
+        except:
+            fileExists=False
+    def save():
+        exampleString = 'Example Value'
+        exStr = 'Ex Str'
+        statsFile.write(exampleString)
+        saveSystem.newline()
+        statsFile.write(exStr)
+    def newline():
+        statsFile.write("\n")
+    def load():
+        exampleString = statsFile.readline()
+        exStr = statsFile.readline()
+        print("Loaded String 1: '%s'" % exampleString)
+        print("Loaded String 2: '%s'" % exStr)
+    def makeNew():
+        print("No File Detected, Creating A New One!")
+        statsFile = open("stats.txt", "w")
+        name="Temp"
+        statsFile.write(name)
+
+saveSystem()
+print("[SAVE] [LOAD]")
+opt=input("").lower()
+if opt=="save" and fileExists:
+    saveSystem.save()
+elif opt == "load" and fileExists:
+    saveSystem.load()
+else:
+    saveSystem.makeNew()
+if fileExists:
+    statsFile.close()
+else:
+    pass
