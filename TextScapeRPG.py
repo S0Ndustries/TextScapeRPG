@@ -1,5 +1,5 @@
 # Base game file
-# v2.7.0-beta
+# v2.9.0-beta
 
 import sys
 import time
@@ -76,11 +76,11 @@ global itemUncutSapphire; itemUncutSapphire = ["Uncut Sapphire", 111, 111, 111, 
 global itemUncutRedTopaz; itemUncutRedTopaz = ["Uncut Red Topaz", 111, 111, 111, 000, 0, 1059]
 global itemUncutJade; itemUncutJade = ["Uncut Jade", 111, 111, 111, 000, 0, 398]
 global itemUncutOpal;itemUncutOpal = ["Uncut Opal", 111, 111, 111, 000, 0, 509]
-uncutGemList = [itemUncutHydrix, itemUncutOnyx, itemUncutDragonstone, itemUncutDiamond, itemUncutRuby, itemUncutEmerald, itemUncutSapphire]
+uncutGemList = [itemUncutHydrix, itemUncutOnyx, itemUncutDragonstone, itemUncutDiamond, itemUncutRuby, itemUncutEmerald, itemUncutSapphire, itemUncutRedTopaz, itemUncutJade, itemUncutOpal]
 
 global itemHydrix; itemHydrix = ["Hydrix", 111, 111, 111, 000, 0, 19538637, 197.5, 79]
 global itemOnyx; itemOnyx = ["Onyx", 111, 111, 111, 000, 0, 1135644, 167.5, 67]
-global itemDragonstone; itemDragonstone = ["Dragonstone", 111, 111, 111, 000, 0, 12, 9468, 137.5, 55]
+global itemDragonstone; itemDragonstone = ["Dragonstone", 111, 111, 111, 000, 0, 9468, 137.5, 55]
 global itemDiamond; itemDiamond = ["Diamond", 111, 111, 111, 000, 0, 1825, 107.5, 43]
 global itemRuby; itemRuby = ["Ruby", 111, 111, 111, 000, 0, 911, 85, 34]
 global itemEmerald; itemEmerald = ["Emerald", 111, 111, 111, 000, 0, 673, 67.5, 27]
@@ -88,7 +88,7 @@ global itemSapphire; itemSapphire = ["Sapphire", 111, 111, 111, 000, 0, 191, 50,
 global itemRedTopaz; itemRedTopaz = ["Red Topaz", 111, 111, 111, 000, 0, 659, 25, 16]
 global itemJade; itemJade = ["Jade", 111, 111, 111, 000, 0, 290, 20, 13]
 global itemOpal; itemOpal = ["Opal", 111, 111, 111, 000, 0, 182, 15, 1]
-gemList = [itemHydrix, itemOnyx, itemDragonstone, itemDiamond, itemRuby, itemEmerald, itemSapphire]
+gemList = [itemHydrix, itemOnyx, itemDragonstone, itemDiamond, itemRuby, itemEmerald, itemSapphire, itemRedTopaz, itemJade, itemOpal]
 
 global itemBronzeBar; itemBronzeBar = ["Bronze bar", 111, 111, 111, 000, 0, 283, 6.2, 1, itemCopperOre, itemTinOre, 1]
 global itemIronBar; itemIronBar = ["Iron bar", 111, 111, 111, 000, 0, 347, 12.5, 15, itemIronOre, itemNullFiller, 0]
@@ -233,7 +233,7 @@ class randomActions:
 class game:
     def runGame():
         system.clear()
-        # game.loadTitle()
+        game.loadTitle()
         game.initializeGame()
         game.nameSelect()
         game.actionPrompt()
@@ -277,9 +277,7 @@ class game:
                 go=input("Press enter to continue.")
                 game.actionPrompt()
         else:
-            print("You can't %s! what are you, stupid? Type help, because you obviously need it n00b!" % action)
-            go=input("Press enter to continue.")
-            game.actionPrompt()
+            game.otherActions(action)
     def initializeGame():
         # Sets all fish item traits.
         global loadTime
@@ -601,7 +599,64 @@ class game:
         print("    summoningEXP = %i\n" % summoningEXP)
         go=input("Press enter to continue.")
         game.actionPrompt()
-
+    def otherActions(action):
+        a = action.lower()
+        if(a == "walk"):
+            print("\nWalk? Walk where? If you go too far you may fall into cyberspace!")
+            go=input("\nPress enter to continue.")
+            game.actionPrompt()
+        elif(a == "jump"):
+            print("\nNow why would you want to do that? You're not on a trampoline.")
+            go=input("\nPress enter to continue.")
+            game.actionPrompt()
+        elif(a == "poop"):
+            print("\nYou drop a huge log on the floor..")
+            time.sleep(0.5)
+            print("Everyone stares at you.")
+            time.sleep(0.3)
+            print("You run away in shame.")
+            time.sleep(0.3)
+            go=input("\nPress enter to awkwardly continue.")
+            game.actionPrompt()
+        elif(a == "kill"):
+            system.clear()
+            print("You remove the blade from your razor..")
+            go=input("Press enter to continue.")
+            system.clear()
+            print("An old man looking in the window whispers:\"Remember kids, down the street, not across the road!\"")
+            go=input("Press enter to continue.")
+            system.clear()
+            print("You scream in shock and drop the razor blade.")
+            go=input("Press enter to continue.")
+            system.clear()
+            print("You run out of the room, but step on the razor blade. Retard.")
+            go=input("Press enter to continue.")
+            system.clear()
+            print("You *bleed out* from the cut on your foot.")
+            go=input("Press enter to continue.")
+            system.clear()
+            print("You wake up in the old man's basement wearing a unicorn outfit.")
+            go=input("Press enter to continue.")
+            system.clear()
+            print("You black out.")
+            go=input("Press enter to continue.")
+            system.clear()
+            print("You open your eyes & see Senpai standing in front of you. You have been saved!")
+            time.sleep(0.7)
+            go=input("Press enter to continue.")
+            game.actionPrompt()
+        elif(a == "run"):
+            print("\nRun? Run where? There's nowhere to hide...")
+            time.sleep(1)
+            go=input("Press enter to continue.")
+            game.actionPrompt()
+        elif(a == "die"):
+            print("\nYou have died. Game over.")
+            go=input("Press enter to continue.")
+        else:
+            print("\nYou can't %s! what are you, stupid? Type help, because you obviously need it n00b!" % action)
+            go=input("\nPress enter to continue.")
+            game.actionPrompt()
 class stats:
     def init():
         system.clear()
@@ -1695,7 +1750,7 @@ class mine:
         global strengthEXP
         global luckLevel
         x = 0
-        while(x < 16):
+        while(x < len(oreList)):
             oreNow = oreList[x]
             if(ore.lower() == str(oreNow[0]).lower()):
                 if(mineLevel >= oreNow[8]):
@@ -1778,6 +1833,8 @@ class mine:
             itemUncutSapphire[5] += 1
             mineEXP += 100
             luckEXP += 10
+        game.myEXP(mineEXP)
+        minelevel = level
     def stats():
         global mineLevel
         global mineEXP
@@ -1943,7 +2000,6 @@ class smelt:
 
         go=input("\nPress enter to continue.")
         smelt.prompt()
-
 
 # Actions
 #
