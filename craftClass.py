@@ -254,7 +254,6 @@ class game:
         else:
             level = 99
 
-
 class build:
     def prompt():
         system.clear()

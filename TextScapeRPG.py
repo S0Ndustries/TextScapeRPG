@@ -1,5 +1,5 @@
 # Base game file
-# v2.9.0-beta
+# v2.9.1-beta
 
 import sys
 import time
@@ -7,12 +7,11 @@ import os
 import random
 import platform
 import math
-#Mining items
+# Mining items
 global itemClay; global itemRuneEssence; global itemCopperOre; global itemTinOre; global itemLimestone; global itemIronOre; global itemSilverOre; global itemPureEssence; global itemCoal; global itemSandstone; global itemGoldOre; global itemGranite; global itemMithrilOre; global itemAdamantOre; global itemLivingMinerals; global itemRuniteOre
 itemClay = ["Clay", 111, 111, 111, 000, 0, 153, 5, 1]; itemRuneEssence = ["Rune Essence", 111, 111, 111, 000, 0, 63, 5, 1]; itemCopperOre = ["Copper", 111, 111, 111, 000, 0, 96, 17.5, 1]; itemTinOre = ["Tin", 111, 111, 111, 000, 0, 92, 17.5, 1]; itemLimestone = ["Limestone", 111, 111, 111, 000, 0, 320, 26.5, 10]; itemIronOre = ["Iron", 111, 111, 111, 000, 0, 204, 35, 15]; itemSilverOre = ["Silver", 111, 111, 111, 000, 0, 76, 40, 20]; itemPureEssence = ["Pure Essence", 111, 111, 111, 000, 0, 30, 5, 30]; itemCoal = ["Coal", 111, 111, 111, 000, 0, 365, 50, 30]; itemSandstone = ["Sandstone", 111, 111, 111, 000, 0, 16, 30, 35]; itemGoldOre = ["Gold", 111, 111, 111, 000, 0, 162, 65, 40]; itemGranite = ["Granite", 111, 111, 111, 000, 0, 230, 50, 45]; itemMithrilOre = ["Mithril", 111, 111, 111, 000, 0, 231, 80, 55]; itemAdamantOre = ["Adamant", 111, 111, 111, 000, 0, 1227, 95, 70]; itemLivingMinerals = ["Living minerals", 111, 111, 111, 000, 0, 241, 25, 73]; itemRuniteOre = ["Runite", 111, 111, 111, 000, 0, 10372, 125, 85]
 global oreList
 oreList = [itemClay, itemRuneEssence, itemCopperOre, itemTinOre, itemLimestone, itemIronOre, itemSilverOre, itemPureEssence, itemCoal, itemSandstone, itemGoldOre, itemGranite, itemMithrilOre, itemAdamantOre, itemLivingMinerals, itemRuniteOre]
-
 
 # Game items
     # Raw fished items
@@ -233,7 +232,11 @@ class randomActions:
 class game:
     def runGame():
         system.clear()
-        game.loadTitle()
+        try:
+            if((str(sys.argv[1] == "show"))):
+                game.loadTitle()
+        except:
+            pass
         game.initializeGame()
         game.nameSelect()
         game.actionPrompt()
@@ -565,38 +568,22 @@ class game:
         global attackLevel; global strengthLevel; global defenceLevel; global rangedLevel; global magicLevel; global healthLevel; global buildLevel; global mineLevel; global fishLevel; global cookingLevel; global woodcuttingLevel; global agilityLevel; global herbloreLevel; global farmingLevel; global huntingLevel; global summoningLevel
         global attackEXP; global strengthEXP; global defenceEXP; global rangedEXP; global magicEXP; global healthEXP; global buildEXP; global mineEXP; global fishEXP; global cookingEXP; global woodcuttingEXP; global agilityEXP; global herbloreEXP; global farmingEXP; global huntingEXP; global summoningEXP
         print("Skills: \n")
-        print("attackLevel = %i" % attackLevel)
-        print("    attackEXP = %i\n" % attackEXP)
-        print("strengthLevel = %i" % strengthLevel)
-        print("    strengthEXP = %i\n" % strengthEXP)
-        print("defenceLevel = %i" % defenceLevel)
-        print("    defenceEXP = %i\n" % defenceEXP)
-        print("rangedLevel = %i" % rangedLevel)
-        print("    rangedEXP = %i\n" % rangedEXP)
-        print("magicLevel = %i" % magicLevel)
-        print("    magicEXP = %i\n" % magicEXP)
-        print("healthLevel = %i" % healthLevel)
-        print("    healthEXP = %i\n" % healthEXP)
-        print("buildLevel = %i" % buildLevel)
-        print("    buildEXP = %i\n" % buildEXP)
-        print("mineLevel = %i" % mineLevel)
-        print("    mineEXP = %i\n" % mineEXP)
-        print("fishLevel = %i" % fishLevel)
-        print("    fishEXP = %i\n" % fishEXP)
-        print("cookingLevel = %i" % cookingLevel)
-        print("    cookingEXP = %i\n" % cookingEXP)
-        print("woodcuttingLevel = %i" % woodcuttingLevel)
-        print("    woodcuttingEXP = %i\n" % woodcuttingEXP)
-        print("agilityLevel = %i" % agilityLevel)
-        print("    agilitxEXP = %i\n" % agilityEXP)
-        print("herbloreLevel = %i" % herbloreLevel)
-        print("    herbloreEXP = %i\n" % herbloreEXP)
-        print("farmingLevel = %i" % farmingLevel)
-        print("    farmingEXP = %i\n" % farmingEXP)
-        print("huntingLevel = %i" % huntingLevel)
-        print("    huntingEXP = %i\n" % huntingEXP)
-        print("summoningLevel = %i" % summoningLevel)
-        print("    summoningEXP = %i\n" % summoningEXP)
+        print("attack      | Level: %i  | EXP: %i" % (attackLevel, attackEXP))
+        print("strength    | Level: %i  | EXP: %i" % (strengthLevel, strengthEXP))
+        print("defence     | Level: %i  | EXP: %i" % (defenceLevel, defenceEXP))
+        print("ranged      | Level: %i  | EXP: %i" % (rangedLevel, rangedEXP))
+        print("magic       | Level: %i  | EXP: %i" % (magicLevel, magicEXP))
+        print("health      | Level: %i  | EXP: %i" % (healthLevel, healthEXP))
+        print("build       | Level: %i  | EXP: %i" % (buildLevel, buildEXP))
+        print("mine        | Level: %i  | EXP: %i" % (mineLevel, mineEXP))
+        print("fish        | Level: %i  | EXP: %i" % (fishLevel, fishEXP))
+        print("cooking     | Level: %i  | EXP: %i" % (cookingLevel, cookingEXP))
+        print("woodcutting | Level: %i  | EXP: %i" % (woodcuttingLevel, woodcuttingEXP))
+        print("agility     | Level: %i  | EXP: %i" % (agilityLevel, agilityEXP))
+        print("herblore    | Level: %i  | EXP: %i" % (herbloreLevel, herbloreEXP))
+        print("farming     | Level: %i  | EXP: %i" % (farmingLevel, farmingEXP))
+        print("hunting     | Level: %i  | EXP: %i" % (huntingLevel, huntingEXP))
+        print("summoning   | Level: %i  | EXP: %i" % (summoningLevel, summoningEXP))
         go=input("Press enter to continue.")
         game.actionPrompt()
     def otherActions(action):
@@ -653,6 +640,11 @@ class game:
         elif(a == "die"):
             print("\nYou have died. Game over.")
             go=input("Press enter to continue.")
+        elif(a=="travel"):
+            print("A magical force prevents you from moving.")
+            time.sleep(0.1)
+            go=input("Press enter to continue.")
+            game.actionPrompt()
         else:
             print("\nYou can't %s! what are you, stupid? Type help, because you obviously need it n00b!" % action)
             go=input("\nPress enter to continue.")
@@ -1750,6 +1742,7 @@ class mine:
         global strengthEXP
         global luckLevel
         x = 0
+        game.myEXP(mineEXP)
         while(x < len(oreList)):
             oreNow = oreList[x]
             if(ore.lower() == str(oreNow[0]).lower()):
@@ -1758,7 +1751,6 @@ class mine:
                     mineEXP += (oreNow[7] * (1.0 + ((mineLevel - 1) * 0.01)))
                     strengthEXP += (oreNow[7] / 10)
 
-                    game.myEXP(mineEXP)
                     mineLevel = level
                     game.myEXP(strengthEXP)
                     strengthLevel = level
@@ -1771,19 +1763,19 @@ class mine:
                     luckiness = int(luckinessF)
                     while(gemFound == "false"):
                         gemFind = random.randint(1, 1000)
-                        if(gemFind in range(0, 10)):
+                        if(gemFind in range(0, (10 + mineLevel))):
                             mine.gemFound(1) # Dragonstone
                             gemFound == "true"
-                        elif(gemFind in range(0, (luckiness + 20))):
+                        elif(gemFind in range(0, (luckiness + 20 + mineLevel))):
                             mine.gemFound(2) # Diamond
                             gemFound == "true"
-                        elif(gemFind in range(0, (luckiness + 30))):
+                        elif(gemFind in range(0, (luckiness + 30 + mineLevel))):
                             mine.gemFound(3) # Ruby
                             gemFound == "true"
-                        elif(gemFind in range(0, (luckiness + 40))):
+                        elif(gemFind in range(0, (luckiness + 40 + mineLevel))):
                             mine.gemFound(4) # Emerald
                             gemFound == "true"
-                        elif(gemFind in range(0, (luckiness + 50))):
+                        elif(gemFind in range(0, (luckiness + 50 + mineLevel))):
                             mine.gemFound(5) # Sapphire
                             gemFound == "true"
                         else:
@@ -2003,7 +1995,6 @@ class smelt:
 
 # Actions
 #
-
 # Monsters
 # Name, HP, MaxDamage, XP, Coins, Items
 global monsterList
