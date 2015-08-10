@@ -1993,6 +1993,164 @@ class smelt:
         go=input("\nPress enter to continue.")
         smelt.prompt()
 
+class craft:
+    global buildLevel
+    global buildEXP
+    def prompt():
+        system.clear()
+        print("== Crafting Workshop == | Level: %i" % buildLevel)
+        print("Enter an item to craft, or try 'help' / exit'")
+        craftAction=input("Crafting action: ")
+        if(craftAction.lower() == "gems" or craftAction.lower() == "list"):
+            craft.gemList()
+        elif(craftAction.lower() == "help"):
+            craft.help()
+        elif(craftAction.lower() == "exit"):
+            build.prompt()
+        else:
+            craft.craftGems(craftAction)
+    def craftGems(gemType):
+        global buildEXP
+        global buildLevel
+        runLoop = 1
+        x = 0
+        uncutGem = uncutGemList[x]
+        cutGem = gemList[x]
+        while(runLoop == 1):
+            if(gemType.lower() == uncutGem[0].lower() or gemType.lower() == cutGem[0].lower()):
+                if(buildLevel >= cutGem[8]):
+                    if(uncutGem[5] >= 1):
+                        uncutGem[5] -= 1
+                        cutGem[5] += 1
+                        buildEXP += cutGem[7]
+                        print("\nYou have crafted %s and earned + %0.1f XP!" % (cutGem[0], cutGem[7]))
+                        game.myEXP(buildEXP)
+                        buildlevel = level
+                        go=input("Press enter to continue.")
+                        craft.prompt()
+                    else:
+                        print("\nYou need at least 1 %s & to do that!" % uncutGem[0])
+                        print("You have: %i %s" % (uncutGem[5], uncutGem[0]))
+                        go=input("Press enter to continue")
+                        craft.prompt()
+                else:
+                    print("\nNot high enough level! Required level: %i" % cutGem[8])
+                    go=input("Press enter to continue.")
+                    craft.prompt()
+            else:
+                if(x < len(gemList)):
+                    x += 1
+                    uncutGem = uncutGemList[x - 1]
+                    cutGem = gemList[x - 1]
+                else:
+                    runLoop = 0
+        else:
+            print("\nInvalid action: %s. Try 'help'" % gemType)
+            go=input("Press enter to continue.")
+            craft.prompt()
+
+    def help():
+        print("Crafting help:\n")
+        print("'gems' = Lists gems")
+        print("'help' = Displays this interface")
+        print("'exit = Exits back to crafting prompt'")
+        go=input("\nPress enter to continue.")
+        craft.prompt()
+    def gemList():
+        print("\nBar list:\n")
+        x = len(gemList) - 1
+        gemNow = gemList[x]
+        print("Opal            - Level: %i  | XP: %0.1f" % (gemNow[8], gemNow[7]))
+        x -= 1; print("----------------------------+---------->")
+        gemNow = gemList[x]
+        print("Jade            - Level: %i | XP: %0.1f" % (gemNow[8], gemNow[7]))
+        x -= 1; print("----------------------------+---------->")
+        gemNow = gemList[x]
+        print("Red Topaz       - Level: %i | XP: %0.1f" % (gemNow[8], gemNow[7]))
+        x -= 1; print("----------------------------+---------->")
+        gemNow = gemList[x]
+        print("Sapphire        - Level: %i | XP: %0.1f" % (gemNow[8], gemNow[7]))
+        x -= 1; print("----------------------------+---------->")
+        gemNow = gemList[x]
+        print("Emerald         - Level: %i | XP: %0.1f" % (gemNow[8], gemNow[7]))
+        x -= 1; print("----------------------------+---------->")
+        gemNow = gemList[x]
+        print("Ruby            - Level: %i | XP: %0.1f" % (gemNow[8], gemNow[7]))
+        x -= 1; print("----------------------------+---------->")
+        gemNow = gemList[x]
+        print("Diamond         - Level: %i | XP: %0.1f" % (gemNow[8], gemNow[7]))
+        x -= 1; print("----------------------------+---------->")
+        gemNow = gemList[x]
+        print("Dragonstone     - Level: %i | XP: %0.1f" % (gemNow[8], gemNow[7]))
+        x -= 1; print("----------------------------+---------->")
+        gemNow = gemList[x]
+        print("Onyx            - Level: %i | XP: %0.1f" % (gemNow[8], gemNow[7]))
+        x -= 1; print("----------------------------+---------->")
+        gemNow = gemList[x]
+        print("Hydrix          - Level: %i | XP: %0.1f" % (gemNow[8], gemNow[7]))
+
+        go=input("\nPress enter to continue.")
+        craft.prompt()
+
+class smith:
+    def prompt():
+        print("** Blacksmith Workshop **")
+        print("Enter an item to smith, or try 'help' / exit'")
+        smithAction=input("Smithing action: ")
+        if(smithAction.lower() == "ores"):
+            smith.oreList()
+        elif(smithAction.lower() == "help"):
+            smith.help()
+        elif(smithAction.lower() == "exit"):
+            game.actionPrompt()
+        else:
+            print("Invalid action")
+            go=input("Press enter to continue.")
+            smith.prompt()
+    def help():
+        print("Smithing help:\n")
+        print("'ores' = Lists ores")
+        print("'help' = Displays this interface")
+        print("'exit = Exits back to crafting prompt'")
+        go=input("\nPress enter to continue.")
+        craft.smith()
+    def oreList():
+        print("Clay            - Level: %i  | XP: %i" % (oreNow[7], oreNow[8]))
+        x += 1
+        print("Rune Essence    - Level: %i  | XP: %i" % (oreNow[7], oreNow[8]))
+        x += 1
+        print("Copper          - Level: %i  | XP: %i" % (oreNow[7], oreNow[8]))
+        x += 1
+        print("Tin             - Level: %i  | XP: %i" % (oreNow[7], oreNow[8]))
+        x += 1
+        print("Limestone       - Level: %i | XP: %i" % (oreNow[7], oreNow[8]))
+        x += 1
+        print("Iron            - Level: %i | XP: %i" % (oreNow[7], oreNow[8]))
+        x += 1
+        print("Silver          - Level: %i | XP: %i" % (oreNow[7], oreNow[8]))
+        x += 1
+        print("Pure Essence    - Level: %i | XP: %i" % (oreNow[7], oreNow[8]))
+        x += 1
+        print("Coal            - Level: %i | XP: %i" % (oreNow[7], oreNow[8]))
+        x += 1
+        print("Sandstone       - Level: %i | XP: %i" % (oreNow[7], oreNow[8]))
+        x += 1
+        print("Gold            - Level: %i | XP: %i" % (oreNow[7], oreNow[8]))
+        x += 1
+        print("Granite         - Level: %i | XP: %i" % (oreNow[7], oreNow[8]))
+        x += 1
+        print("Mithril         - Level: %i | XP: %i" % (oreNow[7], oreNow[8]))
+        x += 1
+        print("Adamant         - Level: %i | XP: %i" % (oreNow[7], oreNow[8]))
+        x += 1
+        print("Living minerals - Level: %i | XP: %i" % (oreNow[7], oreNow[8]))
+        x += 1
+        print("Runite          - Level: %i | XP: %i" % (oreNow[7], oreNow[8]))
+
+class fletch:
+    def prompt():
+        print("Fletch")
+
 # Actions
 #
 # Monsters
